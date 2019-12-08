@@ -47,6 +47,17 @@ flutter:
         - asset: assets/fonts/Roboto-Light.ttf
         - asset: assets/fonts/Roboto-Medium.ttf
 
+  assets:
+    - assets/img/Digital ID.png
+    - assets/img/kazpost.png
+    - assets/img/avatar.png
+    - assets/img/monitoring.png
+    - assets/img/first_card.png
+    - assets/img/second_card.png
+    - assets/img/eye.png
+    - assets/img/calculator.png
+    - assets/img/call_phone.png
+    - assets/img/progress_bar.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
