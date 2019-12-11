@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/main_page/pages/homepage.dart';
 import 'package:kazpost/app/main_page/pages/worksPage.dart';
+import 'package:kazpost/app/main_page/pages/testPage.dart';
+import 'package:kazpost/app/main_page/pages/callBackPage.dart';
+import 'package:kazpost/app/main_page/pages/settingsPage.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -12,11 +15,11 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    WorksPage(),
+    TestPage(),
     WorksPage(),
     HomePage(),
-    WorksPage(),
-    WorksPage(),
+    CallBackPage(),
+    SettingsPage(),
   ];
 
   void _onItemTapped(int index) {

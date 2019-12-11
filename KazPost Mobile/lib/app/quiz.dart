@@ -48,24 +48,34 @@ class _QuizPageState extends State<QuizPage> {
                     "Вопрос ${questionNumber + 1}/${quiz.questions.length}",
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    "Правильных: $finalScore",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
                 ],
               ),
               SizedBox(height: 10),
               Container(
                 height: 3,
-                decoration: BoxDecoration(color: Color(0xFFF4F4F4)),
+                decoration: BoxDecoration(color: Color(0xFFDEDEDE)),
               ),
-              Text("${quiz.questions[questionNumber]}"),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              SizedBox(height: 10),
+              Text(
+                "${quiz.questions[questionNumber]}",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
+              ),
+              SizedBox(height: 150),
+              new Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  new MaterialButton(
-                    minWidth: 120.0,
-                    color: Colors.blueGrey,
+                  new OutlineButton(
+                    padding: const EdgeInsets.all(10),
+                    color: Color(0xFF0157A5),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    borderSide: BorderSide(
+                      color: Color(0xFF0157A5),
+                      width: 2,
+                    ),
                     onPressed: () {
                       if (quiz.choices[questionNumber][0] ==
                           quiz.correctAnswers[questionNumber]) {
@@ -76,14 +86,30 @@ class _QuizPageState extends State<QuizPage> {
                       }
                       updateQuestion();
                     },
-                    child: new Text(
-                      quiz.choices[questionNumber][0],
-                      style: TextStyle(fontSize: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        new Text(
+                          quiz.choices[questionNumber][0],
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        new Image(
+                          image: AssetImage('assets/img/radioButton.png'),
+                          height: 30,
+                        ),
+                      ],
                     ),
                   ),
-                  new MaterialButton(
-                    minWidth: 120.0,
-                    color: Colors.blueGrey,
+                  SizedBox(height: 30),
+                  new OutlineButton(
+                    padding: const EdgeInsets.all(10),
+                    color: Color(0xFF0157A5),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    borderSide: BorderSide(
+                      color: Color(0xFF0157A5),
+                      width: 2,
+                    ),
                     onPressed: () {
                       if (quiz.choices[questionNumber][1] ==
                           quiz.correctAnswers[questionNumber]) {
@@ -94,19 +120,30 @@ class _QuizPageState extends State<QuizPage> {
                       }
                       updateQuestion();
                     },
-                    child: new Text(
-                      quiz.choices[questionNumber][1],
-                      style: TextStyle(fontSize: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        new Text(
+                          quiz.choices[questionNumber][1],
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        new Image(
+                          image: AssetImage('assets/img/radioButton.png'),
+                          height: 30,
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-              new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  new MaterialButton(
-                    minWidth: 120.0,
-                    color: Colors.blueGrey,
+                  SizedBox(height: 30),
+                  new OutlineButton(
+                    padding: const EdgeInsets.all(10),
+                    color: Color(0xFF0157A5),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    borderSide: BorderSide(
+                      color: Color(0xFF0157A5),
+                      width: 2,
+                    ),
                     onPressed: () {
                       if (quiz.choices[questionNumber][2] ==
                           quiz.correctAnswers[questionNumber]) {
@@ -117,14 +154,30 @@ class _QuizPageState extends State<QuizPage> {
                       }
                       updateQuestion();
                     },
-                    child: new Text(
-                      quiz.choices[questionNumber][2],
-                      style: TextStyle(fontSize: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        new Text(
+                          quiz.choices[questionNumber][2],
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        new Image(
+                          image: AssetImage('assets/img/radioButton.png'),
+                          height: 30,
+                        ),
+                      ],
                     ),
                   ),
-                  new MaterialButton(
-                    minWidth: 120.0,
-                    color: Colors.blueGrey,
+                  SizedBox(height: 30),
+                  new OutlineButton(
+                    padding: const EdgeInsets.all(10),
+                    color: Color(0xFF0157A5),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    borderSide: BorderSide(
+                      color: Color(0xFF0157A5),
+                      width: 2,
+                    ),
                     onPressed: () {
                       if (quiz.choices[questionNumber][3] ==
                           quiz.correctAnswers[questionNumber]) {
@@ -135,13 +188,23 @@ class _QuizPageState extends State<QuizPage> {
                       }
                       updateQuestion();
                     },
-                    child: new Text(
-                      quiz.choices[questionNumber][3],
-                      style: TextStyle(fontSize: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        new Text(
+                          quiz.choices[questionNumber][3],
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        new Image(
+                          image: AssetImage('assets/img/radioButton.png'),
+                          height: 30,
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
+              SizedBox(height: 30),
               Container(
                 alignment: Alignment.bottomCenter,
                 child: new MaterialButton(
@@ -150,7 +213,7 @@ class _QuizPageState extends State<QuizPage> {
                   onPressed: resetQuiz,
                   child: new Text(
                     'Выйти',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
                 ),
               ),
@@ -176,7 +239,7 @@ class QuizData {
   ];
 
   var choices = [
-    ["Сегодня", "Вчера", "Когда-то", "Нет ответа"],
+    ["Сегодня", "Вчера", "Когда-то", "Нет правильного ответа"],
     ["Наблюдающий", "Надзирающий", "Смотрящий", "Защищающий"],
     ["Java", "C++", "Kotlin", "Flutter"],
     ["Code Union[Vigil]", "Code Union", "IT-Energy", "Пожилые"],
