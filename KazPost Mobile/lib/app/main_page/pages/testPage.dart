@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 import '../../quiz.dart';
 
@@ -12,6 +13,8 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
+    final Function wp = Screen(MediaQuery.of(context).size).wp;
+    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -40,7 +43,7 @@ class _TestPageState extends State<TestPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: hp(4)),
                 Card(
                   margin: const EdgeInsets.all(0),
                   color: Color(0xFF6858D6),
@@ -48,26 +51,27 @@ class _TestPageState extends State<TestPage> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: EdgeInsets.symmetric(
+                        vertical: hp(4), horizontal: wp(4)),
                     child: Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              padding: const EdgeInsets.all(15),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: hp(2), horizontal: wp(4)),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(360),
                               ),
                               child: Image(
                                 image: AssetImage('./assets/img/eye.png'),
-                                height: 30,
-                                width: 30,
+                                height: hp(5),
+                                width: wp(10),
                                 color: Color(0xFF6858D6),
                               ),
                             ),
-                            SizedBox(width: 30),
+                            SizedBox(width: wp(5)),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -80,15 +84,14 @@ class _TestPageState extends State<TestPage> {
                                   'Хотим уведомить вас о том,\nчто теперь вам доступен\nновый курс',
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                SizedBox(height: 20),
+                                SizedBox(height: hp(3)),
                                 Container(
                                   height: 3,
-                                  constraints: BoxConstraints(
-                                      minWidth: 100, maxWidth: 250),
+                                  width: wp(59),
                                   decoration:
                                       BoxDecoration(color: Colors.white),
                                 ),
-                                SizedBox(height: 10),
+                                SizedBox(height: hp(3)),
                               ],
                             ),
                           ],
@@ -110,9 +113,9 @@ class _TestPageState extends State<TestPage> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25),
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 8,
-                                horizontal: 50,
+                              padding: EdgeInsets.symmetric(
+                                vertical: hp(1),
+                                horizontal: wp(12),
                               ),
                               borderSide: BorderSide(color: Colors.white),
                               child: Text(
@@ -126,7 +129,7 @@ class _TestPageState extends State<TestPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: hp(4)),
                 Card(
                   margin: const EdgeInsets.all(0),
                   color: Colors.white,
@@ -134,14 +137,15 @@ class _TestPageState extends State<TestPage> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: EdgeInsets.symmetric(
+                        vertical: hp(4), horizontal: wp(4)),
                     child: Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              padding: const EdgeInsets.all(15),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: hp(2), horizontal: wp(4)),
                               decoration: BoxDecoration(
                                 color: Color(0xFF6858D6),
                                 borderRadius: BorderRadius.circular(360),
@@ -149,12 +153,12 @@ class _TestPageState extends State<TestPage> {
                               child: Image(
                                 image:
                                     AssetImage('./assets/img/calculator.png'),
-                                height: 30,
-                                width: 30,
+                                height: hp(5),
+                                width: wp(10),
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: 30),
+                            SizedBox(width: wp(5)),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -167,15 +171,14 @@ class _TestPageState extends State<TestPage> {
                                   'Хотим уведомить вас о том,\nчто теперь вам доступен\nновый курс',
                                   style: TextStyle(color: Colors.black),
                                 ),
-                                SizedBox(height: 20),
+                                SizedBox(height: hp(3)),
                                 Container(
                                   height: 3,
-                                  constraints: BoxConstraints(
-                                      minWidth: 100, maxWidth: 250),
+                                  width: wp(59),
                                   decoration:
-                                      BoxDecoration(color: Color(0xFFEFEFEF)),
+                                      BoxDecoration(color: Colors.black12),
                                 ),
-                                SizedBox(height: 10),
+                                SizedBox(height: hp(3)),
                               ],
                             ),
                           ],
@@ -197,9 +200,9 @@ class _TestPageState extends State<TestPage> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25),
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 8,
-                                horizontal: 50,
+                              padding: EdgeInsets.symmetric(
+                                vertical: hp(1),
+                                horizontal: wp(12),
                               ),
                               borderSide: BorderSide(color: Color(0xFF6858D6)),
                               child: Text(
