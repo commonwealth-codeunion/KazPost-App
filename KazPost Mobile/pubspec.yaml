@@ -24,7 +24,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   multiselect_formfield: ^0.1.2
+  flutter_svg: ^0.15.0
   flutter_responsive_screen: ^1.0.0
+  percent_indicator: ^2.1.1+1
+  
 
 dev_dependencies:
   flutter_test:
@@ -46,8 +49,12 @@ flutter:
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Bold.ttf
-        - asset: assets/fonts/Roboto-Light.ttf
         - asset: assets/fonts/Roboto-Medium.ttf
+
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat-Medium.ttf
 
   assets:
     - assets/img/Digital ID.png
@@ -61,6 +68,12 @@ flutter:
     - assets/img/call_phone.png
     - assets/img/progress_bar.png
     - assets/img/radioButton.png
+    - assets/img/email.svg
+    - assets/img/call.svg
+    - assets/img/pad.svg
+    - assets/img/lock.svg
+    - assets/img/help.svg
+    - assets/img/language.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

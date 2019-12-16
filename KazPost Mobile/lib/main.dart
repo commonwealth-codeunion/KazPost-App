@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kazpost/app/main_page/pages/homepage.dart';
 import 'package:flutter/services.dart';
 import 'app/main_page/mainPage.dart';
+import 'package:kazpost/start/authpage.dart';
 
 void main() => runApp(MyApp());
 

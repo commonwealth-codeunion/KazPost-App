@@ -15,8 +15,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    TestPage(),
     WorksPage(),
+    TestPage(),
     HomePage(),
     CallBackPage(),
     SettingsPage(),
@@ -67,7 +67,11 @@ class _MainPageState extends State<MainPage> {
                       ),
                       Text(
                         'Чингиз Марипбек',
-                        style: textStyle(),
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                            color: Colors.white),
                       ),
                       SizedBox(height: 10),
                       Text(

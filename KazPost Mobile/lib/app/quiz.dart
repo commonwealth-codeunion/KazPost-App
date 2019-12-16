@@ -264,26 +264,34 @@ class Summary extends StatelessWidget {
     return new WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        body: Container(
-          child: new Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Text(
-                "Правильных: $score",
-                style: TextStyle(
-                  fontSize: 25,
+        body: Center(
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Text(
+                  "Правильных: $score",
+                  style: TextStyle(
+                    fontSize: 25,
+                  ),
                 ),
-              ),
-              new MaterialButton(
-                color: Colors.red,
-                onPressed: () {
-                  questionNumber = 0;
-                  finalScore = 0;
-                  Navigator.pop(context);
-                },
-                child: new Text("Перезапустить"),
-              ),
-            ],
+                new Column(
+                  
+                ),
+                new MaterialButton(
+                  color: Colors.blue,
+                  onPressed: () {
+                    questionNumber = 0;
+                    finalScore = 0;
+                    Navigator.pop(context);
+                  },
+                  child: new Text(
+                    "Перезапустить",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

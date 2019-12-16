@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multiselect_formfield/multiselect_formfield.dart';
+import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class CallBackPage extends StatefulWidget {
   CallBackPage({Key key}) : super(key: key);
@@ -11,19 +12,32 @@ class CallBackPage extends StatefulWidget {
 class _CallBackPageState extends State<CallBackPage> {
   @override
   Widget build(BuildContext context) {
+    final Function wp = Screen(MediaQuery.of(context).size).wp;
+    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.symmetric(
+          horizontal: wp(4),
+          vertical: hp(1),
+        ),
         child: ListView(
           children: <Widget>[
             Text(
               'Есть пожелания?\nОтправьте нам письмо.',
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 30),
+            SizedBox(
+              height: hp(2),
+            ),
             TextField(
               decoration: InputDecoration(
-                contentPadding: const EdgeInsets.fromLTRB(10, 200, 10, 0),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: wp(2),
+                  vertical: hp(10),
+                ),
                 hintText: 'Ваше сообщение...',
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
@@ -39,25 +53,33 @@ class _CallBackPageState extends State<CallBackPage> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(
+              height: hp(2),
+            ),
             MultiSelectFormField(
+              autovalidate: false,
               titleText: 'Выберите смайлик',
               dataSource: [
                 {
                   "display": "Отлично 😀",
-                  "value": "Perfect",
+                  "value": "1",
                 },
                 {
                   "display": "Разнесу ща все😡",
-                  "value": "Bad",
+                  "value": "0",
                 },
               ],
               textField: 'display',
               valueField: 'value',
+              hintText: 'Выбрать...',
             ),
-            SizedBox(height: 30),
+            SizedBox(
+              height: hp(2),
+            ),
             RaisedButton(
-              padding: const EdgeInsets.all(15),
+              padding: EdgeInsets.symmetric(
+                vertical: hp(2),
+              ),
               onPressed: () {},
               textColor: Colors.white,
               shape: RoundedRectangleBorder(
