@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
-import 'package:kazpost/app/course.dart';
 
 import '../../quiz.dart';
 

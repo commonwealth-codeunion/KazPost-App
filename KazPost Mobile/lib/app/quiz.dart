@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class QuizPage extends StatefulWidget {
   QuizPage({Key key}) : super(key: key);
@@ -33,11 +34,16 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
+    final Function wp = Screen(MediaQuery.of(context).size).wp;
+    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: EdgeInsets.symmetric(
+            horizontal: wp(5),
+            vertical: hp(5),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -50,12 +56,12 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              Container(
-                height: 3,
-                decoration: BoxDecoration(color: Color(0xFFDEDEDE)),
+              SizedBox(height: hp(1)),
+              Divider(
+                thickness: 3,
+                color: Colors.black26,
               ),
-              SizedBox(height: 10),
+              SizedBox(height: hp(1)),
               Text(
                 "${quiz.questions[questionNumber]}",
                 style: TextStyle(
@@ -63,12 +69,17 @@ class _QuizPageState extends State<QuizPage> {
                   fontSize: 24,
                 ),
               ),
-              SizedBox(height: 150),
+              SizedBox(
+                height: hp(10),
+              ),
               new Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   new OutlineButton(
-                    padding: const EdgeInsets.all(10),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: wp(2),
+                      vertical: hp(1),
+                    ),
                     color: Color(0xFF0157A5),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
@@ -95,14 +106,17 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                         new Image(
                           image: AssetImage('assets/img/radioButton.png'),
-                          height: 30,
+                          height: hp(3.5),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: hp(2),),
                   new OutlineButton(
-                    padding: const EdgeInsets.all(10),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: wp(2),
+                      vertical: hp(1),
+                    ),
                     color: Color(0xFF0157A5),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
@@ -129,14 +143,17 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                         new Image(
                           image: AssetImage('assets/img/radioButton.png'),
-                          height: 30,
+                          height: hp(3.5),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: hp(2),),
                   new OutlineButton(
-                    padding: const EdgeInsets.all(10),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: wp(2),
+                      vertical: hp(1),
+                    ),
                     color: Color(0xFF0157A5),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
@@ -163,14 +180,17 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                         new Image(
                           image: AssetImage('assets/img/radioButton.png'),
-                          height: 30,
+                          height: hp(3.5),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: hp(2),),
                   new OutlineButton(
-                    padding: const EdgeInsets.all(10),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: wp(2),
+                      vertical: hp(1),
+                    ),
                     color: Color(0xFF0157A5),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
@@ -197,14 +217,14 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                         new Image(
                           image: AssetImage('assets/img/radioButton.png'),
-                          height: 30,
+                          height: hp(3.5),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              SizedBox(height: hp(2),),
               Container(
                 alignment: Alignment.bottomCenter,
                 child: new MaterialButton(
@@ -275,9 +295,7 @@ class Summary extends StatelessWidget {
                     fontSize: 25,
                   ),
                 ),
-                new Column(
-                  
-                ),
+                new Column(),
                 new MaterialButton(
                   color: Colors.blue,
                   onPressed: () {

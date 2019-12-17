@@ -26,9 +26,10 @@ titleStyle() {
       color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24);
 }
 
+String name = 'Чингиз';
+
 class _HomePageState extends State<HomePage> {
   @override
-  String name = 'Чингиз';
   Widget build(BuildContext context) {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
     final Function hp = Screen(MediaQuery.of(context).size).hp;
@@ -72,7 +73,9 @@ class _HomePageState extends State<HomePage> {
                             fontWeight: FontWeight.bold,
                             fontSize: 24),
                       ),
-                      SizedBox(height: hp(2)),
+                      SizedBox(
+                        height: hp(2),
+                      ),
                       Text(
                         'Здесь вы можете найти\nполезные курсы для себя',
                         textAlign: TextAlign.center,
@@ -85,8 +88,10 @@ class _HomePageState extends State<HomePage> {
                   height: hp(2),
                 ),
                 OutlineButton.icon(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: hp(1), vertical: wp(1)),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: hp(1),
+                    vertical: wp(1),
+                  ),
                   label: Expanded(
                     child: Text(
                       'Название курса',
@@ -121,7 +126,9 @@ class _HomePageState extends State<HomePage> {
                     );
                   },
                 ),
-                SizedBox(height: hp(2)),
+                SizedBox(
+                  height: hp(2),
+                ),
                 Text(
                   'ОБУЧЕНИЕ',
                   style: TextStyle(
@@ -129,9 +136,11 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                       fontSize: 22),
                 ),
-                SizedBox(height: hp(2)),
+                SizedBox(
+                  height: hp(2),
+                ),
                 Container(
-                  height: hp(47),
+                  height: hp(45),
                   child: PageView(
                     controller: PageController(
                       viewportFraction: 0.8,
@@ -177,7 +186,9 @@ class _HomePageState extends State<HomePage> {
                   thickness: 2,
                   color: Color(0xFFC0C0C0),
                 ),
-                SizedBox(height: hp(2)),
+                SizedBox(
+                  height: hp(2),
+                ),
                 Text(
                   'МАТЕРИАЛЫ',
                   style: TextStyle(
@@ -185,7 +196,9 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                       fontSize: 22),
                 ),
-                SizedBox(height: hp(2)),
+                SizedBox(
+                  height: hp(2),
+                ),
                 Column(
                   children: <Widget>[
                     Row(
