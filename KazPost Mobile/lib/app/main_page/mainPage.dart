@@ -4,6 +4,7 @@ import 'package:kazpost/app/main_page/pages/worksPage.dart';
 import 'package:kazpost/app/main_page/pages/testPage.dart';
 import 'package:kazpost/app/main_page/pages/callBackPage.dart';
 import 'package:kazpost/app/main_page/pages/settingsPage.dart';
+import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -30,6 +31,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final Function wp = Screen(MediaQuery.of(context).size).wp;
+    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xFF0157A5)),
@@ -48,7 +51,10 @@ class _MainPageState extends State<MainPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Container(
-                  padding: const EdgeInsets.all(20),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: wp(3),
+                    vertical: hp(1),
+                  ),
                   decoration: BoxDecoration(
                     color: Color(0xFF0157A5),
                   ),
@@ -62,7 +68,7 @@ class _MainPageState extends State<MainPage> {
                         ),
                         child: Image(
                           image: AssetImage('./assets/img/avatar.png'),
-                          height: 150,
+                          height: hp(20),
                         ),
                       ),
                       Text(
@@ -73,7 +79,9 @@ class _MainPageState extends State<MainPage> {
                             fontSize: 22,
                             color: Colors.white),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(
+                        height: hp(1),
+                      ),
                       Text(
                         'maripbekoff@gmail.com',
                         style: TextStyle(color: Colors.white),
