@@ -4,7 +4,6 @@ import 'package:kazpost/app/main_page/pages/worksPage.dart';
 import 'package:kazpost/app/main_page/pages/testPage.dart';
 import 'package:kazpost/app/main_page/pages/callBackPage.dart';
 import 'package:kazpost/app/main_page/pages/settingsPage.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -31,8 +30,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xFF0157A5)),
@@ -99,7 +96,12 @@ class _MainPageState extends State<MainPage> {
               onTap: () {},
             ),
             ListTile(
-              title: Text('Выйти с аккаунта'),
+              title: Text(
+                'Выйти с аккаунта',
+                style: TextStyle(
+                  color: Colors.red,
+                ),
+              ),
               onTap: () {},
             ),
           ],
