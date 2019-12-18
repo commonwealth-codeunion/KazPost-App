@@ -36,74 +36,71 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xFF0157A5)),
-        elevation: 0,
+        elevation: 4,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.bookmark),
+            icon: Icon(
+              Icons.bookmark,
+            ),
             onPressed: () {},
           ),
         ],
       ),
       drawer: Drawer(
         child: ListView(
+          padding: EdgeInsets.zero,
           children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: wp(3),
-                    vertical: hp(1),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF0157A5),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(360),
-                        ),
-                        child: Image(
-                          image: AssetImage('./assets/img/avatar.png'),
-                          height: hp(20),
-                        ),
-                      ),
-                      Text(
-                        'Чингиз Марипбек',
-                        style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: hp(1),
-                      ),
-                      Text(
-                        'maripbekoff@gmail.com',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
+            UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF0157A5),
+              ),
+              currentAccountPicture: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: new ExactAssetImage(
+                      './assets/img/avatar.png',
+                    ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    FlatButton(child: Text('Мои данные'), onPressed: () {}),
-                    FlatButton(child: Text('Мои курсы'), onPressed: () {}),
-                    FlatButton(child: Text('Мои тесты'), onPressed: () {}),
-                    FlatButton(
-                        child: Text('Мои предложения'), onPressed: () {}),
-                    FlatButton(child: Text('Мои достижения'), onPressed: () {}),
-                    FlatButton(child: Text('Мои Поддержка'), onPressed: () {}),
-                    FlatButton(
-                        child: Text('Выйти с аккаунта'), onPressed: () {}),
-                  ],
-                ),
-              ],
+              ),
+              accountName: new Text(
+                'Чингиз Марипбек',
+                style: TextStyle(color: Colors.white),
+              ),
+              accountEmail: new Text(
+                'maripbekoff@gmail.com',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ListTile(
+              title: Text('Мои данные'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text('Мои курсы'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text('Мои тесты'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text('Мои предложения'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text('Мои достижения'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text('Поддержка'),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text('Выйти с аккаунта'),
+              onTap: () {},
             ),
           ],
         ),

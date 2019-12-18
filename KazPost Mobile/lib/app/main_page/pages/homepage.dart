@@ -53,12 +53,15 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.symmetric(
                     vertical: hp(2),
                   ),
-                  color: Color(0xFFF7C977),
+                  color: Color(0xFFEC4B4B),
                   textColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Text('Пройдите тест до 27 декабря!'),
+                  child: Text(
+                    'Пройдите тест до 27 декабря!',
+                    style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
+                  ),
                 ),
                 SizedBox(
                   height: hp(2),
