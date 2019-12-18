@@ -74,6 +74,7 @@ flutter:
     - assets/img/lock.svg
     - assets/img/help.svg
     - assets/img/language.svg
+    - assets/img/monitoring.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

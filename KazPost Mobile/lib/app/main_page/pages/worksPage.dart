@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
+import 'package:kazpost/app/course.dart';
 
 class WorksPage extends StatefulWidget {
   WorksPage({Key key}) : super(key: key);
@@ -51,34 +52,17 @@ class _WorksPageState extends State<WorksPage> {
                   ),
                 ),
                 Container(
-                  height: hp(40),
+                  height: hp(32),
                   child: PageView(
                     controller: PageController(
-                      viewportFraction: 0.75,
+                      viewportFraction: 0.67,
                     ),
                     physics: BouncingScrollPhysics(),
                     children: <Widget>[
-                      IconButton(
-                        padding: const EdgeInsets.all(0),
-                        onPressed: () {},
-                        icon: Image(
-                            image: AssetImage('./assets/img/first_card.png'),
-                            fit: BoxFit.cover),
-                      ),
-                      IconButton(
-                        padding: const EdgeInsets.all(0),
-                        onPressed: () {},
-                        icon: Image(
-                            image: AssetImage('./assets/img/first_card.png'),
-                            fit: BoxFit.cover),
-                      ),
-                      IconButton(
-                        padding: const EdgeInsets.all(0),
-                        onPressed: () {},
-                        icon: Image(
-                            image: AssetImage('./assets/img/first_card.png'),
-                            fit: BoxFit.cover),
-                      ),
+                      CoursePage(),
+                      CoursePage(),
+                      CoursePage(),
+                      CoursePage(),
                     ],
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:kazpost/app/course.dart';
 
 import '../../quiz.dart';
 
@@ -60,7 +61,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: Text(
                     'Пройдите тест до 27 декабря!',
-                    style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
                   ),
                 ),
                 SizedBox(
@@ -143,45 +145,17 @@ class _HomePageState extends State<HomePage> {
                   height: hp(2),
                 ),
                 Container(
-                  height: hp(45),
+                  height: hp(32),
                   child: PageView(
                     controller: PageController(
-                      viewportFraction: 0.8,
+                      viewportFraction: 0.67,
                     ),
                     physics: BouncingScrollPhysics(),
                     children: <Widget>[
-                      IconButton(
-                        padding: const EdgeInsets.all(0),
-                        onPressed: () {},
-                        icon: Image(
-                            image: AssetImage('./assets/img/first_card.png'),
-                            height: hp(42),
-                            fit: BoxFit.cover),
-                      ),
-                      IconButton(
-                        padding: const EdgeInsets.all(0),
-                        onPressed: () {},
-                        icon: Image(
-                            image: AssetImage('./assets/img/first_card.png'),
-                            height: hp(42),
-                            fit: BoxFit.cover),
-                      ),
-                      IconButton(
-                        padding: const EdgeInsets.all(0),
-                        onPressed: () {},
-                        icon: Image(
-                            image: AssetImage('./assets/img/first_card.png'),
-                            height: hp(42),
-                            fit: BoxFit.cover),
-                      ),
-                      IconButton(
-                        padding: const EdgeInsets.all(0),
-                        onPressed: () {},
-                        icon: Image(
-                            image: AssetImage('./assets/img/first_card.png'),
-                            height: hp(42),
-                            fit: BoxFit.cover),
-                      ),
+                      CoursePage(),
+                      CoursePage(),
+                      CoursePage(),
+                      CoursePage(),
                     ],
                   ),
                 ),
