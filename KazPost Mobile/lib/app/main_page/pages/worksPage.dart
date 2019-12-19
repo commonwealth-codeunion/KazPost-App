@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
-import 'package:kazpost/app/course.dart';
+import 'package:kazpost/app/courseBookmark.dart';
 
 class WorksPage extends StatefulWidget {
   WorksPage({Key key}) : super(key: key);
@@ -55,14 +55,14 @@ class _WorksPageState extends State<WorksPage> {
                   height: hp(32),
                   child: PageView(
                     controller: PageController(
-                      viewportFraction: 0.67,
+                      viewportFraction: 0.675,
                     ),
                     physics: BouncingScrollPhysics(),
                     children: <Widget>[
-                      CoursePage(),
-                      CoursePage(),
-                      CoursePage(),
-                      CoursePage(),
+                      CourseWidget(),
+                      CourseWidget(),
+                      CourseWidget(),
+                      CourseWidget(),
                     ],
                   ),
                 ),

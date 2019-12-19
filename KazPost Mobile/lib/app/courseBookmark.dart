@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
-class CoursePage extends StatelessWidget {
-  const CoursePage({Key key}) : super(key: key);
+class CourseWidget extends StatelessWidget {
+  const CourseWidget({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
@@ -43,18 +43,15 @@ class CoursePage extends StatelessWidget {
               icon: Icon(
                 Icons.bookmark,
                 color: Colors.white,
-                size: 42,
+                size: 35,
               ),
               alignment: Alignment.topRight,
             ),
           ),
           Container(
+            padding: EdgeInsets.symmetric(vertical: hp(3), horizontal: wp(3)),
             height: hp(16),
             width: wp(55),
-            padding: EdgeInsets.symmetric(
-              vertical: hp(3),
-              horizontal: wp(3),
-            ),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -75,6 +72,7 @@ class CoursePage extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
                   'Мониторинг',
@@ -82,15 +80,9 @@ class CoursePage extends StatelessWidget {
                     color: Color(0xFF0157A5),
                   ),
                 ),
-                SizedBox(
-                  height: hp(2),
-                ),
                 Text(
                   'Курсы по мониторингу',
                   style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: hp(1),
                 ),
                 Text(
                   '11 глав',

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:kazpost/app/course.dart';
+import 'package:kazpost/app/courseBookmark.dart';
 
 import '../../quiz.dart';
 
@@ -48,8 +48,12 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: hp(2)),
                 RaisedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => QuizPage()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QuizPage(),
+                      ),
+                    );
                   },
                   padding: EdgeInsets.symmetric(
                     vertical: hp(2),
@@ -152,10 +156,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     physics: BouncingScrollPhysics(),
                     children: <Widget>[
-                      CoursePage(),
-                      CoursePage(),
-                      CoursePage(),
-                      CoursePage(),
+                      CourseWidget(),
+                      CourseWidget(),
+                      CourseWidget(),
+                      CourseWidget(),
                     ],
                   ),
                 ),

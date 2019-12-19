@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kazpost/app/main_page/pages/coursePage.dart';
 import 'package:kazpost/app/main_page/pages/homepage.dart';
 import 'package:kazpost/app/main_page/pages/worksPage.dart';
 import 'package:kazpost/app/main_page/pages/testPage.dart';
@@ -44,6 +45,7 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       drawer: Drawer(
+        elevation: 10,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -77,7 +79,14 @@ class _MainPageState extends State<MainPage> {
             ),
             ListTile(
               title: Text('Мои курсы'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CoursePage(),
+                  ),
+                );
+              },
             ),
             ListTile(
               title: Text('Мои тесты'),
@@ -116,13 +125,26 @@ class _MainPageState extends State<MainPage> {
         showUnselectedLabels: false,
         selectedLabelStyle: TextStyle(fontSize: 0),
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.bookmark), title: Text('')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications), title: Text('')),
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('')),
+            icon: Icon(Icons.bookmark),
+            title: Text(''),
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.people_outline), title: Text('')),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), title: Text('')),
+            icon: Icon(Icons.notifications),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people_outline),
+            title: Text(''),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            title: Text(''),
+          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color(0xFF0157A5),
