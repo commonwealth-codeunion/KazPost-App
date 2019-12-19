@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
+import 'package:kazpost/app/coursePageWidget.dart';
 
 class CoursePage extends StatelessWidget {
   const CoursePage({Key key}) : super(key: key);
@@ -44,6 +45,63 @@ class CoursePage extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(
+              vertical: hp(2),
+              horizontal: wp(5),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Text(
+                  '1 неделя',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
+                ),
+                Container(
+                  height: hp(23),
+                  child: PageView(
+                    controller: PageController(
+                      viewportFraction: 0.55,
+                    ),
+                    physics: BouncingScrollPhysics(),
+                    children: <Widget>[
+                      CoursePageWidget('1 урок', 'Основы'),
+                      CoursePageWidget('2 урок', 'Основы'),
+                      CoursePageWidget('3 урок', 'Основы'),
+                      CoursePageWidget('4 урок', 'Основы'),
+                    ],
+                  ),
+                ),
+                Text(
+                  '2 неделя',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
+                ),
+                Container(
+                  height: hp(23),
+                  child: PageView(
+                    controller: PageController(
+                      viewportFraction: 0.55,
+                    ),
+                    physics: BouncingScrollPhysics(),
+                    children: <Widget>[
+                      CoursePageWidget('5 урок', 'Основы'),
+                      CoursePageWidget('6 урок', 'Основы'),
+                      CoursePageWidget('7 урок', 'Основы'),
+                      CoursePageWidget('8 урок', 'Основы'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
