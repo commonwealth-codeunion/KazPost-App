@@ -53,7 +53,7 @@ class CoursePageWidget extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: 57.59,
+            top: hp(9),
             child: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: wp(4),
@@ -86,8 +86,8 @@ class CoursePageWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 42,
-            left: 96,
+            top: hp(6.5),
+            left: wp(25),
             child: Container(
               width: 35,
               height: 35,
