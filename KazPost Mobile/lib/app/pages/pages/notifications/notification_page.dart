@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
-
-import '../../quiz.dart';
+import 'package:kazpost/app/pages/pages/quiz/quiz_page.dart';
 
 class TestPage extends StatefulWidget {
   TestPage({Key key}) : super(key: key);

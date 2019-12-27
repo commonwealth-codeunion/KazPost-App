@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
-import 'package:kazpost/app/coursePageWidget.dart';
+import 'courses_page_widget.dart';
 
 class CoursePage extends StatelessWidget {
   const CoursePage({Key key}) : super(key: key);
@@ -43,6 +43,11 @@ class CoursePage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
+              ),
+              AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                iconTheme: IconThemeData(color: Colors.white),
               ),
             ],
           ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:kazpost/app/courseBookmark.dart';
+import '../courses/course_bookmark.dart';
 
-import '../../quiz.dart';
+import '../quiz/quiz_page.dart';
 
 homepage() {
   Future.delayed(Duration(seconds: 6), () {

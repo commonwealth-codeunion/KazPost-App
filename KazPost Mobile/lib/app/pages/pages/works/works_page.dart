@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
-import 'package:kazpost/app/courseBookmark.dart';
+import 'package:kazpost/app/pages/pages/courses/course_bookmark.dart';
 
 class WorksPage extends StatefulWidget {
   WorksPage({Key key}) : super(key: key);
@@ -36,20 +36,8 @@ class _WorksPageState extends State<WorksPage> {
                     ),
                   ),
                 ),
-                Divider(
-                  thickness: 2,
-                  color: Color(0xFFC0C0C0),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(0),
-                  child: Text(
-                    'Курсы',
-                    style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                SizedBox(
+                  height: hp(3),
                 ),
                 Container(
                   height: hp(32),

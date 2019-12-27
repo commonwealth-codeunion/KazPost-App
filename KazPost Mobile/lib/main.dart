@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'app/main_page/mainPage.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kazpost/app/pages/pages/main/main_page.dart';
 
 void main() => runApp(MyApp());
 

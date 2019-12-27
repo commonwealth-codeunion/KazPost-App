@@ -27,6 +27,8 @@ dependencies:
   flutter_svg: ^0.15.0
   flutter_responsive_screen: ^1.0.0
   percent_indicator: ^2.1.1+1
+  bloc: ^3.0.0
+  flutter_bloc: ^3.0.0
   
 
 dev_dependencies:
@@ -71,6 +73,7 @@ flutter:
     - assets/img/language.svg
     - assets/img/monitoring.jpeg
     - assets/img/courses.jpeg
+    - assets/img/ava.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

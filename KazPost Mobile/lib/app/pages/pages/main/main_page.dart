@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kazpost/app/main_page/pages/coursePage.dart';
-import 'package:kazpost/app/main_page/pages/homepage.dart';
-import 'package:kazpost/app/main_page/pages/worksPage.dart';
-import 'package:kazpost/app/main_page/pages/testPage.dart';
-import 'package:kazpost/app/main_page/pages/callBackPage.dart';
-import 'package:kazpost/app/main_page/pages/settingsPage.dart';
+import 'package:kazpost/app/pages/pages/callback/call_back_page.dart';
+import 'package:kazpost/app/pages/pages/courses/courses_page.dart';
+import 'package:kazpost/app/pages/pages/homepage/home_page.dart';
+import 'package:kazpost/app/pages/pages/notifications/notification_page.dart';
+import 'package:kazpost/app/pages/pages/settings/settings_page.dart';
+import 'package:kazpost/app/pages/pages/works/works_page.dart';
+import 'package:kazpost/app/pages/pages/profile/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -75,7 +76,14 @@ class _MainPageState extends State<MainPage> {
             ),
             ListTile(
               title: Text('Мои данные'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(),
+                  ),
+                );
+              },
             ),
             ListTile(
               title: Text('Мои курсы'),
