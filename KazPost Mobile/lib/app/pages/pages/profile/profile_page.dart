@@ -14,7 +14,9 @@ class _ProfilePageState extends State<ProfilePage> {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
     final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ListView(
+        padding: EdgeInsets.all(0),
         children: <Widget>[
           Column(
             children: <Widget>[
@@ -28,9 +30,26 @@ class _ProfilePageState extends State<ProfilePage> {
                     margin: EdgeInsets.only(top: hp(14)),
                     alignment: Alignment.center,
                     color: Colors.transparent,
-                    child: Image.asset(
-                      './assets/img/ava.png',
-                      height: hp(20),
+                    child: Stack(
+                      children: <Widget>[
+                        Image.asset(
+                          './assets/img/ava.png',
+                          height: hp(20),
+                        ),
+                        Positioned(
+                          top: hp(2),
+                          left: wp(25),
+                          child: Container(
+                            width: 25,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              shape: BoxShape.circle,
+                              border: Border.all(color: Colors.white, width: 3),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   AppBar(
@@ -59,9 +78,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(50, 1, 87, 165),
+                      color: Color(0xFF0157A5).withOpacity(0.5),
                       blurRadius: 20.0,
-                      spreadRadius: 3,
+                      spreadRadius: -5,
                       offset: Offset(
                         0.0,
                         20.0,
@@ -96,8 +115,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(height: hp(5)),
                     FlatButton(
                       padding: EdgeInsets.symmetric(
-                        horizontal: wp(7),
-                        vertical: hp(1.5),
+                        horizontal: wp(9),
+                        vertical: hp(2),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
                       color: Color(0xFF4CAF50),
                       textColor: Colors.white,
