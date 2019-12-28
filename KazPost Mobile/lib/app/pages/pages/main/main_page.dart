@@ -6,6 +6,7 @@ import 'package:kazpost/app/pages/pages/notifications/notification_page.dart';
 import 'package:kazpost/app/pages/pages/settings/settings_page.dart';
 import 'package:kazpost/app/pages/pages/works/works_page.dart';
 import 'package:kazpost/app/pages/pages/profile/profile_page.dart';
+import 'package:kazpost/app/pages/pages/testpage/test_page.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -98,7 +99,14 @@ class _MainPageState extends State<MainPage> {
             ),
             ListTile(
               title: Text('Мои тесты'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TestPageBar(),
+                  ),
+                );
+              },
             ),
             ListTile(
               title: Text('Мои предложения'),
