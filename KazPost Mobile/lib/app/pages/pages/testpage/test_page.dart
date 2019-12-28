@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kazpost/app/pages/pages/courses/course_list.dart';
+import 'package:kazpost/app/pages/pages/testpage/test_list_page.dart';
 
 final String call = './assets/img/call.svg';
 final Widget callSvg = SvgPicture.asset(
@@ -63,7 +65,14 @@ class _TestPageBarState extends State<TestPageBar> {
                 ),
                 IconButton(
                   padding: EdgeInsets.zero,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CourseList(),
+                      ),
+                    );
+                  },
                   icon: Icon(
                     Icons.arrow_forward_ios,
                     color: Colors.black38,
@@ -210,7 +219,14 @@ class _TestPageBarState extends State<TestPageBar> {
                       ),
                       IconButton(
                         padding: EdgeInsets.zero,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TestListPage(),
+                            ),
+                          );
+                        },
                         icon: Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.white,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/pages/pages/callback/call_back_page.dart';
-import 'package:kazpost/app/pages/pages/courses/courses_page.dart';
+import 'package:kazpost/app/pages/pages/courses/course_list.dart';
 import 'package:kazpost/app/pages/pages/homepage/home_page.dart';
 import 'package:kazpost/app/pages/pages/notifications/notification_page.dart';
 import 'package:kazpost/app/pages/pages/settings/settings_page.dart';
@@ -92,7 +92,7 @@ class _MainPageState extends State<MainPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CoursePage(),
+                    builder: (context) => CourseList(),
                   ),
                 );
               },
