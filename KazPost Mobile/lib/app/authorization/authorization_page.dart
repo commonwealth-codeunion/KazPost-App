@@ -2,6 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import 'package:kazpost/app/pages/main/main_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:splashscreen/splashscreen.dart';
+
+class SplashAuth extends StatelessWidget {
+  const SplashAuth({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      seconds: 3,
+      navigateAfterSeconds: new AuthPage(),
+      image: new Image.asset("./assets/img/kazpost.png"),
+      backgroundColor: Colors.white,
+      photoSize: 100,
+      loaderColor: Color(0xFF0157A5),
+    );
+  }
+}
 
 class AuthPage extends StatefulWidget {
   AuthPage({Key key}) : super(key: key);
@@ -59,9 +75,11 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: DefaultTabController(
         length: 2,
         child: Scaffold(
+          resizeToAvoidBottomPadding: false,
           appBar: AppBar(
             title: Container(
               margin: const EdgeInsets.all(80.0),
@@ -144,7 +162,9 @@ class _AuthPageState extends State<AuthPage> {
                                 textColor: Colors.white,
                                 color: Color(0xFF3985CC),
                                 onPressed: () {
-                                  _onPressed();
+                                  if (_formKey.currentState.validate()) {
+                                    _onPressed();
+                                  }
                                 },
                               ),
                             ],

@@ -1,34 +1,18 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
+import 'package:kazpost/app/authorization/authorization_page.dart';
 
-// class SplashScreen extends StatefulWidget {
-//   SplashScreen({Key key}) : super(key: key);
-
-//   @override
-//   SplashScreenState createState() => SplashScreenState();
-// }
-
-// class SplashScreenState extends State<SplashScreen> {
-//   @override
-//   void initState() {
-//     super.initState();
-//     countDownTime();
-//   }
-
-//   final int splashDuration = 2;
-
-//   countDownTime() async {
-//     return Timer(
-//       Duration(seconds: splashDuration), () {
-//         SystemChannels.textInput.invokeMethod(
-//           'TextInput.hide'
-//         );
-//       }
-//     );
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return null;
-//   }
-// }
+class SplashPage extends StatelessWidget {
+  const SplashPage({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      seconds: 5,
+      navigateAfterSeconds: new AuthPage(),
+      image: new Image.asset("./assets/img/kazpost.png"),
+      backgroundColor: Colors.white,
+      photoSize: 100,
+      loaderColor: Color(0xFF0157A5),
+    );
+  }
+}

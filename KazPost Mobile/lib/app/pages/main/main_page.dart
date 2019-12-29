@@ -10,6 +10,22 @@ import 'package:kazpost/app/pages/works/works_page.dart';
 import 'package:kazpost/app/pages/tests/test_page.dart';
 import 'package:kazpost/app/pages/tests/test_list_page.dart';
 import 'package:kazpost/app/pages/courses/course_list.dart';
+import 'package:splashscreen/splashscreen.dart';
+
+class SplashMain extends StatelessWidget {
+  const SplashMain({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(
+      seconds: 3,
+      navigateAfterSeconds: new MainPage(),
+      image: new Image.asset("./assets/img/kazpost.png"),
+      backgroundColor: Colors.white,
+      photoSize: 100,
+      loaderColor: Color(0xFF0157A5),
+    );
+  }
+}
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);

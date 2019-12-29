@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Roboto',
         ),
         routes: <String, WidgetBuilder>{
-          "/mainpage": (BuildContext context) => MainPage(),
-          "/authpage": (BuildContext context) => AuthPage(),
+          "/mainpage": (BuildContext context) => SplashMain(),
+          "/authpage": (BuildContext context) => SplashAuth(),
         },
-        home: AuthPage());
+        home: SplashAuth());
   }
 }
