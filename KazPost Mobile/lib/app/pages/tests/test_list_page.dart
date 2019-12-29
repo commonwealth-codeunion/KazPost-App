@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
-import 'package:kazpost/app/pages/pages/testpage/test_list_widget.dart';
+import 'package:kazpost/app/pages/tests/test_list_widget.dart';
 
 class TestListPage extends StatefulWidget {
   TestListPage({Key key}) : super(key: key);
@@ -13,13 +13,12 @@ class _TestListPageState extends State<TestListPage> {
   @override
   Widget build(BuildContext context) {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          "Курсы",
+          "Тесты",
           style: TextStyle(
             fontFamily: "Montserrat",
             fontWeight: FontWeight.bold,

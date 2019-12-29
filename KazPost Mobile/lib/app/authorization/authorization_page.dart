@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
+import 'package:kazpost/app/pages/main/main_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthPage extends StatefulWidget {
   AuthPage({Key key}) : super(key: key);
@@ -7,6 +10,52 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
+  readToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'token';
+    final value = prefs.get(key) ?? null;
+    if (value != null) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => MainPage(),
+        ),
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    readToken();
+    // getRefreshToken();
+  }
+
+  DatabaseHelper databaseHelper = new DatabaseHelper();
+  String msgStatus = '';
+
+  final TextEditingController _emailController = new TextEditingController();
+  final TextEditingController _passwordController = new TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  _onPressed() {
+    setState(() {
+      if (_emailController.text.trim().toLowerCase().isNotEmpty &&
+          _passwordController.text.trim().isNotEmpty) {
+        databaseHelper
+            .loginData(_emailController.text.trim().toLowerCase(),
+                _passwordController.text.trim())
+            .whenComplete(() {
+          if (databaseHelper.status) {
+            _showDialog();
+            CircularProgressIndicator();
+          } else {
+            Navigator.pushReplacementNamed(context, '/mainpage');
+          }
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +86,19 @@ class _AuthPageState extends State<AuthPage> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
                         Form(
+                          key: _formKey,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              TextField(
+                              TextFormField(
+                                controller: _emailController,
+                                keyboardType: TextInputType.text,
+                                validator: (value) {
+                                  if (value.isEmpty) {
+                                    return 'Пожалуйста введите логин';
+                                  }
+                                  return null;
+                                },
                                 decoration: InputDecoration(
                                   hintText: 'Логин',
                                   filled: true,
@@ -52,10 +110,17 @@ class _AuthPageState extends State<AuthPage> {
                                     ),
                                   ),
                                 ),
-                                onChanged: (value) {},
                               ),
                               SizedBox(height: 30),
-                              TextField(
+                              TextFormField(
+                                controller: _passwordController,
+                                keyboardType: TextInputType.text,
+                                validator: (value) {
+                                  if (value.isEmpty) {
+                                    return 'Пожалуйста введите пароль';
+                                  }
+                                  return null;
+                                },
                                 decoration: InputDecoration(
                                   hintText: 'Пароль',
                                   filled: true,
@@ -68,7 +133,6 @@ class _AuthPageState extends State<AuthPage> {
                                   ),
                                 ),
                                 obscureText: true,
-                                onChanged: (value) {},
                               ),
                               SizedBox(height: 30),
                               FlatButton(
@@ -79,9 +143,20 @@ class _AuthPageState extends State<AuthPage> {
                                 child: Text('Войти'),
                                 textColor: Colors.white,
                                 color: Color(0xFF3985CC),
-                                onPressed: () {},
+                                onPressed: () {
+                                  _onPressed();
+                                },
                               ),
                             ],
+                          ),
+                        ),
+                        Container(
+                          height: 50,
+                          child: Text(
+                            '$msgStatus',
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                         SizedBox(height: 30),
@@ -105,7 +180,7 @@ class _AuthPageState extends State<AuthPage> {
                           padding: const EdgeInsets.all(10),
                           onPressed: () {},
                           icon: Image(
-                            image: AssetImage('./assets/img/Digital ID.png'),
+                            image: AssetImage('./assets/img/digital_id.png'),
                             height: 30,
                           ),
                           shape: RoundedRectangleBorder(
@@ -257,5 +332,27 @@ class _AuthPageState extends State<AuthPage> {
         ),
       ),
     );
+  }
+
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: new Text('Ошибка индентификации'),
+            content: new Text('Проверьте корректность емайла и пароля.'),
+            actions: <Widget>[
+              new RaisedButton(
+                child: new Text(
+                  'Закрыть',
+                ),
+                color: Color(0xFF0157A5),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
   }
 }

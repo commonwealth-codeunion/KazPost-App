@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
-import 'package:kazpost/app/pages/pages/courses/course_list_widget.dart';
+import 'package:kazpost/app/pages/courses/course_list_widget.dart';
 
 String icon1 = "./assets/img/eye.png";
 

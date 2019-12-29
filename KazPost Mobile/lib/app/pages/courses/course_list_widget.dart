@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
+import 'package:kazpost/app/pages/courses/courses_page.dart';
 
 class CourseListWidget extends StatelessWidget {
   final String title;
@@ -26,7 +27,14 @@ class CourseListWidget extends StatelessWidget {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(15),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CoursePage(),
+                  ),
+                );
+          },
           child: Container(
             padding: EdgeInsets.symmetric(
               horizontal: wp(8),

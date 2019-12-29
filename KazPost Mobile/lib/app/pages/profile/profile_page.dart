@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
+import 'package:kazpost/app/pages/certificates/certificates_page.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key}) : super(key: key);
@@ -27,18 +28,18 @@ class _ProfilePageState extends State<ProfilePage> {
                     height: hp(25),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: hp(14)),
+                    margin: EdgeInsets.only(top: hp(16)),
                     alignment: Alignment.center,
                     color: Colors.transparent,
                     child: Stack(
                       children: <Widget>[
                         Image.asset(
                           './assets/img/ava.png',
-                          height: hp(20),
+                          height: hp(16),
                         ),
                         Positioned(
                           top: hp(2),
-                          left: wp(25),
+                          left: wp(22),
                           child: Container(
                             width: 25,
                             height: 25,
@@ -91,7 +92,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Нурали Батыр",
+                      "Хан Чиман",
                       style: TextStyle(
                         color: Color(0xFF0157A5),
                         fontFamily: "Montserrat",
@@ -123,7 +124,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       color: Color(0xFF4CAF50),
                       textColor: Colors.white,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Certificates(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "Достижения",
                         style: TextStyle(fontSize: 18),

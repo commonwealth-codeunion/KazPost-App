@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:kazpost/app/pages/pages/callback/call_back_page.dart';
-import 'package:kazpost/app/pages/pages/courses/course_list.dart';
-import 'package:kazpost/app/pages/pages/homepage/home_page.dart';
-import 'package:kazpost/app/pages/pages/notifications/notification_page.dart';
-import 'package:kazpost/app/pages/pages/settings/settings_page.dart';
-import 'package:kazpost/app/pages/pages/works/works_page.dart';
-import 'package:kazpost/app/pages/pages/profile/profile_page.dart';
-import 'package:kazpost/app/pages/pages/testpage/test_page.dart';
+import 'package:kazpost/app/pages/callback/call_back_page.dart';
+import 'package:kazpost/app/pages/certificates/certificates_page.dart';
+import 'package:kazpost/app/pages/courses/courses_page.dart';
+import 'package:kazpost/app/pages/homepage/home_page.dart';
+import 'package:kazpost/app/pages/notifications/notification_page.dart';
+import 'package:kazpost/app/pages/profile/profile_page.dart';
+import 'package:kazpost/app/pages/settings/settings_page.dart';
+import 'package:kazpost/app/pages/works/works_page.dart';
+import 'package:kazpost/app/pages/tests/test_page.dart';
+import 'package:kazpost/app/pages/tests/test_list_page.dart';
+import 'package:kazpost/app/pages/courses/course_list.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -18,7 +21,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    WorksPage(),
+    TestPageBar(),
     TestPage(),
     HomePage(),
     CallBackPage(),
@@ -42,7 +45,14 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(
               Icons.bookmark,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WorksPage(),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -103,18 +113,32 @@ class _MainPageState extends State<MainPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => TestPageBar(),
+                    builder: (context) => TestListPage(),
                   ),
                 );
               },
             ),
             ListTile(
               title: Text('Мои предложения'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CallBackPage(),
+                  ),
+                );
+              },
             ),
             ListTile(
               title: Text('Мои достижения'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Certificates(),
+                  ),
+                );
+              },
             ),
             ListTile(
               title: Text('Поддержка'),
