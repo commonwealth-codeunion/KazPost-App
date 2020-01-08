@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:multiselect_formfield/multiselect_formfield.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class CallBackPage extends StatefulWidget {
@@ -10,6 +10,19 @@ class CallBackPage extends StatefulWidget {
 }
 
 class _CallBackPageState extends State<CallBackPage> {
+  DatabaseHelper databaseHelper = new DatabaseHelper();
+
+  TextEditingController _titleController = new TextEditingController();
+  TextEditingController _reviewController = new TextEditingController();
+
+  String msgStatus = '';
+
+  _onPressed() {
+    databaseHelper.sendReview(
+        '${_titleController.text}', '${_reviewController.text}');
+    _showDialog();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
@@ -32,65 +45,97 @@ class _CallBackPageState extends State<CallBackPage> {
             SizedBox(
               height: hp(2),
             ),
-            TextField(
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: wp(2),
-                  vertical: hp(10),
-                ),
-                hintText: 'Ваше сообщение...',
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
+            Form(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  TextField(
+                    controller: _titleController,
+                    decoration: InputDecoration(
+                      hintText: 'Тема обращения...',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: Color(0xFF0157A5),
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: Color(0xFF0157A5),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: hp(2)),
+                  TextField(
+                    maxLines: 5,
+                    controller: _reviewController,
+                    decoration: InputDecoration(
+                      hintText: 'Ваше сообщение...',
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: Color(0xFF0157A5),
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          color: Color(0xFF0157A5),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: hp(2),
+                  ),
+                  SizedBox(
+                    height: hp(2),
+                  ),
+                  RaisedButton(
+                    padding: EdgeInsets.symmetric(
+                      vertical: hp(2),
+                    ),
+                    onPressed: () {
+                      _onPressed();
+                    },
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Text('Отправить письмо'),
                     color: Color(0xFF0157A5),
                   ),
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
-                    color: Color(0xFF0157A5),
-                  ),
-                ),
+                ],
               ),
-            ),
-            SizedBox(
-              height: hp(2),
-            ),
-            MultiSelectFormField(
-              autovalidate: false,
-              titleText: 'Выберите смайлик', 
-              dataSource: [
-                {
-                  "display": "Отлично 😀",
-                  "value": "1",
-                },
-                {
-                  "display": "Разнесу ща все😡",
-                  "value": "0",
-                },
-              ],
-              textField: 'display',
-              valueField: 'value',
-              hintText: 'Выбрать...',
-            ),
-            SizedBox(
-              height: hp(2),
-            ),
-            RaisedButton(
-              padding: EdgeInsets.symmetric(
-                vertical: hp(2),
-              ),
-              onPressed: () {},
-              textColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Text('Отправить письмо'),
-              color: Color(0xFF0157A5),
             ),
           ],
         ),
       ),
     );
+  }
+
+  void _showDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: new Text('Успешно'),
+            content: new Text(
+                'Мы рассмотрим ваше сообщение в течении ближайшего времени.'),
+            actions: <Widget>[
+              new RaisedButton(
+                child: new Text(
+                  'Закрыть',
+                ),
+                color: Color(0xFF0157A5),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
   }
 }

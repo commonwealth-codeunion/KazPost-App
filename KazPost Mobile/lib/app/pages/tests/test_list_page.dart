@@ -31,11 +31,16 @@ class _TestListPageState extends State<TestListPage> {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: wp(5.5)),
         children: <Widget>[
+          SizedBox(height: 30),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              TestListWidget("Пройти тест до 12 дек.", "./assets/img/eye.png"),
+              TestListWidget("Пройти тест до 12 января.", "./assets/img/eye.png"),
+              SizedBox(height: 30),
+              TestListWidget("Пройти тест до 27 января.", "./assets/img/eye.png"),
+              SizedBox(height: 30),
+              TestListWidget("Пройти тест до 6 апреля.", "./assets/img/eye.png"),
             ],
           ),
         ],

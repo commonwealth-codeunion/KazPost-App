@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import '../courses/course_bookmark.dart';
 
 import '../quiz/quiz_page.dart';
@@ -27,9 +29,9 @@ titleStyle() {
       color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24);
 }
 
-String name = 'Чингиз';
-
 class _HomePageState extends State<HomePage> {
+  DatabaseHelper databaseHelper = DatabaseHelper();
+
   @override
   Widget build(BuildContext context) {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
@@ -64,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Text(
-                    'Пройдите тест до 27 декабря!',
+                    'Пройдите тест до 1 января!',
                     style: TextStyle(
                         fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
                   ),
@@ -75,16 +77,7 @@ class _HomePageState extends State<HomePage> {
                 Center(
                   child: Column(
                     children: <Widget>[
-                      Text(
-                        'Привет, ' + name,
-                        style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24),
-                      ),
-                      SizedBox(
-                        height: hp(2),
-                      ),
+                      Text('Привет,'),
                       Text(
                         'Здесь вы можете найти\nполезные курсы для себя',
                         textAlign: TextAlign.center,

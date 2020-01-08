@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
+import 'package:kazpost/app/pages/docs/docs_page.dart';
+import 'package:open_file/open_file.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QuizPage extends StatefulWidget {
   QuizPage({Key key}) : super(key: key);
@@ -9,27 +13,41 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  readToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'accessToken';
+    final value = prefs.get(key) ?? null;
+    print(value);
+  }
+
+  DatabaseHelper databaseHelper = DatabaseHelper();
   void updateQuestion() {
-    setState(() {
-      if (questionNumber == quiz.questions.length - 1) {
-        Navigator.push(
+    setState(
+      () {
+        if (questionNumber == quiz.questions.length - 1) {
+          Navigator.push(
             context,
             new MaterialPageRoute(
-                builder: (context) => new Summary(
-                      score: finalScore,
-                    )));
-      } else {
-        questionNumber++;
-      }
-    });
+              builder: (context) => new Summary(
+                score: finalScore,
+              ),
+            ),
+          );
+        } else {
+          questionNumber++;
+        }
+      },
+    );
   }
 
   void resetQuiz() {
-    setState(() {
-      Navigator.pop(context);
-      finalScore = 0;
-      questionNumber = 0;
-    });
+    setState(
+      () {
+        Navigator.pop(context);
+        finalScore = 0;
+        questionNumber = 0;
+      },
+    );
   }
 
   @override
@@ -111,7 +129,9 @@ class _QuizPageState extends State<QuizPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: hp(2),),
+                  SizedBox(
+                    height: hp(2),
+                  ),
                   new OutlineButton(
                     padding: EdgeInsets.symmetric(
                       horizontal: wp(2),
@@ -148,7 +168,9 @@ class _QuizPageState extends State<QuizPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: hp(2),),
+                  SizedBox(
+                    height: hp(2),
+                  ),
                   new OutlineButton(
                     padding: EdgeInsets.symmetric(
                       horizontal: wp(2),
@@ -185,7 +207,9 @@ class _QuizPageState extends State<QuizPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: hp(2),),
+                  SizedBox(
+                    height: hp(2),
+                  ),
                   new OutlineButton(
                     padding: EdgeInsets.symmetric(
                       horizontal: wp(2),
@@ -224,7 +248,9 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ],
               ),
-              SizedBox(height: hp(2),),
+              SizedBox(
+                height: hp(2),
+              ),
               Container(
                 alignment: Alignment.bottomCenter,
                 child: new MaterialButton(
@@ -267,7 +293,7 @@ class QuizData {
   ];
 
   var correctAnswers = [
-    "Нет ответа",
+    "Нет правильного ответа",
     "Смотрящий",
     "Flutter",
     "Code Union",

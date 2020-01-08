@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kazpost/app/pages/courses/course_list.dart';
+import 'package:kazpost/app/pages/docs/docs_page.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import 'package:kazpost/app/pages/tests/test_list_page.dart';
 
 final String call = './assets/img/call.svg';
@@ -19,6 +21,7 @@ class TestPageBar extends StatefulWidget {
 }
 
 class _TestPageBarState extends State<TestPageBar> {
+  DatabaseHelper databaseHelper = DatabaseHelper();
   @override
   Widget build(BuildContext context) {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
@@ -101,7 +104,10 @@ class _TestPageBarState extends State<TestPageBar> {
                     ),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(15),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => PdfView()));
+                      },
                       child: Container(
                         padding: EdgeInsets.symmetric(
                           horizontal: wp(8),
@@ -157,7 +163,9 @@ class _TestPageBarState extends State<TestPageBar> {
                     ),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(15),
-                      onTap: () {},
+                      onTap: () {
+                        databaseHelper.getFiles();
+                      },
                       child: Container(
                         padding: EdgeInsets.symmetric(
                           horizontal: wp(8),

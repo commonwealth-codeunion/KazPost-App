@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kazpost/app/authorization/authorization_page.dart';
 import 'package:kazpost/app/pages/main/main_page.dart';
+import 'package:kazpost/app/pages/docs/docs_page.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
 

@@ -15,7 +15,6 @@ class CertificatesState extends State<Certificates> {
     final Function hp = Screen(MediaQuery.of(context).size).hp;
 
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -25,7 +24,7 @@ class CertificatesState extends State<Certificates> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: wp(5.5),
+              horizontal: wp(4),
             ),
             child: Column(
               children: <Widget>[

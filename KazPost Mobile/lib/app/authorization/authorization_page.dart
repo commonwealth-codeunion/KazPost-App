@@ -4,13 +4,14 @@ import 'package:kazpost/app/pages/main/main_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splashscreen/splashscreen.dart';
 
+
 class SplashAuth extends StatelessWidget {
   const SplashAuth({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 3,
-      navigateAfterSeconds: new AuthPage(),
+      navigateAfterSeconds: new MainPage(),
       image: new Image.asset("./assets/img/kazpost.png"),
       backgroundColor: Colors.white,
       photoSize: 100,
@@ -28,7 +29,7 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   readToken() async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'token';
+    final key = 'accessToken';
     final value = prefs.get(key) ?? null;
     if (value != null) {
       Navigator.of(context).push(
@@ -42,7 +43,6 @@ class _AuthPageState extends State<AuthPage> {
   @override
   void initState() {
     readToken();
-    // getRefreshToken();
   }
 
   DatabaseHelper databaseHelper = new DatabaseHelper();
@@ -63,7 +63,7 @@ class _AuthPageState extends State<AuthPage> {
             .whenComplete(() {
           if (databaseHelper.status) {
             _showDialog();
-            CircularProgressIndicator();
+            msgStatus = 'Проверьте корректность емайла и пароля.';
           } else {
             Navigator.pushReplacementNamed(context, '/mainpage');
           }
@@ -75,11 +75,9 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       body: DefaultTabController(
         length: 2,
         child: Scaffold(
-          resizeToAvoidBottomPadding: false,
           appBar: AppBar(
             title: Container(
               margin: const EdgeInsets.all(80.0),
@@ -217,135 +215,7 @@ class _AuthPageState extends State<AuthPage> {
                 ],
               ),
               ListView(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Form(
-                          child: Form(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: <Widget>[
-                                TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Имя',
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        style: BorderStyle.solid,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 30),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Фамилия',
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        style: BorderStyle.solid,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 30),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Отчество',
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        style: BorderStyle.solid,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 30),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Электронный адрес',
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        style: BorderStyle.solid,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 30),
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Номер телефона',
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        style: BorderStyle.solid,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 30),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Придумайте пароль',
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        style: BorderStyle.solid,
-                                      ),
-                                    ),
-                                  ),
-                                  obscureText: false,
-                                ),
-                                SizedBox(height: 30),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Повторите пароль',
-                                    filled: true,
-                                    fillColor: Colors.white70,
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Colors.blue,
-                                        style: BorderStyle.solid,
-                                      ),
-                                    ),
-                                  ),
-                                  obscureText: false,
-                                ),
-                                SizedBox(height: 30),
-                                FlatButton(
-                                  padding: const EdgeInsets.all(15),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Text('Зарегистрироваться'),
-                                  textColor: Colors.white,
-                                  color: Color(0xFF3985CC),
-                                  onPressed: () {},
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                children: <Widget>[],
               ),
             ],
           ),
@@ -360,7 +230,7 @@ class _AuthPageState extends State<AuthPage> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: new Text('Ошибка индентификации'),
-            content: new Text('Проверьте корректность емайла и пароля.'),
+            content: new Text('Проверьте корректность емайла или пароля.'),
             actions: <Widget>[
               new RaisedButton(
                 child: new Text(

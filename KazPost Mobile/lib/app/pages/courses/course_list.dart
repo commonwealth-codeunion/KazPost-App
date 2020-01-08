@@ -38,6 +38,7 @@ class _CourseListState extends State<CourseList> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              SizedBox(height: hp(2)),
               Text(
                 "Мониторинг",
                 style: TextStyle(
@@ -46,7 +47,9 @@ class _CourseListState extends State<CourseList> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: hp(2)),
               CourseListWidget("Мониторинг", 12, icon1),
+              SizedBox(height: hp(4)),
               Text(
                 "Учет и аудит",
                 style: TextStyle(
@@ -55,7 +58,9 @@ class _CourseListState extends State<CourseList> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: hp(2)),
               CourseListWidget("Учет и аудит", 12, icon1),
+              SizedBox(height: hp(4)),
               Text(
                 "IKEA",
                 style: TextStyle(
@@ -64,6 +69,7 @@ class _CourseListState extends State<CourseList> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(height: hp(2)),
               CourseListWidget("Как собрать стул", 12, icon1),
             ],
           ),

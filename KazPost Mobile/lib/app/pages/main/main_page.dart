@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
+import 'package:kazpost/app/authorization/authorization_page.dart';
 import 'package:kazpost/app/pages/callback/call_back_page.dart';
-import 'package:kazpost/app/pages/certificates/certificates_page.dart';
-import 'package:kazpost/app/pages/courses/courses_page.dart';
+import 'package:kazpost/app/pages/courses/course_list.dart';
+import 'package:kazpost/app/pages/tests/test_list_page.dart';
 import 'package:kazpost/app/pages/homepage/home_page.dart';
 import 'package:kazpost/app/pages/notifications/notification_page.dart';
 import 'package:kazpost/app/pages/profile/profile_page.dart';
 import 'package:kazpost/app/pages/settings/settings_page.dart';
-import 'package:kazpost/app/pages/works/works_page.dart';
 import 'package:kazpost/app/pages/tests/test_page.dart';
-import 'package:kazpost/app/pages/tests/test_list_page.dart';
-import 'package:kazpost/app/pages/courses/course_list.dart';
+import 'package:kazpost/app/pages/works/works_page.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 class SplashMain extends StatelessWidget {
@@ -35,6 +35,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  DatabaseHelper databaseHelper = DatabaseHelper();
+
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     TestPageBar(),
@@ -64,9 +66,7 @@ class _MainPageState extends State<MainPage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => WorksPage(),
-                ),
+                MaterialPageRoute(builder: (context) => WorksPage()),
               );
             },
           ),
@@ -128,9 +128,7 @@ class _MainPageState extends State<MainPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => TestListPage(),
-                  ),
+                  MaterialPageRoute(builder: (context) => TestListPage()),
                 );
               },
             ),
@@ -147,14 +145,7 @@ class _MainPageState extends State<MainPage> {
             ),
             ListTile(
               title: Text('Мои достижения'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Certificates(),
-                  ),
-                );
-              },
+              onTap: () {},
             ),
             ListTile(
               title: Text('Поддержка'),
@@ -167,7 +158,15 @@ class _MainPageState extends State<MainPage> {
                   color: Colors.red,
                 ),
               ),
-              onTap: () {},
+              onTap: () {
+                databaseHelper.logOut();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AuthPage(),
+                  ),
+                );
+              },
             ),
           ],
         ),

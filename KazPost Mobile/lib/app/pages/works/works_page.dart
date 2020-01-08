@@ -15,27 +15,30 @@ class _WorksPageState extends State<WorksPage> {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
     final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Закладки",
-          style: TextStyle(
-            fontFamily: "Montserrat",
-            fontWeight: FontWeight.bold,
-            fontSize: 32,
-          ),
-        ),
-        titleSpacing: -3,
-        elevation: 0,
-      ),
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: wp(5.5),
+          vertical: hp(1),
+          horizontal: wp(3),
         ),
         child: ListView(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.all(0),
+                  child: Text(
+                    'Закладки',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: hp(3),
+                ),
                 Container(
                   height: hp(32),
                   child: PageView(
