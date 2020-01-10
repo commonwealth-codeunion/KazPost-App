@@ -14,7 +14,6 @@ class CourseList extends StatefulWidget {
 class _CourseListState extends State<CourseList> {
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
     final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -32,7 +31,9 @@ class _CourseListState extends State<CourseList> {
         elevation: 0,
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: wp(5.5)),
+        padding: EdgeInsets.symmetric(
+          horizontal: 15,
+        ),
         children: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.center,

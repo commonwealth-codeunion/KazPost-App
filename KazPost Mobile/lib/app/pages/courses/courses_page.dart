@@ -7,7 +7,6 @@ class CoursePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
     final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       body: Column(
@@ -53,8 +52,8 @@ class CoursePage extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.symmetric(
-              vertical: hp(2),
-              horizontal: wp(5),
+              vertical: 20,
+              horizontal: 15,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

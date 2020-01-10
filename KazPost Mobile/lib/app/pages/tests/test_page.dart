@@ -34,7 +34,7 @@ class _TestPageBarState extends State<TestPageBar> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.symmetric(horizontal: wp(5.5)),
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   "Тесты и курсы",
                   style: TextStyle(

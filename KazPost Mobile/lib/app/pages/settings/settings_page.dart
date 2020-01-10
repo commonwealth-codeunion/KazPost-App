@@ -56,7 +56,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: wp(4),
+          horizontal: 15,
         ),
         child: ListView(
           children: <Widget>[

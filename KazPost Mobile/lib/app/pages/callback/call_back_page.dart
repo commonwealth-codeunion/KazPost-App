@@ -25,13 +25,12 @@ class _CallBackPageState extends State<CallBackPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
     final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: wp(4),
-          vertical: hp(1),
+          horizontal: 15,
+          vertical: 20,
         ),
         child: ListView(
           children: <Widget>[

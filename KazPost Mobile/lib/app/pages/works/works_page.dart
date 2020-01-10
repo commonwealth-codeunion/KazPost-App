@@ -12,13 +12,13 @@ class WorksPage extends StatefulWidget {
 class _WorksPageState extends State<WorksPage> {
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
     final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: hp(1),
-          horizontal: wp(3),
+          vertical: 20,
+          horizontal: 15,
         ),
         child: ListView(
           children: [

@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: wp(4),
+              horizontal: 15,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
