@@ -2,19 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import '../courses/course_bookmark.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
 
 import '../quiz/quiz_page.dart';
 
-homepage() {
-  Future.delayed(Duration(seconds: 6), () {
-    HomePage();
-  });
-}
-
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -31,6 +26,28 @@ titleStyle() {
 
 class _HomePageState extends State<HomePage> {
   DatabaseHelper databaseHelper = DatabaseHelper();
+  QuizHelper quizHelper = QuizHelper();
+
+  String title;
+
+  readTitle() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'title';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        title = value;
+      });
+      print(title);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readTitle();
+    quizHelper.getQuiz();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,11 +67,10 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: hp(2)),
                 RaisedButton(
                   onPressed: () {
+                    quizHelper.getQuiz();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => QuizPage(),
-                      ),
+                      MaterialPageRoute(builder: (context) => QuizPage()),
                     );
                   },
                   padding: EdgeInsets.symmetric(
@@ -66,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Text(
-                    'Пройдите тест до 1 января!',
+                    '$title',
                     style: TextStyle(
                         fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
                   ),
@@ -77,7 +93,6 @@ class _HomePageState extends State<HomePage> {
                 Center(
                   child: Column(
                     children: <Widget>[
-                      Text('Привет,'),
                       Text(
                         'Здесь вы можете найти\nполезные курсы для себя',
                         textAlign: TextAlign.center,
@@ -311,7 +326,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 OutlineButton(
                   padding: EdgeInsets.symmetric(vertical: hp(2)),
-                  onPressed: () {},
+                  onPressed: () {
+                    quizHelper.getQuiz();
+                  },
                   textColor: Color(0xFF0157A5),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),

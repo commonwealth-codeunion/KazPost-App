@@ -1,18 +1,17 @@
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' show json;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DatabaseHelper {
-  String serverUrl = "http://188.225.9.250/api";
+  String serverUrl = "http://188.225.9.250";
+  String name = '';
   var status;
 
   var accessToken;
-  var _id;
   var href;
 
   loginData(String email, String password) async {
-    String myUrl = "$serverUrl/login";
+    String myUrl = "$serverUrl/api/login";
     final response = await http
         .post(myUrl, body: {"email": "$email", "password": "$password"});
     status = response.body.contains('error');
@@ -29,18 +28,22 @@ class DatabaseHelper {
       _saveToken(data["tokens"]["accessToken"]);
       _saveName(data["user"]["name"]);
       _saveId(data["user"]["_id"]);
+      _saveType(data["user"]["type"]);
+      _saveEmail(data["user"]["email"]);
     }
+
+    getAvatar();
   }
 
-  void sendReview(String title, String review) async {
+  sendReview(String title, String review) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
-    final value = prefs.get(key) ?? 0;
+    final value = prefs.getString(key) ?? '';
     print('$value');
     final idKey = '_id';
-    final idVal = prefs.get(idKey) ?? 0;
+    final idVal = prefs.getString(idKey) ?? '';
     print(idVal);
-    String myUrl = "$serverUrl/feedback";
+    String myUrl = "$serverUrl/api/feedback";
 
     final response = await http.post(myUrl,
         headers: {"Authorization": "$value"},
@@ -51,11 +54,23 @@ class DatabaseHelper {
     print(data);
   }
 
+  getAvatar() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = '_id';
+    final value = prefs.get(key) ?? '';
+    print(value);
+
+    String myUrl = "$serverUrl/nginx/assets/images/avatars/$value.jpg";
+
+    _saveAvatar(myUrl);
+    print(myUrl);
+  }
+
   getFiles() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
     final value = prefs.get(key) ?? 0;
-    String myUrl = "$serverUrl/getFiles";
+    String myUrl = "$serverUrl/api/getFiles";
 
     final response =
         await http.post(myUrl, headers: {"Authorization": "$value"});
@@ -76,9 +91,12 @@ class DatabaseHelper {
   logOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove("accessToken");
+    prefs.remove("name");
     prefs.remove("_id");
-    print(accessToken);
-    print(_id);
+    prefs.remove("href");
+    prefs.remove("type");
+    prefs.remove("email");
+    prefs.remove("avatar");
   }
 
   _saveToken(String accessToken) async {
@@ -109,31 +127,65 @@ class DatabaseHelper {
     prefs.setString(key, value);
   }
 
-  readToken() async {
+  _saveType(String type) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'type';
+    final value = type;
+    prefs.setString(key, value);
+  }
+
+  _saveEmail(String email) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'email';
+    final value = email;
+    prefs.setString(key, value);
+  }
+
+  _saveAvatar(String avatar) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'avatar';
+    final value = avatar;
+    prefs.setString(key, value);
+  }
+}
+
+class QuizHelper {
+  getQuiz() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
-    final value = prefs.get(key) ?? 0;
-    print('read : $value');
+    final value = prefs.getString(key) ?? '';
+    String myUrl = "http://188.225.9.250/api/quizzes";
+
+    final response =
+        await http.post(myUrl, headers: {"Authorization": "$value"});
+
+    var data = json.decode(response.body);
+
+    _saveTitle(data["quizzes"][0]["title"]);
+    String description = data["quizzes"][0]["description"];
+    _saveQuestion(data["quizzes"][0]["questions"]["0"]["question"]);
+    bool answer = data["quizzes"][0]["questions"]["0"]["true"]["C"];
+    print(description);
+    print(answer);
   }
 
-  readName() async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'name';
-    final value = prefs.get(key) ?? 0;
-    print('read : $value');
+  clearQuiz() async  {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove("title");
+    prefs.remove("remove"); 
   }
 
-  readId() async {
+  _saveTitle(String title) async {
     final prefs = await SharedPreferences.getInstance();
-    final key = '_id';
-    final value = prefs.get(key) ?? 0;
-    print('read : $value');
+    final key = 'title';
+    final value = title;
+    prefs.setString(key, value);
   }
 
-  readHref() async {
+  _saveQuestion(String question) async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'href';
-    final value = prefs.get(key) ?? 0;
-    print('read: $value');
+    final key = 'question';
+    final value = question;
+    prefs.setString(key, value);
   }
 }

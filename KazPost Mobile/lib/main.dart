@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kazpost/app/authorization/authorization_page.dart';
 import 'package:kazpost/app/pages/main/main_page.dart';
-import 'package:kazpost/app/pages/docs/docs_page.dart';
-import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +9,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'KazPost',
@@ -25,8 +22,8 @@ class MyApp extends StatelessWidget {
         ),
         routes: <String, WidgetBuilder>{
           "/mainpage": (BuildContext context) => SplashMain(),
-          "/authpage": (BuildContext context) => SplashAuth(),
+          "/authpage": (BuildContext context) => AuthPage(),
         },
-        home: SplashAuth());
+        home: AuthPage());
   }
 }

@@ -10,6 +10,7 @@ import 'package:kazpost/app/pages/profile/profile_page.dart';
 import 'package:kazpost/app/pages/settings/settings_page.dart';
 import 'package:kazpost/app/pages/tests/test_page.dart';
 import 'package:kazpost/app/pages/works/works_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 class SplashMain extends StatelessWidget {
@@ -19,7 +20,10 @@ class SplashMain extends StatelessWidget {
     return SplashScreen(
       seconds: 3,
       navigateAfterSeconds: new MainPage(),
-      image: new Image.asset("./assets/img/kazpost.png"),
+      image: new Image.network(
+        'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
+        gaplessPlayback: true,
+      ),
       backgroundColor: Colors.white,
       photoSize: 100,
       loaderColor: Color(0xFF0157A5),
@@ -35,9 +39,55 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  DatabaseHelper databaseHelper = DatabaseHelper();
+  DatabaseHelper databaseHelper = new DatabaseHelper();
+
+  String name = '';
+  String email = '';
+  String avatar = '';
+
+  readName() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'name';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        name = value;
+      });
+    }
+  }
+
+  readEmail() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'email';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        email = value;
+      });
+    }
+  }
+
+  readAvatar() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'avatar';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        avatar = value;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readName();
+    readEmail();
+    readAvatar();
+  }
 
   int _selectedIndex = 0;
+
   static List<Widget> _widgetOptions = <Widget>[
     TestPageBar(),
     TestPage(),
@@ -83,21 +133,20 @@ class _MainPageState extends State<MainPage> {
               ),
               currentAccountPicture: Container(
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: new ExactAssetImage(
-                      './assets/img/avatar.png',
-                    ),
-                  ),
+                  borderRadius: BorderRadius.circular(360),
+                  border: Border.all(color: Colors.white, width: 3),
+                ),
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage('$avatar'),
+                  radius: 80,
                 ),
               ),
               accountName: new Text(
-                'Чингиз Марипбек',
+                '$name',
                 style: TextStyle(color: Colors.white),
               ),
               accountEmail: new Text(
-                'maripbekoff@gmail.com',
+                '$email',
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -142,10 +191,6 @@ class _MainPageState extends State<MainPage> {
                   ),
                 );
               },
-            ),
-            ListTile(
-              title: Text('Мои достижения'),
-              onTap: () {},
             ),
             ListTile(
               title: Text('Поддержка'),

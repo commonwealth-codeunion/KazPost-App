@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
-import 'package:kazpost/app/pages/docs/docs_page.dart';
-import 'package:open_file/open_file.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class QuizPage extends StatefulWidget {
@@ -13,14 +11,28 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  readToken() async {
+  DatabaseHelper databaseHelper = DatabaseHelper();
+  QuizHelper quizHelper = QuizHelper();
+
+  String question;
+
+  readQuestion() async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'accessToken';
-    final value = prefs.get(key) ?? null;
-    print(value);
+    final key = 'question';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        question = value;
+      });
+    }
   }
 
-  DatabaseHelper databaseHelper = DatabaseHelper();
+  @override
+  void initState() {
+    super.initState();
+    readQuestion();
+  }
+
   void updateQuestion() {
     setState(
       () {
@@ -81,7 +93,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               SizedBox(height: hp(1)),
               Text(
-                "${quiz.questions[questionNumber]}",
+                "$question",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
@@ -256,7 +268,10 @@ class _QuizPageState extends State<QuizPage> {
                 child: new MaterialButton(
                   minWidth: 240.0,
                   height: 30.0,
-                  onPressed: resetQuiz,
+                  onPressed: () {
+                    resetQuiz();
+                    quizHelper.clearQuiz();
+                  },
                   child: new Text(
                     'Выйти',
                     style: TextStyle(fontSize: 18, color: Colors.black),

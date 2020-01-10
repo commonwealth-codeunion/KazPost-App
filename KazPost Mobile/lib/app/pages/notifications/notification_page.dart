@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
+import 'package:flutter/rendering.dart';
 import 'package:kazpost/app/pages/quiz/quiz_page.dart';
 
 class TestPage extends StatefulWidget {
@@ -12,13 +12,11 @@ class TestPage extends StatefulWidget {
 class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: wp(4),
-          vertical: hp(1),
+          horizontal: 15,
+          vertical: 20,
         ),
         child: ListView(
           children: [
@@ -37,8 +35,8 @@ class _TestPageState extends State<TestPage> {
                       ),
                     ),
                     Container(
-                      width: wp(10),
-                      height: hp(5),
+                      width: 40,
+                      height: 40,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: Color(0xFF4CAF50)),
@@ -52,7 +50,7 @@ class _TestPageState extends State<TestPage> {
                   ],
                 ),
                 SizedBox(
-                  height: hp(2),
+                  height: 15,
                 ),
                 Card(
                   color: Color(0xFF6858D6),
@@ -61,8 +59,8 @@ class _TestPageState extends State<TestPage> {
                   ),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: wp(4),
-                      vertical: hp(2),
+                      horizontal: 20,
+                      vertical: 15,
                     ),
                     child: Column(
                       children: [
@@ -71,8 +69,8 @@ class _TestPageState extends State<TestPage> {
                           children: [
                             Container(
                               padding: EdgeInsets.symmetric(
-                                horizontal: wp(3),
-                                vertical: hp(1.5),
+                                horizontal: 10,
+                                vertical: 10,
                               ),
                               decoration: BoxDecoration(
                                 color: Colors.white,
@@ -80,14 +78,14 @@ class _TestPageState extends State<TestPage> {
                               ),
                               child: Image(
                                 image: AssetImage('./assets/img/eye.png'),
-                                height: hp(4),
-                                width: wp(8),
+                                height: 30,
+                                width: 30,
+                                fit: BoxFit.contain,
                                 color: Color(0xFF6858D6),
                               ),
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
                                   'Вы должны пройти тест\n',
@@ -98,7 +96,7 @@ class _TestPageState extends State<TestPage> {
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
-                                  height: hp(2),
+                                  height: 10,
                                 ),
                               ],
                             ),
@@ -124,8 +122,7 @@ class _TestPageState extends State<TestPage> {
                                 borderRadius: BorderRadius.circular(25),
                               ),
                               padding: EdgeInsets.symmetric(
-                                vertical: hp(1),
-                                horizontal: wp(8),
+                                horizontal: 30,
                               ),
                               borderSide: BorderSide(color: Colors.white),
                               child: Text(
@@ -140,7 +137,7 @@ class _TestPageState extends State<TestPage> {
                   ),
                 ),
                 SizedBox(
-                  height: hp(2),
+                  height: 20,
                 ),
                 Card(
                   color: Colors.white,
@@ -149,8 +146,8 @@ class _TestPageState extends State<TestPage> {
                   ),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: wp(4),
-                      vertical: hp(2),
+                      horizontal: 20,
+                      vertical: 15,
                     ),
                     child: Column(
                       children: [
@@ -159,8 +156,8 @@ class _TestPageState extends State<TestPage> {
                           children: [
                             Container(
                               padding: EdgeInsets.symmetric(
-                                horizontal: wp(3),
-                                vertical: hp(1.5),
+                                horizontal: 10,
+                                vertical: 10,
                               ),
                               decoration: BoxDecoration(
                                 color: Color(0xFF6858D6),
@@ -168,14 +165,14 @@ class _TestPageState extends State<TestPage> {
                               ),
                               child: Image(
                                 image: AssetImage('./assets/img/eye.png'),
-                                height: hp(4),
-                                width: wp(8),
+                                height: 30,
+                                width: 30,
+                                fit: BoxFit.contain,
                                 color: Colors.white,
                               ),
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
                                   'Вы должны пройти тест\n',
@@ -186,7 +183,7 @@ class _TestPageState extends State<TestPage> {
                                   style: TextStyle(color: Colors.black),
                                 ),
                                 SizedBox(
-                                  height: hp(2),
+                                  height: 10,
                                 ),
                               ],
                             ),
@@ -210,10 +207,10 @@ class _TestPageState extends State<TestPage> {
                                 borderRadius: BorderRadius.circular(25),
                               ),
                               padding: EdgeInsets.symmetric(
-                                vertical: hp(1),
-                                horizontal: wp(8),
+                                horizontal: 30,
                               ),
-                              borderSide: BorderSide(color: Color(0xFF6858D6)),
+                              borderSide:
+                                  BorderSide(color: Color(0xFF6858D6)),
                               child: Text(
                                 'Начать',
                                 style: TextStyle(color: Color(0xFF6858D6)),

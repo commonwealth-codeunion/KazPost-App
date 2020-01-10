@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import 'package:kazpost/app/pages/certificates/certificates_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key}) : super(key: key);
@@ -10,6 +12,53 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  String name = '';
+  String type = '';
+  String avatar = '';
+
+  readName() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'name';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        name = value;
+      });
+    }
+  }
+
+  readType() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'type';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        type = value;
+      });
+    }
+  }
+
+  readAvatar() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'avatar';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        avatar = value;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readName();
+    readType();
+    readAvatar();
+  }
+
+  DatabaseHelper databaseHelper = DatabaseHelper();
+
   @override
   Widget build(BuildContext context) {
     final Function wp = Screen(MediaQuery.of(context).size).wp;
@@ -30,15 +79,20 @@ class _ProfilePageState extends State<ProfilePage> {
                   Container(
                     margin: EdgeInsets.only(top: hp(16)),
                     alignment: Alignment.center,
-                    color: Colors.transparent,
                     child: Stack(
                       children: <Widget>[
-                        Image.asset(
-                          './assets/img/ava.png',
-                          height: hp(16),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(360),
+                            border: Border.all(color: Colors.white, width: 5),
+                          ),
+                          child: CircleAvatar(
+                            backgroundImage: NetworkImage('$avatar'),
+                            radius: 60,
+                          ),
                         ),
                         Positioned(
-                          top: hp(2),
+                          top: hp(1),
                           left: wp(22),
                           child: Container(
                             width: 25,
@@ -69,6 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ],
               ),
+              SizedBox(height: 30),
               Container(
                 padding: EdgeInsets.only(
                   bottom: hp(3),
@@ -92,12 +147,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Хан Чиман",
+                      "$name",
                       style: TextStyle(
                         color: Color(0xFF0157A5),
                         fontFamily: "Montserrat",
                         fontWeight: FontWeight.bold,
-                        fontSize: 32,
+                        fontSize: 22,
                       ),
                     ),
                     SizedBox(height: hp(2)),
@@ -110,7 +165,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     SizedBox(height: hp(2)),
                     Text(
-                      "IT DIRECTOR",
+                      "$type",
                       style: TextStyle(fontSize: 24),
                     ),
                     SizedBox(height: hp(5)),
