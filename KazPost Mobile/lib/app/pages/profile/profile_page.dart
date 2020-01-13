@@ -92,8 +92,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         Positioned(
-                          top: hp(1),
-                          left: wp(22),
+                          top: 10,
+                          left: 95,
                           child: Container(
                             width: 25,
                             height: 25,

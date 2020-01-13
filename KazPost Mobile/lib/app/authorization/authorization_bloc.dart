@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' show json;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -6,6 +7,8 @@ class DatabaseHelper {
   String serverUrl = "http://188.225.9.250";
   String name = '';
   var status;
+
+  var data;
 
   var accessToken;
   var href;
@@ -18,62 +21,88 @@ class DatabaseHelper {
 
     final data = json.decode(response.body);
 
-    print(data);
-
     if (status) {
-      print('data : ${data["error"]}');
+      print('ошибка : ${data["error"]}');
     } else {
-      print('token : ${data["tokens"]["accessToken"]}');
-      print('id : ${data["user"]["_id"]}');
       _saveToken(data["tokens"]["accessToken"]);
+      _saveRefreshToken(data["tokens"]["refreshToken"]);
       _saveName(data["user"]["name"]);
       _saveId(data["user"]["_id"]);
       _saveType(data["user"]["type"]);
       _saveEmail(data["user"]["email"]);
-    }
+      getAvatar();
 
-    getAvatar();
+      debugPrint('Авторизация пользователя произведена успешно');
+    }
+  }
+
+  refreshToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'refreshToken';
+    final refreshToken = prefs.getString(key) ?? '';
+    if (refreshToken == '' || refreshToken == null) {
+      print('просроченый токен');
+    } else {
+      print(refreshToken);
+      String myUrl = '$serverUrl/api/refresh';
+      final response =
+          await http.post(myUrl, body: {"refreshToken": "$refreshToken"});
+      final status = response.body.contains('ERROR');
+
+      var data = json.decode(response.body);
+
+      print(data);
+
+      if (status) {
+        print('error');
+        debugPrint('Произошла ошибка при обновлении accessToken');
+      } else {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.remove('accessToken');
+        prefs.remove('refreshToken');
+        _saveToken(data["accessToken"]);
+        _saveRefreshToken(data["refreshToken"]);
+        debugPrint('Обновлен accessToken');
+      }
+    }
   }
 
   sendReview(String title, String review) async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'accessToken';
-    final value = prefs.getString(key) ?? '';
-    print('$value');
+    final accessTokenKey = 'accessToken';
+    final accessToken = prefs.getString(accessTokenKey) ?? '';
+    print('$accessToken');
     final idKey = '_id';
-    final idVal = prefs.getString(idKey) ?? '';
-    print(idVal);
+    final id = prefs.getString(idKey) ?? '';
+    print(id);
     String myUrl = "$serverUrl/api/feedback";
 
-    final response = await http.post(myUrl,
-        headers: {"Authorization": "$value"},
-        body: {"title": "$title", "text": "$review", "author": "$idVal"});
-    status = response.body.contains('error');
+    await http.post(myUrl,
+        headers: {"Authorization": "$accessToken"},
+        body: {"title": "$title", "text": "$review", "author": "$id"});
 
-    var data = json.decode(response.body);
-    print(data);
+    debugPrint('Пожелание было отправлено');
   }
 
   getAvatar() async {
     final prefs = await SharedPreferences.getInstance();
     final key = '_id';
-    final value = prefs.get(key) ?? '';
-    print(value);
+    final id = prefs.get(key) ?? '';
 
-    String myUrl = "$serverUrl/nginx/assets/images/avatars/$value.jpg";
+    String myUrl = "$serverUrl/nginx/assets/images/avatars/$id.jpg";
 
     _saveAvatar(myUrl);
-    print(myUrl);
+    debugPrint('Подгружена аватарка пользователя: $id');
   }
 
   getFiles() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
-    final value = prefs.get(key) ?? 0;
+    final accessToken = prefs.get(key) ?? 0;
     String myUrl = "$serverUrl/api/getFiles";
 
     final response =
-        await http.post(myUrl, headers: {"Authorization": "$value"});
+        await http.post(myUrl, headers: {"Authorization": "$accessToken"});
     status = response.body.contains('error');
 
     var data = json.decode(response.body);
@@ -97,12 +126,22 @@ class DatabaseHelper {
     prefs.remove("type");
     prefs.remove("email");
     prefs.remove("avatar");
+    prefs.remove("title");
+    prefs.remove("description");
+    debugPrint('Пользователь вышел с аккаунта');
   }
 
   _saveToken(String accessToken) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
     final value = accessToken;
+    prefs.setString(key, value);
+  }
+
+  _saveRefreshToken(String refreshToken) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'refreshToken';
+    final value = refreshToken;
     prefs.setString(key, value);
   }
 
@@ -150,42 +189,33 @@ class DatabaseHelper {
 }
 
 class QuizHelper {
+  DatabaseHelper databaseHelper = DatabaseHelper();
+  var data;
+
   getQuiz() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
-    final value = prefs.getString(key) ?? '';
+    final accessToken = prefs.getString(key) ?? '';
+
     String myUrl = "http://188.225.9.250/api/quizzes";
 
     final response =
-        await http.post(myUrl, headers: {"Authorization": "$value"});
+        await http.post(myUrl, headers: {"Authorization": "$accessToken"});
 
-    var data = json.decode(response.body);
+    data = json.decode(response.body);
 
-    _saveTitle(data["quizzes"][0]["title"]);
-    String description = data["quizzes"][0]["description"];
-    _saveQuestion(data["quizzes"][0]["questions"]["0"]["question"]);
-    bool answer = data["quizzes"][0]["questions"]["0"]["true"]["C"];
-    print(description);
-    print(answer);
+    if (response.statusCode != 200) {
+      databaseHelper.refreshToken();
+    } else {
+      _saveNumberOfQuizzes(data["quizzes"].length);
+      debugPrint('Тесты были успешно доставлены');
+    }
   }
 
-  clearQuiz() async  {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.remove("title");
-    prefs.remove("remove"); 
-  }
-
-  _saveTitle(String title) async {
+  _saveNumberOfQuizzes(int numberOfQuizzes) async {
     final prefs = await SharedPreferences.getInstance();
-    final key = 'title';
-    final value = title;
-    prefs.setString(key, value);
-  }
-
-  _saveQuestion(String question) async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'question';
-    final value = question;
-    prefs.setString(key, value);
+    final key = 'numberOfQuizzes';
+    final value = numberOfQuizzes;
+    prefs.setInt(key, value);
   }
 }

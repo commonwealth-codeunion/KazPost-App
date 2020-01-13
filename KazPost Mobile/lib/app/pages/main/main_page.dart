@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
-import 'package:kazpost/app/authorization/authorization_page.dart';
 import 'package:kazpost/app/pages/callback/call_back_page.dart';
 import 'package:kazpost/app/pages/courses/course_list.dart';
 import 'package:kazpost/app/pages/tests/test_list_page.dart';
@@ -205,12 +204,7 @@ class _MainPageState extends State<MainPage> {
               ),
               onTap: () {
                 databaseHelper.logOut();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AuthPage(),
-                  ),
-                );
+                Navigator.pushReplacementNamed(context, '/authpage');
               },
             ),
           ],
@@ -238,7 +232,7 @@ class _MainPageState extends State<MainPage> {
             title: Text(''),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people_outline),
+            icon: Icon(Icons.person),
             title: Text(''),
           ),
           BottomNavigationBarItem(

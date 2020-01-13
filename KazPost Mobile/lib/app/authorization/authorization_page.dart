@@ -67,14 +67,14 @@ class _AuthPageState extends State<AuthPage> {
           appBar: AppBar(
             elevation: 0,
             title: Container(
-                margin: const EdgeInsets.all(80.0),
-                child: CachedNetworkImage(
-                  imageUrl:
-                      'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
-                  errorWidget: (context, url, error) =>
-                      Icon(Icons.error_outline),
-                  placeholder: (context, url) => CircularProgressIndicator(),
-                )),
+              margin: const EdgeInsets.all(80.0),
+              child: CachedNetworkImage(
+                imageUrl:
+                    'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
+                errorWidget: (context, url, error) => Icon(Icons.error_outline),
+                placeholder: (context, url) => CircularProgressIndicator(),
+              ),
+            ),
           ),
           body: ListView(
             children: <Widget>[

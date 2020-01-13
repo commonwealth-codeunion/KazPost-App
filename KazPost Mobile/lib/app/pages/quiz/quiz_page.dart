@@ -270,7 +270,6 @@ class _QuizPageState extends State<QuizPage> {
                   height: 30.0,
                   onPressed: () {
                     resetQuiz();
-                    quizHelper.clearQuiz();
                   },
                   child: new Text(
                     'Выйти',
