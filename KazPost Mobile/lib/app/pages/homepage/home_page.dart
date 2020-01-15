@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kazpost/app/pages/nottray/foreground_notifications_page.dart';
-import 'package:percent_indicator/percent_indicator.dart';
-import '../courses/course_bookmark.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
 

@@ -74,16 +74,15 @@ flutter:
     - assets/img/eye.png
     - assets/img/calculator.png
     - assets/img/radioButton.png
-    - assets/img/email.svg
     - assets/img/call.svg
-    - assets/img/pad.svg
-    - assets/img/lock.svg
-    - assets/img/help.svg
-    - assets/img/language.svg
     - assets/img/monitoring.jpeg
     - assets/img/courses.jpeg
     - assets/img/ava.png
     - assets/img/certificates.png
+    - assets/img/faq.png
+    - assets/img/lang.png
+    - assets/img/lock.png
+    - assets/img/user.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

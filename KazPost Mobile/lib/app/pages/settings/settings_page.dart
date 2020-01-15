@@ -1,45 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
+import 'package:kazpost/app/authorization/authorization_bloc.dart';
+import 'package:kazpost/app/pages/settings/settings_page_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-final String email = './assets/img/email.svg';
-final String call = './assets/img/call.svg';
-final String help = './assets/img/help.svg';
-final String lang = './assets/img/language.svg';
-final String lock = './assets/img/lock.svg';
-final String pad = './assets/img/pad.svg';
-
-final Widget emailSvg = SvgPicture.asset(
-  email,
-  width: 25,
-  height: 25,
-);
-final Widget callSvg = SvgPicture.asset(
-  call,
-  width: 25,
-  height: 25,
-);
-final Widget helpSvg = SvgPicture.asset(
-  help,
-  width: 25,
-  height: 25,
-);
-final Widget langSvg = SvgPicture.asset(
-  lang,
-  width: 25,
-  height: 25,
-);
-final Widget lockSvg = SvgPicture.asset(
-  lock,
-  color: Colors.white,
-  width: 25,
-  height: 25,
-);
-final Widget padSvg = SvgPicture.asset(
-  pad,
-  width: 25,
-  height: 25,
-);
+final String faq = './assets/img/faq.png';
+final String lang = './assets/img/lang.png';
+final String lock = './assets/img/lock.png';
+final String user = './assets/img/user.png';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage({Key key}) : super(key: key);
@@ -49,227 +16,146 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  DatabaseHelper databaseHelper = new DatabaseHelper();
+
+  String avatar = '';
+  String name = '';
+  String type = '';
+
+  readAvatar() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'avatar';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        avatar = value;
+        print(avatar);
+      });
+    }
+  }
+
+  readName() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'name';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        name = value;
+      });
+    }
+  }
+
+  readType() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'type';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        type = value;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    readAvatar();
+    readName();
+    readType();
+    databaseHelper.getAvatar();
+    super.initState();
+  }
+
+  final int txtColor = 0xFF8465B7;
+
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 15,
-        ),
-        child: ListView(
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
+      backgroundColor: Color(0xFFF6F9FF),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Text(
+              'Настройки',
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          SizedBox(height: 20),
+          Center(
+            child: Column(
               children: <Widget>[
+                CircleAvatar(
+                  backgroundImage: NetworkImage('$avatar'),
+                  radius: 40,
+                ),
+                SizedBox(height: 15),
                 Text(
-                  'Настройки',
+                  '$name',
                   style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold),
+                    fontFamily: "Montserrat",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
+                SizedBox(height: 10),
                 Container(
-                  margin: EdgeInsets.symmetric(
-                    vertical: hp(1),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 8,
                   ),
-                  padding: const EdgeInsets.all(0),
-                  child: Divider(
-                    thickness: 2,
-                    color: Color(0xFFC0C0C0),
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE4E2F4),
+                    borderRadius: BorderRadius.circular(360),
+                  ),
+                  child: Text(
+                    "$type",
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.bold,
+                      color: Color(txtColor),
+                    ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    FlatButton.icon(
-                      padding: const EdgeInsets.all(0),
-                      onPressed: () {},
-                      icon: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: hp(2.5),
-                          horizontal: wp(5),
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFC57C62),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: emailSvg,
-                      ),
-                      label: Text(
-                        "Электронный адрес",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: hp(1),
-                      ),
-                      child: Divider(
-                        indent: 20,
-                        endIndent: 20,
-                        thickness: 2,
-                        color: Color(0xFFe3e3e3),
-                      ),
-                    ),
-                    FlatButton.icon(
-                      padding: const EdgeInsets.all(0),
-                      onPressed: () {},
-                      icon: Container(
-                          padding: EdgeInsets.symmetric(
-                            vertical: hp(2.5),
-                            horizontal: wp(5),
-                          ),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFF7C977),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: callSvg),
-                      label: Text(
-                        "Телефонный номер",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: hp(1),
-                      ),
-                      child: Divider(
-                        indent: 20,
-                        endIndent: 20,
-                        thickness: 2,
-                        color: Color(0xFFe3e3e3),
-                      ),
-                    ),
-                    FlatButton.icon(
-                      padding: const EdgeInsets.all(0),
-                      onPressed: () {},
-                      icon: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: hp(2.5),
-                          horizontal: wp(5),
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xFF004477),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: padSvg,
-                      ),
-                      label: Text(
-                        "Изменить пароль",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: hp(1),
-                      ),
-                      child: Divider(
-                        indent: 20,
-                        endIndent: 20,
-                        thickness: 2,
-                        color: Color(0xFFe3e3e3),
-                      ),
-                    ),
-                    FlatButton.icon(
-                      padding: const EdgeInsets.all(0),
-                      onPressed: () {},
-                      icon: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: hp(2.5),
-                          horizontal: wp(5),
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xFF7E89FD),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: lockSvg,
-                      ),
-                      label: Text(
-                        "Приватность",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: hp(1),
-                      ),
-                      child: Divider(
-                        indent: 20,
-                        endIndent: 20,
-                        thickness: 2,
-                        color: Color(0xFFe3e3e3),
-                      ),
-                    ),
-                    FlatButton.icon(
-                      padding: const EdgeInsets.all(0),
-                      onPressed: () {},
-                      icon: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: hp(2.5),
-                          horizontal: wp(5),
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFC57C62),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: langSvg,
-                      ),
-                      label: Text(
-                        "Язык",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: hp(1),
-                      ),
-                      child: Divider(
-                        indent: 20,
-                        endIndent: 20,
-                        thickness: 2,
-                        color: Color(0xFFe3e3e3),
-                      ),
-                    ),
-                    FlatButton.icon(
-                      padding: const EdgeInsets.all(0),
-                      onPressed: () {},
-                      icon: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: hp(2.5),
-                          horizontal: wp(5),
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF7C977),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: helpSvg,
-                      ),
-                      label: Text(
-                        "Поддержка",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: hp(1),
-                      ),
-                      child: Divider(
-                        indent: 20,
-                        endIndent: 20,
-                        thickness: 2,
-                        color: Color(0xFFe3e3e3),
-                      ),
-                    ),
-                  ],
-                ),
+                SizedBox(height: 20),
               ],
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 35,
+              ),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  SettingsWidget(user, 'Профиль', txtColor),
+                  SettingsWidget(lock, 'Безопасность', txtColor),
+                  SettingsWidget(lang, 'Язык приложения', txtColor),
+                  Divider(
+                    thickness: 1.5,
+                    color: Colors.black12,
+                  ),
+                  SettingsWidget(faq, 'Поддержка. FAQ', txtColor),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
