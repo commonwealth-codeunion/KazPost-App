@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'courses_page_widget.dart';
 
 class CoursePage extends StatelessWidget {
@@ -7,14 +6,14 @@ class CoursePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Column(
         children: <Widget>[
           Stack(
             children: <Widget>[
               Container(
-                height: hp(30),
+                height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -25,13 +24,18 @@ class CoursePage extends StatelessWidget {
                 ),
               ),
               Container(
-                height: hp(30),
+                height: 200,
                 decoration: BoxDecoration(
                   color: Color(0xFF0157A5).withOpacity(0.795),
                 ),
               ),
+              AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                iconTheme: IconThemeData(color: Colors.white),
+              ),
               Container(
-                height: hp(30),
+                height: 200,
                 alignment: Alignment.center,
                 child: Text(
                   'Курсы по мониторингу',
@@ -42,11 +46,6 @@ class CoursePage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-              ),
-              AppBar(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                iconTheme: IconThemeData(color: Colors.white),
               ),
             ],
           ),
@@ -67,8 +66,9 @@ class CoursePage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: hp(23),
+                  height: 170,
                   child: PageView(
+                    pageSnapping: false,
                     controller: PageController(
                       viewportFraction: 0.55,
                     ),
@@ -90,8 +90,9 @@ class CoursePage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: hp(23),
+                  height: 170,
                   child: PageView(
+                    pageSnapping: false,
                     controller: PageController(
                       viewportFraction: 0.55,
                     ),

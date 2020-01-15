@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class CourseWidget extends StatelessWidget {
   const CourseWidget({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return FlatButton(
       onPressed: () {},
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
             padding: EdgeInsets.zero,
-            height: hp(14),
-            width: wp(55),
+            height: 100,
+            width: 230,
             decoration: BoxDecoration(
               color: Colors.black,
               boxShadow: [
@@ -43,15 +40,14 @@ class CourseWidget extends StatelessWidget {
               icon: Icon(
                 Icons.bookmark,
                 color: Colors.white,
-                size: 35,
+                size: 30,
               ),
               alignment: Alignment.topRight,
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(vertical: hp(3), horizontal: wp(3)),
-            height: hp(16),
-            width: wp(55),
+            width: 230,
+            padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -78,16 +74,21 @@ class CourseWidget extends StatelessWidget {
                   'Мониторинг',
                   style: TextStyle(
                     color: Color(0xFF0157A5),
+                    fontSize: 13,
                   ),
                 ),
                 Text(
                   'Курсы по мониторингу',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17,
+                  ),
                 ),
                 Text(
                   '11 глав',
                   style: TextStyle(
                     color: Colors.black26,
+                    fontSize: 15,
                   ),
                 ),
               ],

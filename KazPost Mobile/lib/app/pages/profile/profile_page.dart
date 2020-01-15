@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import 'package:kazpost/app/pages/certificates/certificates_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -61,8 +60,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
@@ -74,10 +71,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: <Widget>[
                   Container(
                     color: Color(0xFF0157A5),
-                    height: hp(25),
+                    height: 150,
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: hp(16)),
+                    margin: EdgeInsets.only(top: 75),
                     alignment: Alignment.center,
                     child: Stack(
                       children: <Widget>[
@@ -125,10 +122,10 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               SizedBox(height: 30),
               Container(
-                padding: EdgeInsets.only(
-                  bottom: hp(3),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 15,
                 ),
-                width: wp(85),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
@@ -155,7 +152,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontSize: 22,
                       ),
                     ),
-                    SizedBox(height: hp(2)),
+                    SizedBox(height: 10),
                     Text(
                       'Раб. АО "КазПочта"',
                       style: TextStyle(
@@ -163,16 +160,16 @@ class _ProfilePageState extends State<ProfilePage> {
                         fontSize: 13,
                       ),
                     ),
-                    SizedBox(height: hp(2)),
+                    SizedBox(height: 10),
                     Text(
                       "$type",
                       style: TextStyle(fontSize: 24),
                     ),
-                    SizedBox(height: hp(5)),
+                    SizedBox(height: 10),
                     FlatButton(
                       padding: EdgeInsets.symmetric(
-                        horizontal: wp(9),
-                        vertical: hp(2),
+                        horizontal: 25,
+                        vertical: 15,
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -196,7 +193,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               SizedBox(
-                height: hp(5),
+                height: 10,
               ),
               DefaultTabController(
                 length: 3,

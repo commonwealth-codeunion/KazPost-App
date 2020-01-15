@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class CoursePageWidget extends StatelessWidget {
   final String title;
@@ -8,8 +7,6 @@ class CoursePageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return FlatButton(
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
@@ -20,8 +17,8 @@ class CoursePageWidget extends StatelessWidget {
           Stack(
             children: <Widget>[
               Container(
-                height: hp(19),
-                width: wp(40),
+                height: 140,
+                width: 160,
                 foregroundDecoration: BoxDecoration(
                   color: Colors.black54,
                   borderRadius: BorderRadius.only(
@@ -53,14 +50,14 @@ class CoursePageWidget extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: hp(9),
+            bottom: 0,
             child: Container(
               padding: EdgeInsets.symmetric(
-                horizontal: wp(4),
-                vertical: hp(2),
+                horizontal: 20,
+                vertical: 10,
               ),
-              height: hp(10),
-              width: wp(40),
+              height: 70,
+              width: 160,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -86,8 +83,8 @@ class CoursePageWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: hp(6.5),
-            left: wp(25),
+            right: 15,
+            top: 55,
             child: Container(
               width: 35,
               height: 35,

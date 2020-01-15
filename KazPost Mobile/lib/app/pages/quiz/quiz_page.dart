@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -64,15 +63,13 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
         body: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: wp(5),
-            vertical: hp(5),
+            horizontal: 20,
+            vertical: 15,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -86,12 +83,12 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ],
               ),
-              SizedBox(height: hp(1)),
+              SizedBox(height: 5),
               Divider(
                 thickness: 3,
                 color: Colors.black26,
               ),
-              SizedBox(height: hp(1)),
+              SizedBox(height: 5),
               Text(
                 "$question",
                 style: TextStyle(
@@ -100,15 +97,15 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               SizedBox(
-                height: hp(10),
+                height: 10,
               ),
               new Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   new OutlineButton(
                     padding: EdgeInsets.symmetric(
-                      horizontal: wp(2),
-                      vertical: hp(1),
+                      horizontal: 10,
+                      vertical: 5,
                     ),
                     color: Color(0xFF0157A5),
                     shape: RoundedRectangleBorder(
@@ -136,18 +133,18 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                         new Image(
                           image: AssetImage('assets/img/radioButton.png'),
-                          height: hp(3.5),
+                          height: 10,
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: hp(2),
+                    height: 10,
                   ),
                   new OutlineButton(
                     padding: EdgeInsets.symmetric(
-                      horizontal: wp(2),
-                      vertical: hp(1),
+                      horizontal: 10,
+                      vertical: 5,
                     ),
                     color: Color(0xFF0157A5),
                     shape: RoundedRectangleBorder(
@@ -175,18 +172,18 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                         new Image(
                           image: AssetImage('assets/img/radioButton.png'),
-                          height: hp(3.5),
+                          height: (3.5),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: hp(2),
+                    height: (2),
                   ),
                   new OutlineButton(
                     padding: EdgeInsets.symmetric(
-                      horizontal: wp(2),
-                      vertical: hp(1),
+                      horizontal: (2),
+                      vertical: (1),
                     ),
                     color: Color(0xFF0157A5),
                     shape: RoundedRectangleBorder(
@@ -214,18 +211,18 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                         new Image(
                           image: AssetImage('assets/img/radioButton.png'),
-                          height: hp(3.5),
+                          height: (3.5),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: hp(2),
+                    height: (2),
                   ),
                   new OutlineButton(
                     padding: EdgeInsets.symmetric(
-                      horizontal: wp(2),
-                      vertical: hp(1),
+                      horizontal: (2),
+                      vertical: (1),
                     ),
                     color: Color(0xFF0157A5),
                     shape: RoundedRectangleBorder(
@@ -253,7 +250,7 @@ class _QuizPageState extends State<QuizPage> {
                         ),
                         new Image(
                           image: AssetImage('assets/img/radioButton.png'),
-                          height: hp(3.5),
+                          height: (3.5),
                         ),
                       ],
                     ),
@@ -261,7 +258,7 @@ class _QuizPageState extends State<QuizPage> {
                 ],
               ),
               SizedBox(
-                height: hp(2),
+                height: 10,
               ),
               Container(
                 alignment: Alignment.bottomCenter,

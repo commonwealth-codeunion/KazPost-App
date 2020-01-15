@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class CallBackPage extends StatefulWidget {
   CallBackPage({Key key}) : super(key: key);
@@ -25,7 +24,6 @@ class _CallBackPageState extends State<CallBackPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -41,9 +39,7 @@ class _CallBackPageState extends State<CallBackPage> {
                   fontSize: 26,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(
-              height: hp(2),
-            ),
+            SizedBox(height: 15),
             Form(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -66,7 +62,7 @@ class _CallBackPageState extends State<CallBackPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: hp(2)),
+                  SizedBox(height: 15),
                   TextField(
                     maxLines: 5,
                     controller: _reviewController,
@@ -86,15 +82,10 @@ class _CallBackPageState extends State<CallBackPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: hp(2),
-                  ),
-                  SizedBox(
-                    height: hp(2),
-                  ),
+                  SizedBox(height: 7.5),
                   RaisedButton(
                     padding: EdgeInsets.symmetric(
-                      vertical: hp(2),
+                      vertical: 2,
                     ),
                     onPressed: () {
                       _onPressed();
@@ -117,24 +108,25 @@ class _CallBackPageState extends State<CallBackPage> {
 
   void _showDialog() {
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: new Text('Успешно'),
-            content: new Text(
-                'Мы рассмотрим ваше сообщение в течении ближайшего времени.'),
-            actions: <Widget>[
-              new RaisedButton(
-                child: new Text(
-                  'Закрыть',
-                ),
-                color: Color(0xFF0157A5),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text('Успешно'),
+          content: new Text(
+              'Мы рассмотрим ваше сообщение в течении ближайшего времени.'),
+          actions: <Widget>[
+            new RaisedButton(
+              child: new Text(
+                'Закрыть',
               ),
-            ],
-          );
-        });
+              color: Color(0xFF0157A5),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

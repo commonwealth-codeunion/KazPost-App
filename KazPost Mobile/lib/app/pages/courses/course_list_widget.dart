@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:kazpost/app/pages/courses/courses_page.dart';
 
 class CourseListWidget extends StatelessWidget {
@@ -9,8 +8,6 @@ class CourseListWidget extends StatelessWidget {
   const CourseListWidget(this.title, this.count, this.icon);
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Container(
       decoration: BoxDecoration(
         color: Colors.transparent,
@@ -37,8 +34,8 @@ class CourseListWidget extends StatelessWidget {
           },
           child: Container(
             padding: EdgeInsets.symmetric(
-              horizontal: wp(8),
-              vertical: hp(4),
+              horizontal: 40,
+              vertical: 20,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -50,7 +47,7 @@ class CourseListWidget extends StatelessWidget {
                       color: Color(0xFF0157A5),
                       width: 25,
                     ),
-                    SizedBox(width: wp(5)),
+                    SizedBox(width: 22),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -63,7 +60,7 @@ class CourseListWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: hp(2)),
+                SizedBox(height: 10),
                 Text(
                   "Продолжить учиться",
                   style: TextStyle(

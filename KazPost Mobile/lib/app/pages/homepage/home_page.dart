@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:kazpost/app/pages/nottray/foreground_notifications_page.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import '../courses/course_bookmark.dart';
@@ -33,8 +32,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       backgroundColor: Colors.white,
       body: LiquidPullToRefresh(
@@ -47,11 +44,11 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
+                vertical: 20,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  SizedBox(height: hp(2)),
                   RaisedButton(
                     onPressed: () {
                       quizHelper.getQuiz();
@@ -61,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     padding: EdgeInsets.symmetric(
-                      vertical: hp(2),
+                      vertical: 10,
                     ),
                     color: Color(0xFFEC4B4B),
                     textColor: Colors.white,
@@ -77,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: hp(2),
+                    height: 10,
                   ),
                   Center(
                     child: Column(
@@ -91,12 +88,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: hp(2),
+                    height: 10,
                   ),
                   OutlineButton.icon(
                     padding: EdgeInsets.symmetric(
-                      horizontal: hp(1),
-                      vertical: wp(1),
+                      horizontal: 10,
+                      vertical: 5,
                     ),
                     label: Expanded(
                       child: Text(
@@ -109,12 +106,12 @@ class _HomePageState extends State<HomePage> {
                     icon: Container(
                       decoration: BoxDecoration(
                         color: Color(0xFF0157A5),
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          vertical: hp(1),
-                          horizontal: wp(2),
+                          vertical: 5,
+                          horizontal: 5,
                         ),
                         child: Icon(
                           Icons.search,
@@ -132,206 +129,6 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                   ),
-                  SizedBox(
-                    height: hp(2),
-                  ),
-                  Text(
-                    'ОБУЧЕНИЕ',
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22),
-                  ),
-                  SizedBox(
-                    height: hp(2),
-                  ),
-                  Container(
-                    height: hp(32),
-                    child: PageView(
-                      controller: PageController(
-                        viewportFraction: 0.67,
-                      ),
-                      physics: BouncingScrollPhysics(),
-                      children: <Widget>[
-                        CourseWidget(),
-                        CourseWidget(),
-                        CourseWidget(),
-                        CourseWidget(),
-                      ],
-                    ),
-                  ),
-                  Divider(
-                    thickness: 2,
-                    color: Color(0xFFC0C0C0),
-                  ),
-                  SizedBox(
-                    height: hp(2),
-                  ),
-                  Text(
-                    'МАТЕРИАЛЫ',
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22),
-                  ),
-                  SizedBox(
-                    height: hp(2),
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: wp(4),
-                              vertical: hp(2),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFC57C62),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Image(
-                              image: AssetImage('./assets/img/eye.png'),
-                              height: hp(4),
-                              width: wp(8),
-                            ),
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Text('Мониторинг'),
-                              SizedBox(
-                                height: hp(1),
-                              ),
-                              LinearPercentIndicator(
-                                width: wp(17),
-                                lineHeight: hp(1),
-                                percent: 0.2,
-                                backgroundColor: Colors.grey,
-                                progressColor: Colors.blue,
-                              ),
-                            ],
-                          ),
-                          IconButton(
-                            onPressed: null,
-                            icon: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Color(0xFF0157A5),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: hp(1),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: wp(4),
-                              vertical: hp(2),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFC57C62),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Image(
-                              image: AssetImage('./assets/img/eye.png'),
-                              height: hp(4),
-                              width: wp(8),
-                            ),
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Text('Учет и аудит'),
-                              SizedBox(
-                                height: hp(1),
-                              ),
-                              LinearPercentIndicator(
-                                width: wp(17),
-                                lineHeight: hp(1),
-                                percent: 0.2,
-                                backgroundColor: Colors.grey,
-                                progressColor: Colors.blue,
-                              ),
-                            ],
-                          ),
-                          IconButton(
-                            onPressed: null,
-                            icon: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Color(0xFF0157A5),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: hp(1),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: wp(4),
-                              vertical: hp(2),
-                            ),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFC57C62),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Image(
-                              image: AssetImage('./assets/img/eye.png'),
-                              height: hp(4),
-                              width: wp(8),
-                            ),
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Text('Связь'),
-                              SizedBox(
-                                height: hp(1),
-                              ),
-                              LinearPercentIndicator(
-                                width: wp(17),
-                                lineHeight: hp(1),
-                                percent: 0.2,
-                                backgroundColor: Colors.grey,
-                                progressColor: Colors.blue,
-                              ),
-                            ],
-                          ),
-                          IconButton(
-                            onPressed: null,
-                            icon: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Color(0xFF0157A5),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: hp(2),
-                  ),
-                  OutlineButton(
-                    padding: EdgeInsets.symmetric(vertical: hp(2)),
-                    onPressed: () {
-                      quizHelper.getQuiz();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ForegroundNotification()));
-                    },
-                    child: Text('Больше материалов..'),
-                    textColor: Color(0xFF0157A5),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      side: BorderSide(
-                        color: Color(0xFF0157A5),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: hp(2)),
                 ],
               ),
             ),

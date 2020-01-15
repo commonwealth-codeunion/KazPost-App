@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
 class Certificates extends StatefulWidget {
   Certificates({Key key}) : super(key: key);
@@ -11,9 +10,6 @@ class Certificates extends StatefulWidget {
 class CertificatesState extends State<Certificates> {
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
-
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
@@ -24,9 +20,7 @@ class CertificatesState extends State<Certificates> {
         padding: const EdgeInsets.all(0),
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 15,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: <Widget>[
                 Row(
@@ -41,15 +35,18 @@ class CertificatesState extends State<Certificates> {
                       ),
                     ),
                     Container(
-                      width: wp(10),
-                      height: hp(5),
+                      width: 40,
+                      height: 40,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(10),
                           color: Color(0xFFC57C62)),
                       child: Center(
                         child: Text(
                           '3',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                          ),
                         ),
                       ),
                     ),
