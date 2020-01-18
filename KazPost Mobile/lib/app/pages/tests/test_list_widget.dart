@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:kazpost/app/pages/courses/courses_page.dart';
+import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 
-class CourseListWidget extends StatelessWidget {
+class TestListWidget extends StatelessWidget {
   final String title;
-  final int count;
   final String icon;
-  const CourseListWidget(this.title, this.count, this.icon);
+  const TestListWidget(this.title, this.icon);
   @override
   Widget build(BuildContext context) {
+    final Function wp = Screen(MediaQuery.of(context).size).wp;
+    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Container(
       decoration: BoxDecoration(
         color: Colors.transparent,
@@ -24,18 +25,11 @@ class CourseListWidget extends StatelessWidget {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(15),
-          onTap: () {
-            Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CoursePage(),
-                  ),
-                );
-          },
+          onTap: () {},
           child: Container(
             padding: EdgeInsets.symmetric(
-              horizontal: 40,
-              vertical: 20,
+              horizontal: wp(8),
+              vertical: hp(4),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -47,20 +41,14 @@ class CourseListWidget extends StatelessWidget {
                       color: Color(0xFF0157A5),
                       width: 25,
                     ),
-                    SizedBox(width: 22),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          title,
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        Text("$count глав")
-                      ],
+                    SizedBox(width: wp(5)),
+                    Text(
+                      title,
+                      style: TextStyle(fontSize: 17),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: hp(2)),
                 Text(
                   "Продолжить учиться",
                   style: TextStyle(

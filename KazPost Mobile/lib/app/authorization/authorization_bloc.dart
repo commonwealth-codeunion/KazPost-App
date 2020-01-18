@@ -9,12 +9,11 @@ class DatabaseHelper {
   var status;
 
   var data;
-  var filesBody;
 
   var accessToken;
   var href;
 
-  Future loginData(String email, String password) async {
+  loginData(String email, String password) async {
     String myUrl = "$serverUrl/api/login";
     final response = await http
         .post(myUrl, body: {"email": "$email", "password": "$password"});
@@ -105,15 +104,16 @@ class DatabaseHelper {
     final response =
         await http.post(myUrl, headers: {"Authorization": "$accessToken"});
     status = response.body.contains('error');
-    filesBody = json.decode(response.body);
 
-    print(filesBody);
+    var data = json.decode(response.body);
+
+    print(data);
 
     if (status) {
-        refreshToken();
-      print('filesBody : ${data["error"]}');
+      print('data : ${data["error"]}');
     } else {
-      getAvatar();
+      print(data.latestFiles[0]["href"]);
+      _saveHref(data.latestFiles[0]["href"]);
     }
   }
 
@@ -159,6 +159,13 @@ class DatabaseHelper {
     prefs.setString(key, value);
   }
 
+  _saveHref(String href) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'href';
+    final value = href;
+    prefs.setString(key, value);
+  }
+
   _saveType(String type) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'type';
@@ -185,7 +192,7 @@ class QuizHelper {
   DatabaseHelper databaseHelper = DatabaseHelper();
   var data;
 
-  Future getQuiz() async {
+  getQuiz() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
     final accessToken = prefs.getString(key) ?? '';
@@ -202,11 +209,10 @@ class QuizHelper {
     } else {
       _saveNumberOfQuizzes(data["quizzes"].length);
       debugPrint('Тесты были успешно доставлены');
-      databaseHelper.getAvatar();
     }
   }
 
-  Future _saveNumberOfQuizzes(int numberOfQuizzes) async {
+  _saveNumberOfQuizzes(int numberOfQuizzes) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'numberOfQuizzes';
     final value = numberOfQuizzes;

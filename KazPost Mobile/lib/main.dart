@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
             labelColor: Colors.black,
             unselectedLabelColor: Color(0xFFCFCFCF),
           ),
+          scaffoldBackgroundColor: Colors.white,
           fontFamily: 'Roboto',
         ),
         routes: <String, WidgetBuilder>{

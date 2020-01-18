@@ -26,7 +26,7 @@ class _TestListPageState extends State<TestListPage> {
   String icon = './assets/img/eye.png';
 
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     var futureBuilder = new FutureBuilder(
       future: _getData(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -151,7 +151,7 @@ class _TestListPageState extends State<TestListPage> {
                                     ),
                                     TextSpan(
                                       text:
-                                          '${quizHelper.data["quizzes"][index]["description"]}',
+                                          '${quizHelper.data["quizzes"][index]["description"]}}',
                                       style: TextStyle(
                                           color: Color(0xFFC0C0C0),
                                           fontSize: 15),

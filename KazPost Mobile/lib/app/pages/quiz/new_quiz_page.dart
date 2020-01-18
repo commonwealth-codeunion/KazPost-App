@@ -1,22 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
+import 'package:kazpost/app/pages/tests/test_list_page.dart';
 
 class NewQuizPage extends StatefulWidget {
-  NewQuizPage({Key key, @required this.i}) : super(key: key);
-
   final int i;
 
+  NewQuizPage({Key key, @required this.i}) : super(key: key);
+
   @override
-  _NewQuizPageState createState() => _NewQuizPageState(this.i);
+  NewQuizPageState createState() => NewQuizPageState(this.i);
 }
 
 int questionNumber = 0;
-int score = 0;
 
-class _NewQuizPageState extends State<NewQuizPage> {
+class NewQuizPageState extends State<NewQuizPage> {
   QuizHelper quizHelper = QuizHelper();
-  _NewQuizPageState(this.i);
+  NewQuizPageState(this.i);
   int i;
 
   Future _getData() async {
@@ -25,7 +25,7 @@ class _NewQuizPageState extends State<NewQuizPage> {
     await new Future.delayed(new Duration(seconds: 3));
   }
 
-  updateQuestion() {
+  updateQuiz() {
     setState(() {
       if (questionNumber ==
           quizHelper.data["quizzes"][i]["questions"].length - 1) {
@@ -72,11 +72,8 @@ class _NewQuizPageState extends State<NewQuizPage> {
         }
       },
     );
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Scaffold(
-        body: futureBuilder,
-      ),
+    return Scaffold(
+      body: futureBuilder,
     );
   }
 
@@ -105,7 +102,7 @@ class _NewQuizPageState extends State<NewQuizPage> {
           Divider(height: 2, thickness: 2),
           SizedBox(height: 20),
           Text(
-            '${quizHelper.data["quizzes"][i]["questions"]["$questionNumber"]["question"]}?',
+            '${quizHelper.data["quizzes"][i]["questions"]["$questionNumber"]["question"]}',
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 30),
@@ -120,9 +117,9 @@ class _NewQuizPageState extends State<NewQuizPage> {
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
                   itemCount: quizHelper
-                      .data["quizzes"][i]["questions"]["$questionNumber"]
-                          ["answers"]
-                      .length,
+                          .data["quizzes"][i]["questions"]["$questionNumber"]
+                          .length -
+                      2,
                   itemBuilder: (BuildContext context, index) {
                     return Column(
                       children: <Widget>[
@@ -133,24 +130,16 @@ class _NewQuizPageState extends State<NewQuizPage> {
                         ),
                         ListTile(
                           onTap: () {
-                            if (quizHelper.data["quizzes"][i]["questions"]
-                                        ["$questionNumber"]["true"]
-                                    .indexOf(index) !=
-                                -1) {
-                              print("Правильный ответ");
-                              score++;
-                              print(score);
-                            } else {
-                              print("Не правильно");
-                            }
-                            updateQuestion();
+                            updateQuiz();
+                            print(
+                                '${quizHelper.data["quizzes"][i]["questions"]["$questionNumber"]["true"]["C"]}');
                           },
                           leading: Image.asset(
                             'assets/img/radioButton.png',
                             height: 20,
                           ),
                           title: Text(
-                            '${quizHelper.data["quizzes"][i]["questions"]["$questionNumber"]["answers"][index]}',
+                            '${quizHelper.data["quizzes"][i]["questions"]["$questionNumber"]["B"]}',
                             style: TextStyle(fontSize: 20),
                           ),
                         ),
@@ -179,7 +168,7 @@ class Summary extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 new Text(
-                  "Правильных: $score",
+                  "Правильных: ",
                   style: TextStyle(
                     fontSize: 25,
                   ),
@@ -189,8 +178,8 @@ class Summary extends StatelessWidget {
                   color: Colors.blue,
                   onPressed: () {
                     questionNumber = 0;
-                    score = 0;
-                    Navigator.popAndPushNamed(context, '/mainpage');
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => TestListPage()));
                   },
                   child: new Text(
                     "Выйти",
