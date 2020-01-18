@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
-import 'package:kazpost/app/pages/settings/settings_page_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:kazpost/app/pages/settings/pages/profile_settings.dart';
+import 'package:kazpost/app/pages/settings/pages/security_settings.dart';
+import 'package:kazpost/app/pages/settings/pages/faq_settings.dart';
 
 final String faq = './assets/img/faq.png';
 final String lang = './assets/img/lang.png';
@@ -143,14 +145,143 @@ class _SettingsPageState extends State<SettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  SettingsWidget(user, 'Профиль', txtColor),
-                  SettingsWidget(lock, 'Безопасность', txtColor),
-                  SettingsWidget(lang, 'Язык приложения', txtColor),
+                  // Профиль
+                  ListTile(
+                    contentPadding: const EdgeInsets.all(0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileSettings()),
+                      );
+                    },
+                    leading: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color(0xFF0157A5),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Image.asset(
+                        user,
+                        height: 25,
+                        width: 25,
+                      ),
+                    ),
+                    title: Text(
+                      "Профиль",
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Color(txtColor),
+                      ),
+                    ),
+                  ),
+                  // Профиль
+
+                  // Безопасность
+                  ListTile(
+                    contentPadding: const EdgeInsets.all(0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SecuritySettings()),
+                      );
+                    },
+                    leading: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color(0xFF0157A5),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Image.asset(
+                        lock,
+                        height: 25,
+                        width: 25,
+                      ),
+                    ),
+                    title: Text(
+                      "Безопасность",
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Color(txtColor),
+                      ),
+                    ),
+                  ),
+                  // Безопасность
+
+                  // Язак приложения
+                  ListTile(
+                    contentPadding: const EdgeInsets.all(0),
+                    onTap: () {},
+                    leading: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color(0xFF0157A5),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Image.asset(
+                        lang,
+                        height: 25,
+                        width: 25,
+                      ),
+                    ),
+                    title: Text(
+                      "Язык приложения",
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Color(txtColor),
+                      ),
+                    ),
+                  ),
+                  // Язык приложения
+
                   Divider(
                     thickness: 1.5,
                     color: Colors.black12,
                   ),
-                  SettingsWidget(faq, 'Поддержка. FAQ', txtColor),
+
+                  // FAQ
+                  ListTile(
+                    contentPadding: const EdgeInsets.all(0),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FaqSettings()),
+                      );
+                    },
+                    leading: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color(0xFF0157A5),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Image.asset(
+                        faq,
+                        height: 25,
+                        width: 25,
+                      ),
+                    ),
+                    title: Text(
+                      "Поддержка. FAQ",
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Color(txtColor),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
