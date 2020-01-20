@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:kazpost/app/pages/quiz/quiz_page.dart';
+import 'package:kazpost/app/pages/tests/test_list_page.dart';
 
 class TestPage extends StatefulWidget {
   TestPage({Key key}) : super(key: key);
@@ -114,7 +114,7 @@ class _TestPageState extends State<TestPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => QuizPage(),
+                                    builder: (context) => TestListPage(),
                                   ),
                                 );
                               },
@@ -201,7 +201,7 @@ class _TestPageState extends State<TestPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => QuizPage()));
+                                        builder: (context) => TestListPage()));
                               },
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25),

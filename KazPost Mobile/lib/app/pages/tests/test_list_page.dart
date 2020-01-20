@@ -151,7 +151,7 @@ class _TestListPageState extends State<TestListPage> {
                                     ),
                                     TextSpan(
                                       text:
-                                          '${quizHelper.data["quizzes"][index]["description"]}}',
+                                          '${quizHelper.data["quizzes"][index]["description"]}',
                                       style: TextStyle(
                                           color: Color(0xFFC0C0C0),
                                           fontSize: 15),

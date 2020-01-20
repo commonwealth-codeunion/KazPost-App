@@ -28,7 +28,7 @@ class _MethodicsPageState extends State<MethodicsPage> {
           ),
         ],
       ),
-      path: '${databaseHelper.filesBody["latestFiles"][1]["href"]}',
+      path: '${databaseHelper.filesBody["latestFiles"][i]["href"]}',
     );
   }
 }

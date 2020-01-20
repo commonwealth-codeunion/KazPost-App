@@ -1,9 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:kazpost/app/pages/settings/pages/profile_settings.dart';
 import 'package:kazpost/app/pages/settings/pages/security_settings.dart';
-import 'package:kazpost/app/pages/settings/pages/faq_settings.dart';
 
 final String faq = './assets/img/faq.png';
 final String lang = './assets/img/lang.png';
@@ -145,13 +145,12 @@ class _SettingsPageState extends State<SettingsPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  // Профиль
                   ListTile(
                     contentPadding: const EdgeInsets.all(0),
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        CupertinoPageRoute(
                             builder: (context) => ProfileSettings()),
                       );
                     },
@@ -186,7 +185,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        CupertinoPageRoute(
                             builder: (context) => SecuritySettings()),
                       );
                     },
@@ -253,11 +252,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   ListTile(
                     contentPadding: const EdgeInsets.all(0),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => FaqSettings()),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //       builder: (context) => FaqSettings()),
+                      // );
                     },
                     leading: Container(
                       padding: EdgeInsets.symmetric(
@@ -290,4 +289,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
     );
   }
+}
+
+class FaqSettings {
 }

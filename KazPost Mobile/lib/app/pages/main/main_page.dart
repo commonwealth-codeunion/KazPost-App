@@ -106,7 +106,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Color(0xFF0157A5)),
-        elevation: 0,
+        elevation: 4,
         actions: <Widget>[
           IconButton(
             icon: Icon(
