@@ -50,16 +50,13 @@ class _FaqSettingsState extends State<FaqSettings>
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: TabBarView(
-          controller: _tabController,
-          children: <Widget>[
-            FirstView(),
-            Icon(Icons.enhanced_encryption),
-            Icon(Icons.equalizer),
-          ],
-        ),
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          FirstView(),
+          Icon(Icons.enhanced_encryption),
+          Icon(Icons.equalizer),
+        ],
       ),
     );
   }

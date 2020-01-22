@@ -4,7 +4,7 @@ import 'dart:convert' show json;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DatabaseHelper {
-  QuizHelper quizHelper = QuizHelper();
+  // QuizHelper quizHelper = QuizHelper();
 
   String serverUrl = "http://188.225.9.250";
   String name = '';
@@ -35,7 +35,6 @@ class DatabaseHelper {
       _saveEmail(data["user"]["email"]);
       getAvatar();
       getFiles();
-      quizHelper.getQuiz();
 
       debugPrint('Авторизация пользователя произведена успешно');
     }
