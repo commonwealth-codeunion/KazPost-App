@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/pages/methodics/methodics_page.dart';
-import 'package:kazpost/app/pages/nottray/foreground_notifications_page.dart';
 import 'package:kazpost/app/pages/tests/test_list_page.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
