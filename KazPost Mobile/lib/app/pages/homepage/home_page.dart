@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
         onRefresh: () async {
           setState(() {
             quizHelper.getQuiz();
-            build(context);
+            filesManager.filesList;
           });
         },
         showChildOpacityTransition: false,
@@ -199,43 +199,61 @@ class _HomePageState extends State<HomePage> {
                     stream: filesManager.filesList,
                     builder:
                         (BuildContext context, AsyncSnapshot<List> snapshot) {
-                      switch (snapshot.connectionState) {
-                        case ConnectionState.none:
-                        case ConnectionState.waiting:
-                        case ConnectionState.active:
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        case ConnectionState.done:
-                          return ListView.builder(
-                            itemCount: collection["latestFiles"].length,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            physics: BouncingScrollPhysics(),
-                            itemBuilder: (BuildContext context, int index) {
-                              return Container(
-                                padding: const EdgeInsets.only(bottom: 10),
-                                child: Card(
-                                  elevation: 2,
-                                  child: ListTile(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          CupertinoPageRoute(
-                                              builder: (context) =>
-                                                  MethodicsPage(i: index)));
-                                    },
-                                    leading: Image.asset('assets/img/pdf.png',
-                                        width: 40),
-                                    title: Text('${collection["latestFiles"][index]["title"]}'),
-                                    subtitle: Text(
-                                      '${collection["latestFiles"][index]["description"]}',
+                      if (snapshot.hasError) {
+                        return Card(
+                          elevation: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              'Error: Нет доступа к интернету',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.deepOrange,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        );
+                      } else {
+                        switch (snapshot.connectionState) {
+                          case ConnectionState.none:
+                          case ConnectionState.waiting:
+                          case ConnectionState.active:
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          case ConnectionState.done:
+                            return ListView.builder(
+                              itemCount: collection["latestFiles"].length,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              physics: BouncingScrollPhysics(),
+                              itemBuilder: (BuildContext context, int index) {
+                                return Container(
+                                  padding: const EdgeInsets.only(bottom: 10),
+                                  child: Card(
+                                    elevation: 2,
+                                    child: ListTile(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            CupertinoPageRoute(
+                                                builder: (context) =>
+                                                    MethodicsPage(i: index)));
+                                      },
+                                      leading: Image.asset('assets/img/pdf.png',
+                                          width: 40),
+                                      title: Text(
+                                          '${collection["latestFiles"][index]["title"]}'),
+                                      subtitle: Text(
+                                        '${collection["latestFiles"][index]["description"]}',
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            },
-                          );
+                                );
+                              },
+                            );
+                        }
                       }
                     },
                   ),
