@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
+import 'package:kazpost/app/pages/quiz/quiz_page.dart';
 import 'package:kazpost/app/pages/tests/test_list_page.dart';
 
 class NewQuizPage extends StatefulWidget {
@@ -30,8 +31,33 @@ class _NewQuizPageState extends State<NewQuizPage> {
     setState(() {
       if (questionNumber ==
           quizHelper.data["quizzes"][i]["questions"].length - 1) {
-        Navigator.push(
-            context, new MaterialPageRoute(builder: (context) => Summary()));
+        if (score >= quizHelper.data["quizzes"][i]["questions"].length / 2) {
+          Navigator.pushReplacement(
+            context,
+            new MaterialPageRoute(
+              builder: (context) => Summary(
+                0xFF0157A5,
+                0xFF77B9F7,
+                "ОТЛИЧНО!",
+                "Успехов!",
+                Icons.beenhere,
+              ),
+            ),
+          );
+        } else {
+          Navigator.pushReplacement(
+            context,
+            new MaterialPageRoute(
+              builder: (context) => Summary(
+                0xFFB93D35,
+                0xFFFF7043,
+                "ПЛОХО!",
+                "Обучайтесь лучше",
+                Icons.warning,
+              ),
+            ),
+          );
+        }
         print('последний вопрос: $questionNumber');
       } else {
         questionNumber++;
@@ -169,38 +195,156 @@ class _NewQuizPageState extends State<NewQuizPage> {
 }
 
 class Summary extends StatelessWidget {
+  Summary(this.colorOne, this.colorTwo, this.mark, this.sub, this.icon);
+  final int colorOne; // первый цвет градиента
+  final int colorTwo; // второй цвет градиента
+  final String mark; // оценка: плохо или хорошо
+  final String sub; // рекомандации под оценкой(которые серым текстом)
+  final IconData icon; // иконка слево от оценки
   @override
   Widget build(BuildContext context) {
     return new WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        body: Center(
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                new Text(
-                  "Правильных: $score",
-                  style: TextStyle(
-                    fontSize: 25,
-                  ),
+        resizeToAvoidBottomPadding: false,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 25, left: 25, right: 25),
+              child: Text(
+                "Ваши\nрезультаты",
+                style: TextStyle(
+                  fontFamily: "Montserrat",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 36,
+                  color: Colors.black,
                 ),
-                new Column(),
-                new MaterialButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    questionNumber = 0;
-                    score = 0;
-                    Navigator.popAndPushNamed(context, '/mainpage');
-                  },
-                  child: new Text(
-                    "Выйти",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+            SizedBox(height: MediaQuery.of(context).size.height / 35),
+            Padding(
+              padding: const EdgeInsets.only(left: 25, right: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: <Color>[Color(colorOne), Color(colorTwo)],
+                      ),
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0, 5),
+                          blurRadius: 5,
+                          spreadRadius: 0,
+                          color: Colors.black38,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 20, left: 28, right: 28),
+                          child: Text(
+                            "ПРАВИЛЬНЫЕ ОТВЕТЫ",
+                            style: TextStyle(
+                                fontFamily: "Montserrat",
+                                fontSize: 18,
+                                color: Colors.white),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 28, right: 28),
+                          child: Text(
+                            "$score",
+                            style: TextStyle(
+                              fontFamily: "Montserrat",
+                              fontSize: 144,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              bottom: 20, left: 28, right: 28),
+                          child: Text(
+                            "баллов",
+                            style: TextStyle(
+                                fontFamily: "Montserrat",
+                                fontSize: 18,
+                                color: Colors.white),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              )),
+                          child: ListTile(
+                            leading: Icon(icon, size: 45),
+                            title: Text(
+                              mark,
+                              style: TextStyle(
+                                fontFamily: "Montserrat",
+                                fontSize: 18,
+                              ),
+                            ),
+                            subtitle: Text(
+                              sub,
+                              style: TextStyle(
+                                fontFamily: "Montserrat",
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Spacer(),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                gradient: RadialGradient(
+                  center: const Alignment(-0.3, 0),
+                  radius: 3,
+                  colors: <Color>[Color(0xFF81D284), Color(0xFF4CAF50)],
+                ),
+              ),
+              child: ListTile(
+                onTap: () {
+                  questionNumber = 0;
+                  score = 0;
+                  Navigator.pop(context);
+                },
+                title: Center(
+                  child: Text(
+                    "НАЗАД",
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
