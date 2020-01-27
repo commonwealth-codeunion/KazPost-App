@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
+<<<<<<< HEAD
 import 'package:kazpost/app/pages/quiz/quiz_page.dart';
 import 'package:kazpost/app/pages/tests/test_list_page.dart';
+=======
+>>>>>>> 30d85fca3e75312a797e5bddb34ab5a219b4eec6
 
 class NewQuizPage extends StatefulWidget {
   NewQuizPage({Key key, @required this.i}) : super(key: key);

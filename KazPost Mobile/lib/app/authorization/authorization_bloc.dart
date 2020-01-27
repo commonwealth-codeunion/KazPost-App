@@ -3,15 +3,26 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' show json;
 import 'package:shared_preferences/shared_preferences.dart';
 
-class DatabaseHelper {
-  // QuizHelper quizHelper = QuizHelper();
+String serverUrl = "http://188.225.9.250";
 
-  String serverUrl = "http://188.225.9.250";
+class DatabaseHelper {
+  DatabaseHelper({
+    this.name,
+    this.accessToken,
+    this.href,
+    this.loginBody,
+    this.status,
+  });
+
+  // Files _files = Files();
+
   String name = '';
+
+  //contains errors message
   var status;
 
+  //Response body of login
   var loginBody;
-  var filesBody;
 
   var accessToken;
   var href;
@@ -34,7 +45,6 @@ class DatabaseHelper {
       _saveType(data["user"]["type"]);
       _saveEmail(data["user"]["email"]);
       getAvatar();
-      getFiles();
 
       debugPrint('Авторизация пользователя произведена успешно');
     }
@@ -51,7 +61,7 @@ class DatabaseHelper {
       String myUrl = '$serverUrl/api/refresh';
       final response =
           await http.post(myUrl, body: {"refreshToken": "$refreshToken"});
-      final status = response.body.contains('ERROR');
+      final status = response.body.contains('error');
 
       var data = json.decode(response.body);
 
@@ -69,6 +79,8 @@ class DatabaseHelper {
         debugPrint('Обновлен accessToken');
       }
     }
+
+    await Future.delayed(Duration(seconds: 3));
   }
 
   Future sendReview(String title, String review) async {
@@ -97,26 +109,6 @@ class DatabaseHelper {
 
     _saveAvatar(myUrl);
     debugPrint('Подгружена аватарка пользователя: $id');
-  }
-
-  getFiles() async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'accessToken';
-    final accessToken = prefs.get(key) ?? 0;
-    String myUrl = "$serverUrl/api/getFiles";
-
-    final response =
-        await http.post(myUrl, headers: {"Authorization": "$accessToken"});
-    status = response.body.contains('error');
-    filesBody = json.decode(response.body);
-
-    print(filesBody);
-
-    if (status) {
-      print('filesBody : ${filesBody["error"]}');
-    } else {
-      getAvatar();
-    }
   }
 
   logOut() async {

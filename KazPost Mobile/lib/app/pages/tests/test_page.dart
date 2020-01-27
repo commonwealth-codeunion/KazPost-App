@@ -164,7 +164,7 @@ class _TestPageBarState extends State<TestPageBar> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(15),
                       onTap: () {
-                        databaseHelper.getFiles();
+                        // databaseHelper.getFiles();
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(

@@ -1,10 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kazpost/app/pages/homepage/files_manager.dart';
+import 'package:kazpost/app/pages/homepage/files_model.dart';
 import 'package:kazpost/app/pages/methodics/methodics_page.dart';
-import 'package:kazpost/app/pages/nottray/foreground_notifications_page.dart';
 import 'package:kazpost/app/pages/tests/test_list_page.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:kazpost/app/pages/homepage/files_bloc.dart';
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,61 +29,56 @@ class _HomePageState extends State<HomePage> {
   DatabaseHelper databaseHelper = DatabaseHelper();
   QuizHelper quizHelper = QuizHelper();
 
-  String title;
+  FilesModel filesModel = FilesModel();
+  FilesManager filesManager = FilesManager();
 
-  Future _getData() async {
-    quizHelper.getQuiz();
-    databaseHelper.getFiles();
+  // @override
+  // Widget build(BuildContext context) {
+  //   var futureBuilder = new FutureBuilder(
+  //     future: null,
+  //     builder: (BuildContext context, AsyncSnapshot snapshot) {
+  //       switch (snapshot.connectionState) {
+  //         case ConnectionState.none:
+  //         case ConnectionState.waiting:
+  //           return Center(
+  //             child: Column(
+  //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //               crossAxisAlignment: CrossAxisAlignment.center,
+  //               children: <Widget>[
+  //                 CachedNetworkImage(
+  //                   imageUrl:
+  //                       'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
+  //                   width: 300,
+  //                   errorWidget: (context, url, error) =>
+  //                       Icon(Icons.error_outline),
+  //                   placeholder: (context, url) => CircularProgressIndicator(),
+  //                 ),
+  //                 CircularProgressIndicator(),
+  //               ],
+  //             ),
+  //           );
+  //         default:
+  //           if (snapshot.hasError) {
+  //             return new Text('Error: ${snapshot.error}');
+  //           } else
+  //             return createListView(context, snapshot);
+  //       }
+  //     },
+  //   );
+  //   return Scaffold(
+  //     body: futureBuilder,
+  //   );
+  // }
 
-    await new Future.delayed(new Duration(seconds: 3));
-  }
-
-  @override
   Widget build(BuildContext context) {
-    var futureBuilder = new FutureBuilder(
-      future: _getData(),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.none:
-          case ConnectionState.waiting:
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  CachedNetworkImage(
-                    imageUrl:
-                        'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
-                    width: 300,
-                    errorWidget: (context, url, error) =>
-                        Icon(Icons.error_outline),
-                    placeholder: (context, url) => CircularProgressIndicator(),
-                  ),
-                  CircularProgressIndicator(),
-                ],
-              ),
-            );
-          default:
-            if (snapshot.hasError) {
-              return new Text('Error: ${snapshot.error}');
-            } else
-              return createListView(context, snapshot);
-        }
-      },
-    );
-    return Scaffold(
-      body: futureBuilder,
-    );
-  }
-
-  Widget createListView(BuildContext context, AsyncSnapshot snapshot) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: LiquidPullToRefresh(
         onRefresh: () async {
-          quizHelper.getQuiz();
-          databaseHelper.getFiles();
-          build(context);
+          setState(() {
+            quizHelper.getQuiz();
+            filesManager.filesList;
+          });
         },
         showChildOpacityTransition: false,
         child: ListView(
@@ -199,35 +195,66 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 10,
                   ),
-                  ListView.builder(
-                    itemCount: databaseHelper.filesBody["latestFiles"].length,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    physics: BouncingScrollPhysics(),
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        padding: const EdgeInsets.only(bottom: 10),
-                        child: Card(
-                          elevation: 2,
-                          child: ListTile(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) =>
-                                          MethodicsPage(i: index)));
-                            },
-                            leading:
-                                Image.asset('assets/img/pdf.png', width: 40),
-                            title: Text(
-                              '${databaseHelper.filesBody["latestFiles"][index]["title"]}',
-                            ),
-                            subtitle: Text(
-                              '${databaseHelper.filesBody["latestFiles"][index]["description"]}',
+                  StreamBuilder(
+                    stream: filesManager.filesList,
+                    builder:
+                        (BuildContext context, AsyncSnapshot<List> snapshot) {
+                      if (snapshot.hasError) {
+                        return Card(
+                          elevation: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              'Error: Нет доступа к интернету',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.deepOrange,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                      );
+                        );
+                      } else {
+                        switch (snapshot.connectionState) {
+                          case ConnectionState.none:
+                          case ConnectionState.waiting:
+                          case ConnectionState.active:
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          case ConnectionState.done:
+                            return ListView.builder(
+                              itemCount: collection["latestFiles"].length,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              physics: BouncingScrollPhysics(),
+                              itemBuilder: (BuildContext context, int index) {
+                                return Container(
+                                  padding: const EdgeInsets.only(bottom: 10),
+                                  child: Card(
+                                    elevation: 2,
+                                    child: ListTile(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            CupertinoPageRoute(
+                                                builder: (context) =>
+                                                    MethodicsPage(i: index)));
+                                      },
+                                      leading: Image.asset('assets/img/pdf.png',
+                                          width: 40),
+                                      title: Text(
+                                          '${collection["latestFiles"][index]["title"]}'),
+                                      subtitle: Text(
+                                        '${collection["latestFiles"][index]["description"]}',
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                        }
+                      }
                     },
                   ),
                   SizedBox(

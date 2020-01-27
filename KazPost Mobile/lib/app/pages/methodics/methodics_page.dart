@@ -15,20 +15,21 @@ class _MethodicsPageState extends State<MethodicsPage> {
   int i;
   _MethodicsPageState(this.i);
   final DatabaseHelper databaseHelper = DatabaseHelper();
+  // Files _files = Files();
 
   @override
   Widget build(BuildContext context) {
     return PDFViewerScaffold(
-      appBar: AppBar(
-        title: Text("Идеально"),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.share),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      path: '${databaseHelper.filesBody["latestFiles"][i]["href"]}',
-    );
+        appBar: AppBar(
+          title: Text("Идеально"),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.share),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        path: null // '${files[i]["href"]}',
+        );
   }
 }
