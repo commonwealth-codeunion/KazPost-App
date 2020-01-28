@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
+import 'package:kazpost/app/pages/quiz/quiz_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -35,5 +36,9 @@ class QuizModel {
     final key = 'numberOfQuizzes';
     final value = numberOfQuizzes;
     prefs.setInt(key, value);
+  }
+
+  Future updateQuestion() async {
+    return questionNumber++;
   }
 }

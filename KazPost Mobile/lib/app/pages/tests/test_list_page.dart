@@ -80,7 +80,9 @@ class _TestListPageState extends State<TestListPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Тестирование'),
+      ),
       body: StreamBuilder(
         stream: quizBloc.getQuiz,
         builder: (context, snapshot) {
