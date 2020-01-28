@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kazpost/app/pages/homepage/files_bloc.dart';
+
 // import 'package:kazpost/app/pages/homepage/files_model.dart';
 import 'package:kazpost/app/pages/methodics/methodics_page.dart';
 import 'package:kazpost/app/pages/quiz/quiz_bloc.dart';
 import 'package:kazpost/app/pages/tests/test_list_page.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:kazpost/app/pages/homepage/files_manager.dart';
 import 'package:kazpost/app/pages/homepage/files_model.dart';
+import 'package:kazpost/app/pages/methodics/methodics_page.dart';
+import 'package:kazpost/app/pages/tests/test_list_page.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
 
 class HomePage extends StatefulWidget {
@@ -77,7 +82,11 @@ class _HomePageState extends State<HomePage> {
       body: LiquidPullToRefresh(
         onRefresh: () async {
           setState(() {
+
             // quizBloc.getQuiz;
+
+            // quizHelper.getQuiz();
+
             filesManager.filesList;
           });
         },
