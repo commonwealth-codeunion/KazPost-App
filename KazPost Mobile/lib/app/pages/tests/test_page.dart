@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kazpost/app/pages/courses/course_list.dart';
 import 'package:kazpost/app/pages/docs/docs_page.dart';
@@ -24,8 +23,6 @@ class _TestPageBarState extends State<TestPageBar> {
   DatabaseHelper databaseHelper = DatabaseHelper();
   @override
   Widget build(BuildContext context) {
-    final Function wp = Screen(MediaQuery.of(context).size).wp;
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
@@ -45,7 +42,7 @@ class _TestPageBarState extends State<TestPageBar> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: wp(5.5)),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -85,9 +82,9 @@ class _TestPageBarState extends State<TestPageBar> {
                   ],
                 ),
               ),
-              SizedBox(height: hp(2)),
+              SizedBox(height: 10),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: wp(5.5)),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
@@ -110,8 +107,8 @@ class _TestPageBarState extends State<TestPageBar> {
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: wp(8),
-                          vertical: hp(4),
+                          horizontal: 20,
+                          vertical: 10,
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -123,14 +120,14 @@ class _TestPageBarState extends State<TestPageBar> {
                                   color: Color(0xFF0157A5),
                                   width: 25,
                                 ),
-                                SizedBox(width: wp(5)),
+                                SizedBox(width: 10),
                                 Text(
                                   "Курсы по мониторингу",
                                   style: TextStyle(fontSize: 17),
                                 ),
                               ],
                             ),
-                            SizedBox(height: hp(2)),
+                            SizedBox(height: 5),
                             Text(
                               "Продолжить учиться",
                               style: TextStyle(
@@ -145,9 +142,9 @@ class _TestPageBarState extends State<TestPageBar> {
                   ),
                 ),
               ),
-              SizedBox(height: hp(3)),
+              SizedBox(height: 20),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: wp(5.5)),
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
                   decoration: BoxDecoration(
                     boxShadow: [
@@ -164,12 +161,12 @@ class _TestPageBarState extends State<TestPageBar> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(15),
                       onTap: () {
-                        databaseHelper.getFiles();
+                        // databaseHelper.getFiles();
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: wp(8),
-                          vertical: hp(4),
+                          horizontal: 10,
+                          vertical: 20,
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -181,14 +178,16 @@ class _TestPageBarState extends State<TestPageBar> {
                                   color: Color(0xFF0157A5),
                                   width: 25,
                                 ),
-                                SizedBox(width: wp(5)),
+                                SizedBox(
+                                  width: 10,
+                                ),
                                 Text(
                                   "Курсы по учету и аудиту",
                                   style: TextStyle(fontSize: 17),
                                 ),
                               ],
                             ),
-                            SizedBox(height: hp(2)),
+                            SizedBox(height: 20),
                             Text(
                               "Продолжить учиться",
                               style: TextStyle(
@@ -203,12 +202,12 @@ class _TestPageBarState extends State<TestPageBar> {
                   ),
                 ),
               ),
-              SizedBox(height: hp(3)),
+              SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(color: Color(0xFF0157A5)),
                 padding: EdgeInsets.symmetric(
-                  horizontal: wp(5.5),
-                  vertical: hp(3),
+                  horizontal: 10,
+                  vertical: 20,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -242,7 +241,7 @@ class _TestPageBarState extends State<TestPageBar> {
                         ),
                       ],
                     ),
-                    SizedBox(height: hp(2)),
+                    SizedBox(height: 20),
                     Card(
                       color: Color(0xFF0C3D69),
                       shape: RoundedRectangleBorder(
@@ -253,8 +252,8 @@ class _TestPageBarState extends State<TestPageBar> {
                         onTap: () {},
                         child: Container(
                           padding: EdgeInsets.symmetric(
-                            horizontal: wp(8),
-                            vertical: hp(4),
+                            horizontal: 10,
+                            vertical: 20,
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -262,7 +261,9 @@ class _TestPageBarState extends State<TestPageBar> {
                               Row(
                                 children: <Widget>[
                                   callSvg,
-                                  SizedBox(width: wp(5)),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
                                   Text(
                                     "Тест по 29 декабря",
                                     style: TextStyle(
@@ -272,7 +273,7 @@ class _TestPageBarState extends State<TestPageBar> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: hp(2)),
+                              SizedBox(height: 20),
                               Text(
                                 "Пройти тест",
                                 style: TextStyle(

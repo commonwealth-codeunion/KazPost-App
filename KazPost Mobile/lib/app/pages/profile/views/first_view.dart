@@ -7,7 +7,7 @@ class FirstViewProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xFFF3F3F3),
-      padding: const EdgeInsets.all(25),
+      padding: const EdgeInsets.all(15),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -24,14 +24,14 @@ class FirstViewProfile extends StatelessWidget {
                   Text(
                     "Мониторинг",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 13,
                       color: Color(0xFF0157A5),
                     ),
                   ),
                   Text(
                     "Отлично",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 13,
                       color: Color(0xFF4CAF50),
                     ),
                   ),

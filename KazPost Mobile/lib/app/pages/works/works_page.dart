@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_screen/flutter_responsive_screen.dart';
 import 'package:kazpost/app/pages/courses/course_bookmark.dart';
 
 class WorksPage extends StatefulWidget {
@@ -12,7 +11,6 @@ class WorksPage extends StatefulWidget {
 class _WorksPageState extends State<WorksPage> {
   @override
   Widget build(BuildContext context) {
-    final Function hp = Screen(MediaQuery.of(context).size).hp;
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -37,10 +35,10 @@ class _WorksPageState extends State<WorksPage> {
                   ),
                 ),
                 SizedBox(
-                  height: hp(3),
+                  height: 20,
                 ),
                 Container(
-                  height: hp(32),
+                  height: 100,
                   child: PageView(
                     controller: PageController(
                       viewportFraction: 0.675,
