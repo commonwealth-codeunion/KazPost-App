@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kazpost/app/pages/quiz/quiz_bloc.dart';
 import 'package:kazpost/app/pages/quiz/quiz_model.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 class NewQuizPage extends StatefulWidget {
   NewQuizPage({Key key, @required this.i}) : super(key: key);
@@ -248,7 +247,6 @@ class QuizState extends State<Quiz> {
         ),
       ),
     );
-    ;
   }
 }
 

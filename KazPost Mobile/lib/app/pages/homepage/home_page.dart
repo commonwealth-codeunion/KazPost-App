@@ -8,11 +8,9 @@ import 'package:kazpost/app/pages/tests/test_list_page.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:kazpost/app/pages/homepage/files_manager.dart';
 import 'package:kazpost/app/pages/homepage/files_model.dart';
-import 'package:kazpost/app/pages/methodics/methodics_page.dart';
-import 'package:kazpost/app/pages/tests/test_list_page.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 import 'package:kazpost/app/authorization/authorization_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -82,7 +80,6 @@ class _HomePageState extends State<HomePage> {
       body: LiquidPullToRefresh(
         onRefresh: () async {
           setState(() {
-
             // quizBloc.getQuiz;
 
             // quizHelper.getQuiz();
@@ -245,11 +242,11 @@ class _HomePageState extends State<HomePage> {
                                     elevation: 2,
                                     child: ListTile(
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            CupertinoPageRoute(
-                                                builder: (context) =>
-                                                    MethodicsPage(i: index)));
+                                        // Navigator.push(
+                                        //     context,
+                                        //     CupertinoPageRoute(
+                                        //         builder: (context) =>
+                                        //             MethodicsPage(i: index)));
                                       },
                                       leading: Image.asset('assets/img/pdf.png',
                                           width: 40),
@@ -257,6 +254,22 @@ class _HomePageState extends State<HomePage> {
                                           '${collection["latestFiles"][index]["title"]}'),
                                       subtitle: Text(
                                         '${collection["latestFiles"][index]["description"]}',
+                                      ),
+                                      trailing: DropdownButton<String>(
+                                        items: <String>['Загрузить']
+                                            .map<DropdownMenuItem<String>>(
+                                                (String value) {
+                                          return DropdownMenuItem<String>(
+                                            value: value,
+                                            child: Text(value),
+                                          );
+                                        }).toList(),
+                                        underline: Container(),
+                                        onChanged: (value) {
+                                          launch(
+                                              '${collection["latestFiles"][index]["href"]}');
+                                        },
+                                        icon: Icon(Icons.more_vert),
                                       ),
                                     ),
                                   ),

@@ -8,3 +8,6 @@ shared_preferences=/home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/
 shared_preferences_macos=/home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+4/
 shared_preferences_web=/home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+3/
 sqflite=/home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.2.0/
+url_launcher=/home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-5.4.1/
+url_launcher_macos=/home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-0.0.1+2/
+url_launcher_web=/home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-0.1.0+2/

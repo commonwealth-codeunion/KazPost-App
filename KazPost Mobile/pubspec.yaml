@@ -40,6 +40,7 @@ dependencies:
   flutter_full_pdf_viewer:
   bubble_tab_indicator: ^0.1.4
   json_annotation:
+  url_launcher:
   
 dev_dependencies:
   flutter_test:
