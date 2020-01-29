@@ -15,6 +15,9 @@ class QuizModel {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
     final accessToken = prefs.getString(key) ?? '';
+    if(accessToken == null || accessToken == '') {
+      DatabaseHelper.refreshToken();
+    }
 
     String myUrl = "$serverUrl/api/quizzes";
 
@@ -25,7 +28,7 @@ class QuizModel {
     quiz = json.decode(data);
 
     if (response.statusCode != 200) {
-      DatabaseHelper.refreshToken();
+      print('Error');
     } else {
       _saveNumberOfQuizzes(quiz["quizzes"].length);
       print('Тесты были успешно доставлены');

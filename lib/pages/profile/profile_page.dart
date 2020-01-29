@@ -15,6 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String name = '';
   String type = '';
   String avatar = '';
+  String position = '';
 
   readName() async {
     final prefs = await SharedPreferences.getInstance();
@@ -49,12 +50,24 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  readPosition() async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'position';
+    final value = prefs.getString(key) ?? '';
+    if (value != '') {
+      setState(() {
+        position = value;
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     readName();
     readType();
     readAvatar();
+    readPosition();
   }
 
   DatabaseHelper databaseHelper = DatabaseHelper();
@@ -153,7 +166,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Раб. АО "КазПочта"',
+                  '$position',
                   style: TextStyle(
                     color: Color(0xFFC4C4C4),
                     fontSize: 13,

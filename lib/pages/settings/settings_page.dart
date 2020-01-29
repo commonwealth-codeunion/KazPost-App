@@ -64,7 +64,6 @@ class _SettingsPageState extends State<SettingsPage> {
     readAvatar();
     readName();
     readType();
-    databaseHelper.getAvatar();
     super.initState();
   }
 

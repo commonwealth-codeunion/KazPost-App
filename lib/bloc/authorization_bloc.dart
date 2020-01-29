@@ -6,18 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 String serverUrl = "http://188.225.9.250";
 
 class DatabaseHelper {
-  DatabaseHelper({
-    this.name,
-    this.accessToken,
-    this.href,
-    this.loginBody,
-    this.status,
-  });
-
-  // Files _files = Files();
-
-  String name = '';
-
   //contains errors message
   var status;
 
@@ -44,7 +32,8 @@ class DatabaseHelper {
       _saveId(data["user"]["_id"]);
       _saveType(data["user"]["type"]);
       _saveEmail(data["user"]["email"]);
-      getAvatar();
+      _saveAvatar(data["user"]["avatar"]);
+      _savePosition(data["user"]["position"]);
 
       debugPrint('Авторизация пользователя произведена успешно');
     }
@@ -74,7 +63,7 @@ class DatabaseHelper {
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.remove('accessToken');
         prefs.remove('refreshToken');
-         _saveToken(data["accessToken"]);
+        _saveToken(data["accessToken"]);
         _saveRefreshToken(data["refreshToken"]);
         debugPrint('Обновлен accessToken');
       }
@@ -100,17 +89,6 @@ class DatabaseHelper {
     debugPrint('Пожелание было отправлено');
   }
 
-  getAvatar() async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = '_id';
-    final id = prefs.get(key) ?? '';
-
-    String myUrl = "$serverUrl/nginx/assets/images/avatars/$id.jpg";
-
-    _saveAvatar(myUrl);
-    debugPrint('Подгружена аватарка пользователя: $id');
-  }
-
   logOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove("accessToken");
@@ -122,6 +100,7 @@ class DatabaseHelper {
     prefs.remove("avatar");
     prefs.remove("title");
     prefs.remove("description");
+    prefs.remove("position");
     debugPrint('Пользователь вышел с аккаунта');
   }
 
@@ -173,5 +152,11 @@ class DatabaseHelper {
     final value = avatar;
     prefs.setString(key, value);
   }
-}
 
+  _savePosition(String position) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = 'position';
+    final value = position;
+    prefs.setString(key, value);
+  }
+}

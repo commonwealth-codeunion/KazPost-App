@@ -164,87 +164,86 @@ class QuizState extends State<Quiz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: new Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            RichText(
-              text: TextSpan(
-                style: TextStyle(color: Colors.black),
-                children: [
-                  TextSpan(
-                    text: 'Вопрос ${questionNumber + 1}/',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                  TextSpan(
-                    text: '${quiz["quizzes"][i]["questions"].length}',
-                    style: TextStyle(fontSize: 24),
-                  ),
-                ],
+      body: ListView(
+        padding: const EdgeInsets.all(40),
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(color: Colors.black),
+                  children: [
+                    TextSpan(
+                      text: 'Вопрос ${questionNumber + 1}/',
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                    TextSpan(
+                      text: '${quiz["quizzes"][i]["questions"].length}',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            Divider(height: 2, thickness: 2),
-            SizedBox(height: 20),
-            Text(
-              '${quiz["quizzes"][i]["questions"]["$questionNumber"]["question"]}?',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 30),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Color(0xFF0157A5)),
-                borderRadius: BorderRadius.circular(10),
+              SizedBox(height: 10),
+              Divider(height: 2, thickness: 2),
+              SizedBox(height: 20),
+              Text(
+                '${quiz["quizzes"][i]["questions"]["$questionNumber"]["question"]}?',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-              child: Column(
-                children: <Widget>[
-                  ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemCount: quiz["quizzes"][i]["questions"]
-                            ["$questionNumber"]["answers"]
-                        .length,
-                    itemBuilder: (BuildContext context, index) {
-                      return Column(
-                        children: <Widget>[
-                          Divider(
-                            color: Color(0xFF0157A5),
-                            height: 2,
-                            thickness: 2,
+              SizedBox(height: 30),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xFF0157A5)),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: quiz["quizzes"][i]["questions"]["$questionNumber"]
+                          ["answers"]
+                      .length,
+                  itemBuilder: (BuildContext context, index) {
+                    return Column(
+                      children: <Widget>[
+                        Divider(
+                          color: Color(0xFF0157A5),
+                          height: 2,
+                          thickness: 2,
+                        ),
+                        ListTile(
+                          onTap: () {
+                            if (quiz["quizzes"][i]["questions"]
+                                        ["$questionNumber"]["true"]
+                                    .indexOf(index) !=
+                                -1) {
+                              print("Правильный ответ");
+                              score++;
+                              print(score);
+                            } else {
+                              print("Не правильно");
+                            }
+                            updateQuestion();
+                          },
+                          leading: Image.asset(
+                            'assets/img/radioButton.png',
+                            height: 20,
                           ),
-                          ListTile(
-                            onTap: () {
-                              if (quiz["quizzes"][i]["questions"]
-                                          ["$questionNumber"]["true"]
-                                      .indexOf(index) !=
-                                  -1) {
-                                print("Правильный ответ");
-                                score++;
-                                print(score);
-                              } else {
-                                print("Не правильно");
-                              }
-                              updateQuestion();
-                            },
-                            leading: Image.asset(
-                              'assets/img/radioButton.png',
-                              height: 20,
-                            ),
-                            title: Text(
-                              '${quiz["quizzes"][i]["questions"]["$questionNumber"]["answers"][index]}',
-                              style: TextStyle(fontSize: 20),
-                            ),
+                          title: Text(
+                            '${quiz["quizzes"][i]["questions"]["$questionNumber"]["answers"][index]}',
+                            style: TextStyle(fontSize: 20),
                           ),
-                        ],
-                      );
-                    },
-                  ),
-                ],
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
