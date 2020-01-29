@@ -82,7 +82,16 @@ class _TestListPageState extends State<TestListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Тестирование'),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          'Тестирование',
+          style: TextStyle(
+            fontFamily: "Montserrat",
+            fontWeight: FontWeight.bold,
+            fontSize: 32,
+          ),
+        ),
       ),
       body: StreamBuilder(
         stream: quizBloc.getQuiz,

@@ -41,6 +41,7 @@ dependencies:
   bubble_tab_indicator: ^0.1.4
   json_annotation:
   url_launcher:
+  flutter_rating_bar: ^3.0.1+1
   
 dev_dependencies:
   flutter_test:
