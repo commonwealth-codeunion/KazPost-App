@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kazpost/pages/main/main_page.dart';
+import 'package:kazpost/models/quiz_model.dart';
 import 'package:kazpost/pages/quiz/quiz_page.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -11,15 +11,20 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 // this.colorOne, this.colorTwo, this.mark, this.sub, this.icon
 
 class Summary extends StatelessWidget {
-  Summary(this.colorOne, this.colorTwo, this.mark, this.sub, this.icon);
+  Summary(this.colorOne, this.colorTwo, this.mark, this.sub, this.icon, this.i);
   final int colorOne; // первый цвет градиента
   final int colorTwo; // второй цвет градиента
   final String mark; // оценка: плохо или хорошо
   final String sub; // рекомандации под оценкой(которые серым текстом)
   final IconData icon; // иконка слево от оценки
+  final int i; // индекс теста
+
+  final TextEditingController _callbackController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    int rating;
+
     void _showDialog() {
       // dialog menu function implementation
       showDialog(
@@ -43,21 +48,22 @@ class Summary extends StatelessWidget {
                   Center(
                     child: RatingBar(
                       initialRating: 0,
-                      minRating: 0,
+                      minRating: 1,
                       direction: Axis.horizontal,
-                      allowHalfRating: true,
                       itemCount: 5,
                       itemBuilder: (context, _) => Icon(
                         Icons.star,
                         color: Colors.amber,
                       ),
-                      onRatingUpdate: (rating) {
-                        print(rating);
+                      onRatingUpdate: (value) {
+                        rating = value.toInt();
+                        print(value);
                       },
                     ),
                   ),
                   Spacer(),
                   TextField(
+                    controller: _callbackController,
                     keyboardType: TextInputType.multiline,
                     minLines: 5,
                     maxLines: 5,
@@ -80,10 +86,16 @@ class Summary extends StatelessWidget {
                     child: MaterialButton(
                       minWidth: MediaQuery.of(context).size.width / 4,
                       onPressed: () {
-                        Navigator.popAndPushNamed(
-                          context,
-                          '/mainpage'
+                        QuizModel.sendReview(
+                          score,
+                          i,
+                          rating,
+                          _callbackController.text,
                         );
+                        print(_callbackController.text);
+                        Navigator.popAndPushNamed(context, '/mainpage');
+                        questionNumber = 0;
+                        score = 0;
                       },
                       color: Colors.green,
                       textColor: Colors.white,
@@ -227,8 +239,6 @@ class Summary extends StatelessWidget {
               ),
               child: ListTile(
                 onTap: () {
-                  questionNumber = 0;
-                  score = 0;
                   _showDialog(); // initialization of dialog menu
                 },
                 title: Center(

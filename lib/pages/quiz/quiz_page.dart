@@ -137,6 +137,7 @@ class QuizState extends State<Quiz> {
                 "ОТЛИЧНО!",
                 "Успехов!",
                 Icons.beenhere,
+                i,
               ),
             ),
           );
@@ -150,6 +151,7 @@ class QuizState extends State<Quiz> {
                 "ПЛОХО!",
                 "Обучайтесь лучше",
                 Icons.warning,
+                i,
               ),
             ),
           );

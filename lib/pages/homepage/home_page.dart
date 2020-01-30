@@ -6,6 +6,7 @@ import 'package:kazpost/bloc/authorization_bloc.dart';
 import 'package:kazpost/bloc/files_manager.dart';
 import 'package:kazpost/bloc/quiz_bloc.dart';
 import 'package:kazpost/models/files_model.dart';
+import 'package:kazpost/models/quiz_model.dart';
 import 'package:kazpost/pages/tests/test_list_page.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -35,6 +36,8 @@ class _HomePageState extends State<HomePage> {
 
   FilesModel filesModel = FilesModel();
   FilesManager filesManager = FilesManager();
+
+  int lastQuiz = 0;
 
   // @override
   // Widget build(BuildContext context) {
@@ -98,29 +101,33 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   SizedBox(height: 10),
-                  RaisedButton(
-                    onPressed: () {
-                      quizBloc.getQuiz;
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TestListPage()),
+                  StreamBuilder(
+                    stream: quizBloc.getQuiz,
+                    builder: (context, snapshot) {
+                      return RaisedButton(
+                        onPressed: () {
+                          quizBloc.getQuiz;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => TestListPage()),
+                          );
+                        },
+                        padding: EdgeInsets.symmetric(
+                          vertical: 10,
+                        ),
+                        color: Color(0xFFEC4B4B),
+                        textColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text(
+                          '${quiz["quizzes"][lastQuiz]["title"]}',
+                          style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold),
+                        ),
                       );
-                    },
-                    padding: EdgeInsets.symmetric(
-                      vertical: 10,
-                    ),
-                    color: Color(0xFFEC4B4B),
-                    textColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Text(
-                      'пока-что, так. потом поменяю',
-                      // '${quizHelper.data["quizzes"][0]["title"]}',
-                      style: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold),
-                    ),
+                    }
                   ),
                   SizedBox(
                     height: 10,

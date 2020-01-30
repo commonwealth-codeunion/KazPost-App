@@ -48,6 +48,7 @@ class DatabaseHelper {
     } else {
       print(refreshToken);
       String myUrl = '$serverUrl/api/refresh';
+
       final response =
           await http.post(myUrl, body: {"refreshToken": "$refreshToken"});
       final status = response.body.contains('error');
@@ -76,17 +77,22 @@ class DatabaseHelper {
     final prefs = await SharedPreferences.getInstance();
     final accessTokenKey = 'accessToken';
     final accessToken = prefs.getString(accessTokenKey) ?? '';
-    print('$accessToken');
-    final idKey = '_id';
-    final id = prefs.getString(idKey) ?? '';
-    print(id);
-    String myUrl = "$serverUrl/api/feedback";
 
-    await http.post(myUrl,
-        headers: {"Authorization": "$accessToken"},
-        body: {"title": "$title", "text": "$review", "author": "$id"});
+    if (accessToken == null || accessToken == '') {
+      DatabaseHelper.refreshToken();
+    } else {
+      print('$accessToken');
+      final idKey = '_id';
+      final id = prefs.getString(idKey) ?? '';
+      print(id);
+      String myUrl = "$serverUrl/api/feedback";
 
-    debugPrint('Пожелание было отправлено');
+      await http.post(myUrl,
+          headers: {"Authorization": "$accessToken"},
+          body: {"title": "$title", "text": "$review", "author": "$id"});
+
+      debugPrint('Пожелание было отправлено');
+    }
   }
 
   logOut() async {
