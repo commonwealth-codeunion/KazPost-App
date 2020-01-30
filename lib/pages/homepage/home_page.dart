@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 // import 'package:kazpost/app/pages/homepage/files_model.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
+import 'package:kazpost/pages/homepage/card.dart';
 import 'package:kazpost/bloc/files_manager.dart';
 import 'package:kazpost/bloc/quiz_bloc.dart';
 import 'package:kazpost/models/files_model.dart';
@@ -92,12 +93,12 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: 15,
+                horizontal: 25,
+                vertical: 10,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  SizedBox(height: 10),
                   RaisedButton(
                     onPressed: () {
                       quizBloc.getQuiz;
@@ -123,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: MediaQuery.of(context).size.height / 35,
                   ),
                   Center(
                     child: Column(
@@ -137,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: MediaQuery.of(context).size.height / 35,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -180,126 +181,19 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: MediaQuery.of(context).size.height / 35,
                   ),
-                  Text(
-                    'ОБУЧЕНИЕ',
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22),
+                  Wrap(
+                    direction: Axis.horizontal,
+                    alignment: WrapAlignment.spaceBetween,
+                    runSpacing: MediaQuery.of(context).size.height / 40,
+                    children: <Widget>[
+                      CardWidget("Мониторинг", 0xFFFF7043, Icons.camera),
+                      CardWidget("Учёт и аудит", 0xFF42A5F5, Icons.category),
+                      CardWidget("Администрирование", 0xFFFFA726, Icons.people),
+                      CardWidget("Инфо - системы", 0xFF182B88, Icons.settings),
+                    ],
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'МАТЕРИАЛЫ',
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  StreamBuilder(
-                    stream: filesManager.filesList,
-                    builder:
-                        (BuildContext context, AsyncSnapshot<List> snapshot) {
-                      if (snapshot.hasError) {
-                        return Card(
-                          elevation: 3,
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Text(
-                              'Error: Нет доступа к интернету',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.deepOrange,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        );
-                      } else {
-                        switch (snapshot.connectionState) {
-                          case ConnectionState.none:
-                          case ConnectionState.waiting:
-                          case ConnectionState.active:
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          case ConnectionState.done:
-                            return ListView.builder(
-                              itemCount: collection["latestFiles"].length,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              physics: BouncingScrollPhysics(),
-                              itemBuilder: (BuildContext context, int index) {
-                                return Container(
-                                  padding: const EdgeInsets.only(bottom: 10),
-                                  child: Card(
-                                    elevation: 2,
-                                    child: ListTile(
-                                      onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            CupertinoPageRoute(
-                                                builder: (context) =>
-                                                    MethodicsPage(i: index)));
-                                      },
-                                      leading: Image.asset('assets/img/pdf.png',
-                                          width: 40),
-                                      title: Text('${collection["latestFiles"][index]["title"]}'),
-                                      subtitle: Text(
-                                        '${collection["latestFiles"][index]["description"]}',
-                                      ),
-                                      trailing: DropdownButton<String>(
-                                        items: <String>['Загрузить']
-                                            .map<DropdownMenuItem<String>>(
-                                                (String value) {
-                                          return DropdownMenuItem<String>(
-                                            value: value,
-                                            child: Text(value),
-                                          );
-                                        }).toList(),
-                                        underline: Container(),
-                                        onChanged: (value) {
-                                          launch('${collection["latestFiles"][index]["href"]}');
-                                        },
-                                        icon: Icon(Icons.more_vert),
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
-                            );
-                        }
-                      }
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  OutlineButton(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    onPressed: () {
-                      // quizHelper.getQuiz();
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => ForegroundNotification()));
-                    },
-                    child: Text('Больше материалов..'),
-                    textColor: Color(0xFF0157A5),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      side: BorderSide(
-                        color: Color(0xFF0157A5),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
                 ],
               ),
             ),
