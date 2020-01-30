@@ -30,19 +30,21 @@ class _TestPageBarState extends State<TestPageBar> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: Text(
-                  "Тесты и курсы",
-                  style: TextStyle(
-                    fontFamily: "Montserrat",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 32,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  child: Text(
+                    "Тесты и курсы",
+                    style: TextStyle(
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
+                    ),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -84,7 +86,7 @@ class _TestPageBarState extends State<TestPageBar> {
               ),
               SizedBox(height: 10),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.all(8.0),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
@@ -107,8 +109,8 @@ class _TestPageBarState extends State<TestPageBar> {
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
+                          horizontal: 10,
+                          vertical: 20,
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -127,7 +129,7 @@ class _TestPageBarState extends State<TestPageBar> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 20),
                             Text(
                               "Продолжить учиться",
                               style: TextStyle(
@@ -144,7 +146,7 @@ class _TestPageBarState extends State<TestPageBar> {
               ),
               SizedBox(height: 20),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.all(8.0),
                 child: Container(
                   decoration: BoxDecoration(
                     boxShadow: [
@@ -210,11 +212,9 @@ class _TestPageBarState extends State<TestPageBar> {
                   vertical: 20,
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Text(
                           "Мои тесты",
@@ -243,11 +243,13 @@ class _TestPageBarState extends State<TestPageBar> {
                     ),
                     SizedBox(height: 20),
                     Card(
+                      margin: EdgeInsets.zero,
                       color: Color(0xFF0C3D69),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: InkWell(
+                        
                         borderRadius: BorderRadius.circular(15),
                         onTap: () {},
                         child: Container(

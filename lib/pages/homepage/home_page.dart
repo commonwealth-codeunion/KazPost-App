@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 
 // import 'package:kazpost/app/pages/homepage/files_model.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
+import 'package:kazpost/pages/homepage/card.dart';
 import 'package:kazpost/bloc/files_manager.dart';
 import 'package:kazpost/bloc/quiz_bloc.dart';
 import 'package:kazpost/models/files_model.dart';
 import 'package:kazpost/models/quiz_model.dart';
-import 'package:kazpost/pages/tests/test_list_page.dart';
+import 'package:kazpost/pages/quiz/quiz_page.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -95,7 +96,8 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: 15,
+                horizontal: 25,
+                vertical: 10,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -104,33 +106,66 @@ class _HomePageState extends State<HomePage> {
                   StreamBuilder(
                     stream: quizBloc.getQuiz,
                     builder: (context, snapshot) {
-                      return RaisedButton(
-                        onPressed: () {
-                          quizBloc.getQuiz;
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => TestListPage()),
-                          );
-                        },
-                        padding: EdgeInsets.symmetric(
-                          vertical: 10,
-                        ),
-                        color: Color(0xFFEC4B4B),
-                        textColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          '${quiz["quizzes"][lastQuiz]["title"]}',
-                          style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.bold),
-                        ),
-                      );
-                    }
+                      if (snapshot.hasError) {
+                        return Text('Не удалось загрузить последний тест..');
+                      } else {
+                        switch (snapshot.connectionState) {
+                          case ConnectionState.none:
+                          case ConnectionState.waiting:
+                          case ConnectionState.active:
+                            return RaisedButton(
+                              onPressed: () {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => NewQuizPage(
+                                //       i: quiz["quizzes"][['quizzes'].length],
+                                //     ),
+                                //   ),
+                                // );
+                              },
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              color: Color(0xFFEC4B4B),
+                              textColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Text('Загрузка..'),
+                            );
+                          case ConnectionState.done:
+                            int index =
+                                quiz["quizzes"].length-1;
+                            print(index);
+                            return RaisedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => NewQuizPage(
+                                      i: index.toInt(),
+                                    ),
+                                  ),
+                                );
+                              },
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              color: Color(0xFFEC4B4B),
+                              textColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Text(
+                                  '${quiz["quizzes"][quiz["quizzes"].length - 1]["title"]}'),
+                            );
+                        }
+                      }
+                    },
                   ),
                   SizedBox(
-                    height: 10,
+                    height: MediaQuery.of(context).size.height / 35,
                   ),
                   Center(
                     child: Column(
@@ -144,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: MediaQuery.of(context).size.height / 35,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -187,27 +222,21 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: MediaQuery.of(context).size.height / 35,
                   ),
-                  Text(
-                    'ОБУЧЕНИЕ',
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'МАТЕРИАЛЫ',
-                    style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22),
+                  Wrap(
+                    direction: Axis.horizontal,
+                    alignment: WrapAlignment.spaceBetween,
+                    runSpacing: MediaQuery.of(context).size.height / 40,
+                    children: <Widget>[
+                      CardWidget("Мониторинг", 0xFFFF7043, Icons.camera),
+                      CardWidget("Учёт и аудит", 0xFF42A5F5, Icons.category),
+                      CardWidget("Администрирование", 0xFFFFA726, Icons.people),
+                      CardWidget("Инфо - системы", 0xFF182B88, Icons.settings),
+                    ],
                   ),
                   SizedBox(
-                    height: 10,
+                    height: MediaQuery.of(context).size.height / 35,
                   ),
                   StreamBuilder(
                     stream: filesManager.filesList,
@@ -257,7 +286,8 @@ class _HomePageState extends State<HomePage> {
                                       },
                                       leading: Image.asset('assets/img/pdf.png',
                                           width: 40),
-                                      title: Text('${collection["latestFiles"][index]["title"]}'),
+                                      title: Text(
+                                          '${collection["latestFiles"][index]["title"]}'),
                                       subtitle: Text(
                                         '${collection["latestFiles"][index]["description"]}',
                                       ),
@@ -272,7 +302,8 @@ class _HomePageState extends State<HomePage> {
                                         }).toList(),
                                         underline: Container(),
                                         onChanged: (value) {
-                                          launch('${collection["latestFiles"][index]["href"]}');
+                                          launch(
+                                              '${collection["latestFiles"][index]["href"]}');
                                         },
                                         icon: Icon(Icons.more_vert),
                                       ),
@@ -285,28 +316,6 @@ class _HomePageState extends State<HomePage> {
                       }
                     },
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  OutlineButton(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    onPressed: () {
-                      // quizHelper.getQuiz();
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => ForegroundNotification()));
-                    },
-                    child: Text('Больше материалов..'),
-                    textColor: Color(0xFF0157A5),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      side: BorderSide(
-                        color: Color(0xFF0157A5),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
                 ],
               ),
             ),

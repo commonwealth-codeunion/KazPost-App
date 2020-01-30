@@ -15,19 +15,20 @@ class QuizModel {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
     final accessToken = prefs.getString(key) ?? '';
-    if (accessToken == null || accessToken == '') {
+    String myUrl = "$serverUrl/api/quizzes";
+
+    final response =
+        await http.post(myUrl, headers: {"Authorization": "$accessToken"});
+
+    var data = response.body;
+    quiz = json.decode(data);
+
+    if (response.statusCode == 401) {
+      print('Обновите токен');
       DatabaseHelper.refreshToken();
     } else {
-      String myUrl = "$serverUrl/api/quizzes";
-
-      final response =
-          await http.post(myUrl, headers: {"Authorization": "$accessToken"});
-
-      var data = response.body;
-      quiz = json.decode(data);
-
       if (response.statusCode != 200) {
-        print('Error');
+        print('Ошибка: ${response.statusCode}');
       } else {
         _saveNumberOfQuizzes(quiz["quizzes"].length);
         print('Тесты были успешно доставлены');
@@ -56,32 +57,31 @@ class QuizModel {
 
     String myUrl = '$serverUrl/api/quiz/upload';
 
-    if (accessToken == null || accessToken == '') {
+    var params = {
+      "uid": '$_id',
+      "qid": '${quiz["quizzes"][i]["_id"]}',
+      "right": score,
+      "review": {
+        "rating": rating,
+        "text": '$callback',
+        "author": '$_id',
+      },
+    };
+
+    final response = await http.post(
+      myUrl,
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "$accessToken"
+      },
+      body: json.encode(params),
+    );
+
+    if(response.statusCode == 401) {
+      print('Обновите токен');
       DatabaseHelper.refreshToken();
     } else {
-
-      var params = {
-        "uid": '$_id',
-        "qid": '${quiz["quizzes"][i]["_id"]}',
-        "right": score,
-        "review": {
-          "rating": rating,
-          "text": '$callback',
-          "author": '$_id',
-        },
-      };
-      print(json.encode(params));
-      final response = await http.post(
-        myUrl,
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "$accessToken"
-        },
-        body: json.encode(params),
-      );
-
-      var data = json.decode(response.body);
-      print('$data');
+      print('Ваш отзыв был отправлен');
     }
   }
 }

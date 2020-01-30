@@ -14,22 +14,25 @@ class FilesModel {
     final accessToken = prefs.get(key) ?? 0;
     String myUrl = "$serverUrl/api/getFiles";
 
-    if (accessToken == '' || accessToken == null) {
+    http.Response response =
+        await http.post(myUrl, headers: {"Authorization": "$accessToken"});
+
+    if (response.statusCode == 401) {
+      print("Обновите токен");
       DatabaseHelper.refreshToken();
     } else {
-      http.Response response =
-          await http.post(myUrl, headers: {"Authorization": "$accessToken"});
-
       String data = response.body;
       collection = json.decode(data);
+      print('Файлы были успешно доставлены');
     }
   }
 
   static Future downloadFile() async {}
-  //   List<Files> _files =
-  //       collection.map((json) => Files.fromJson(json)).toList();
-  // }
 }
+
+//   List<Files> _files =
+//       collection.map((json) => Files.fromJson(json)).toList();
+// }
 
 // class Files {
 //   final String title;

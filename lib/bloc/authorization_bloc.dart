@@ -35,7 +35,7 @@ class DatabaseHelper {
       _saveAvatar(data["user"]["avatar"]);
       _savePosition(data["user"]["position"]);
 
-      debugPrint('Авторизация пользователя произведена успешно');
+      print('Авторизация пользователя произведена успешно');
     }
   }
 
@@ -43,55 +43,45 @@ class DatabaseHelper {
     final prefs = await SharedPreferences.getInstance();
     final key = 'refreshToken';
     final refreshToken = prefs.getString(key) ?? '';
-    if (refreshToken == '' || refreshToken == null) {
-      print('просроченый токен');
+    String myUrl = '$serverUrl/api/refresh';
+
+    final response =
+        await http.post(myUrl, body: {"refreshToken": "$refreshToken"});
+    final status = response.body.contains('error');
+
+    var data = json.decode(response.body);
+
+    if (status) {
+      print('Ошибка при обновлении токена');
     } else {
-      print(refreshToken);
-      String myUrl = '$serverUrl/api/refresh';
-
-      final response =
-          await http.post(myUrl, body: {"refreshToken": "$refreshToken"});
-      final status = response.body.contains('error');
-
-      var data = json.decode(response.body);
-
-      print(data);
-
-      if (status) {
-        print('error');
-        debugPrint('Произошла ошибка при обновлении accessToken');
-      } else {
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-        prefs.remove('accessToken');
-        prefs.remove('refreshToken');
-        _saveToken(data["accessToken"]);
-        _saveRefreshToken(data["refreshToken"]);
-        debugPrint('Обновлен accessToken');
-      }
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.remove('accessToken');
+      prefs.remove('refreshToken');
+      _saveToken(data["accessToken"]);
+      _saveRefreshToken(data["refreshToken"]);
+      print('Обновлен accessToken');
     }
-
     await Future.delayed(Duration(seconds: 3));
   }
 
-  Future sendReview(String title, String review) async {
+  Future sendReview(String title, String review) async { 
     final prefs = await SharedPreferences.getInstance();
     final accessTokenKey = 'accessToken';
     final accessToken = prefs.getString(accessTokenKey) ?? '';
 
-    if (accessToken == null || accessToken == '') {
+    final idKey = '_id';
+    final id = prefs.getString(idKey) ?? '';
+
+    String myUrl = "$serverUrl/api/feedback";
+
+    final response = await http.post(myUrl,
+        headers: {"Authorization": "$accessToken"},
+        body: {"title": "$title", "text": "$review", "author": "$id"});
+    if (response.statusCode == 401) {
+      print('Обновите токен');
       DatabaseHelper.refreshToken();
     } else {
-      print('$accessToken');
-      final idKey = '_id';
-      final id = prefs.getString(idKey) ?? '';
-      print(id);
-      String myUrl = "$serverUrl/api/feedback";
-
-      await http.post(myUrl,
-          headers: {"Authorization": "$accessToken"},
-          body: {"title": "$title", "text": "$review", "author": "$id"});
-
-      debugPrint('Пожелание было отправлено');
+      print('Важе сообщение было отправлено');
     }
   }
 
