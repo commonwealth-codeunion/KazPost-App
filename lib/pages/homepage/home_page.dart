@@ -7,7 +7,8 @@ import 'package:kazpost/pages/homepage/card.dart';
 import 'package:kazpost/bloc/files_manager.dart';
 import 'package:kazpost/bloc/quiz_bloc.dart';
 import 'package:kazpost/models/files_model.dart';
-import 'package:kazpost/pages/tests/test_list_page.dart';
+import 'package:kazpost/models/quiz_model.dart';
+import 'package:kazpost/pages/quiz/quiz_page.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -36,6 +37,8 @@ class _HomePageState extends State<HomePage> {
 
   FilesModel filesModel = FilesModel();
   FilesManager filesManager = FilesManager();
+
+  int lastQuiz = 0;
 
   // @override
   // Widget build(BuildContext context) {
@@ -99,29 +102,67 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  RaisedButton(
-                    onPressed: () {
-                      quizBloc.getQuiz;
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TestListPage()),
-                      );
+                  SizedBox(height: 10),
+                  StreamBuilder(
+                    stream: quizBloc.getQuiz,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Text('Не удалось загрузить последний тест..');
+                      } else {
+                        switch (snapshot.connectionState) {
+                          case ConnectionState.none:
+                          case ConnectionState.waiting:
+                          case ConnectionState.active:
+                            return RaisedButton(
+                              onPressed: () {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => NewQuizPage(
+                                //       i: quiz["quizzes"][['quizzes'].length],
+                                //     ),
+                                //   ),
+                                // );
+                              },
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              color: Color(0xFFEC4B4B),
+                              textColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Text('Загрузка..'),
+                            );
+                          case ConnectionState.done:
+                            int index =
+                                quiz["quizzes"].length-1;
+                            print(index);
+                            return RaisedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => NewQuizPage(
+                                      i: index.toInt(),
+                                    ),
+                                  ),
+                                );
+                              },
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              color: Color(0xFFEC4B4B),
+                              textColor: Colors.white,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Text(
+                                  '${quiz["quizzes"][quiz["quizzes"].length - 1]["title"]}'),
+                            );
+                        }
+                      }
                     },
-                    padding: EdgeInsets.symmetric(
-                      vertical: 10,
-                    ),
-                    color: Color(0xFFEC4B4B),
-                    textColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Text(
-                      'пока-что, так. потом поменяю',
-                      // '${quizHelper.data["quizzes"][0]["title"]}',
-                      style: TextStyle(
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.bold),
-                    ),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 35,
@@ -193,6 +234,87 @@ class _HomePageState extends State<HomePage> {
                       CardWidget("Администрирование", 0xFFFFA726, Icons.people),
                       CardWidget("Инфо - системы", 0xFF182B88, Icons.settings),
                     ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 35,
+                  ),
+                  StreamBuilder(
+                    stream: filesManager.filesList,
+                    builder:
+                        (BuildContext context, AsyncSnapshot<List> snapshot) {
+                      if (snapshot.hasError) {
+                        return Card(
+                          elevation: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              'Error: Нет доступа к интернету',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.deepOrange,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        );
+                      } else {
+                        switch (snapshot.connectionState) {
+                          case ConnectionState.none:
+                          case ConnectionState.waiting:
+                          case ConnectionState.active:
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          case ConnectionState.done:
+                            return ListView.builder(
+                              itemCount: collection["latestFiles"].length,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              physics: BouncingScrollPhysics(),
+                              itemBuilder: (BuildContext context, int index) {
+                                return Container(
+                                  padding: const EdgeInsets.only(bottom: 10),
+                                  child: Card(
+                                    elevation: 2,
+                                    child: ListTile(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            CupertinoPageRoute(
+                                                builder: (context) =>
+                                                    MethodicsPage(i: index)));
+                                      },
+                                      leading: Image.asset('assets/img/pdf.png',
+                                          width: 40),
+                                      title: Text(
+                                          '${collection["latestFiles"][index]["title"]}'),
+                                      subtitle: Text(
+                                        '${collection["latestFiles"][index]["description"]}',
+                                      ),
+                                      trailing: DropdownButton<String>(
+                                        items: <String>['Загрузить']
+                                            .map<DropdownMenuItem<String>>(
+                                                (String value) {
+                                          return DropdownMenuItem<String>(
+                                            value: value,
+                                            child: Text(value),
+                                          );
+                                        }).toList(),
+                                        underline: Container(),
+                                        onChanged: (value) {
+                                          launch(
+                                              '${collection["latestFiles"][index]["href"]}');
+                                        },
+                                        icon: Icon(Icons.more_vert),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                        }
+                      }
+                    },
                   ),
                 ],
               ),
