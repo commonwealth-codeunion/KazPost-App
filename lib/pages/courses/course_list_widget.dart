@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kazpost/pages/courses/courses_page.dart';
+import 'new_course_page.dart';
 
 class CourseListWidget extends StatelessWidget {
   final String title;
@@ -26,11 +26,11 @@ class CourseListWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           onTap: () {
             Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CoursePage(),
-                  ),
-                );
+              context,
+              MaterialPageRoute(
+                builder: (context) => NewCoursePage(),
+              ),
+            );
           },
           child: Container(
             padding: EdgeInsets.symmetric(
