@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 // import 'package:kazpost/app/pages/homepage/files_model.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
@@ -38,8 +39,6 @@ class _HomePageState extends State<HomePage> {
   FilesModel filesModel = FilesModel();
   FilesManager filesManager = FilesManager();
 
-  int lastQuiz = 0;
-
   // @override
   // Widget build(BuildContext context) {
   //   var futureBuilder = new FutureBuilder(
@@ -76,6 +75,36 @@ class _HomePageState extends State<HomePage> {
   //   return Scaffold(
   //     body: futureBuilder,
   //   );
+  // }
+
+  // FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  //     new FlutterLocalNotificationsPlugin();
+
+  // initState() async {
+  //   super.initState();
+  //   var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+  //       '1', 'inducesmile', 'inducesmile flutter snippets',
+  //       importance: Importance.Max, priority: Priority.High);
+  //   var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+  //   var platformChannelSpecifics = NotificationDetails(
+  //       androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
+  //   await flutterLocalNotificationsPlugin.show(
+  //       0, 'Ты лалка', 'смари не пересрись', platformChannelSpecifics,
+  //       payload: 'item x');
+
+  //   // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
+  //   var initializationSettingsAndroid =
+  //       new AndroidInitializationSettings('mipmap/ic_launcher');
+  //   var initializationSettingsIOS = new IOSInitializationSettings(
+  //       onDidReceiveLocalNotification: (i, string1, string2, string3) {
+  //     print("received notifications");
+  //   });
+  //   var initializationSettings = new InitializationSettings(
+  //       initializationSettingsAndroid, initializationSettingsIOS);
+  //   flutterLocalNotificationsPlugin.initialize(initializationSettings,
+  //       onSelectNotification: (string) {
+  //     print("selected notification");
+  //   });
   // }
 
   Widget build(BuildContext context) {
@@ -135,16 +164,13 @@ class _HomePageState extends State<HomePage> {
                               child: Text('Загрузка..'),
                             );
                           case ConnectionState.done:
-                            int index =
-                                quiz["quizzes"].length-1;
-                            print(index);
                             return RaisedButton(
                               onPressed: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => NewQuizPage(
-                                      i: index.toInt(),
+                                      i: quiz["quizzes"].length - 1,
                                     ),
                                   ),
                                 );
@@ -162,6 +188,7 @@ class _HomePageState extends State<HomePage> {
                             );
                         }
                       }
+                      return null;
                     },
                   ),
                   SizedBox(
@@ -314,6 +341,7 @@ class _HomePageState extends State<HomePage> {
                             );
                         }
                       }
+                      return null;
                     },
                   ),
                 ],
@@ -363,6 +391,7 @@ class CustomSearchDelegate extends SearchDelegate {
         ],
       );
     }
+    return null;
   }
 
   @override

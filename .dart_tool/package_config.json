@@ -14,6 +14,12 @@
       "languageVersion": "2.6"
     },
     {
+      "name": "android_alarm_manager",
+      "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/android_alarm_manager-0.4.5+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "archive",
       "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.11",
       "packageUri": "lib/",
@@ -28,6 +34,12 @@
     {
       "name": "async",
       "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "background_fetch",
+      "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/git/flutter_background_fetch-a5deef54e57e464f5cd63f88027dac8531a31682/",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -638,7 +650,7 @@
       "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-01-29T18:49:20.353344Z",
+  "generated": "2020-02-02T04:57:27.554837Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }

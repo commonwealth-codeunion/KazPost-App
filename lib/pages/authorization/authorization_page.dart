@@ -63,140 +63,137 @@ class _AuthPageState extends State<AuthPage> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        body: DefaultTabController(
-          length: 2,
-          child: Scaffold(
-            body: ListView(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Container(
-                        margin: const EdgeInsets.all(80.0),
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
-                          errorWidget: (context, url, error) =>
-                              Icon(Icons.error_outline),
-                          placeholder: (context, url) =>
-                              CircularProgressIndicator(),
-                        ),
+        body: Scaffold(
+          body: ListView(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.all(80.0),
+                      child: CachedNetworkImage(
+                        imageUrl:
+                            'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
+                        errorWidget: (context, url, error) =>
+                            Icon(Icons.error_outline),
+                        placeholder: (context, url) =>
+                            CircularProgressIndicator(),
                       ),
-                      Form(
-                        key: _formKey,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            TextFormField(
-                              controller: _emailController,
-                              keyboardType: TextInputType.text,
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'Пожалуйста введите логин';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Логин',
-                                filled: true,
-                                fillColor: Colors.white70,
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.blue,
-                                    style: BorderStyle.solid,
-                                  ),
+                    ),
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          TextFormField(
+                            controller: _emailController,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Пожалуйста введите логин';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              hintText: 'Логин',
+                              filled: true,
+                              fillColor: Colors.white70,
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.blue,
+                                  style: BorderStyle.solid,
                                 ),
                               ),
                             ),
-                            SizedBox(height: 30),
-                            TextFormField(
-                              controller: _passwordController,
-                              keyboardType: TextInputType.text,
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'Пожалуйста введите пароль';
-                                }
-                                return null;
-                              },
-                              decoration: InputDecoration(
-                                hintText: 'Пароль',
-                                filled: true,
-                                fillColor: Colors.white70,
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.blue,
-                                    style: BorderStyle.solid,
-                                  ),
+                          ),
+                          SizedBox(height: 30),
+                          TextFormField(
+                            controller: _passwordController,
+                            keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value.isEmpty) {
+                                return 'Пожалуйста введите пароль';
+                              }
+                              return null;
+                            },
+                            decoration: InputDecoration(
+                              hintText: 'Пароль',
+                              filled: true,
+                              fillColor: Colors.white70,
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.blue,
+                                  style: BorderStyle.solid,
                                 ),
                               ),
-                              obscureText: true,
                             ),
-                            SizedBox(height: 30),
-                            FlatButton(
-                              padding: const EdgeInsets.all(15),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Text('Войти'),
-                              textColor: Colors.white,
-                              color: Color(0xFF3985CC),
-                              onPressed: () {
-                                if (_formKey.currentState.validate()) {
-                                  _onPressed();
-                                }
-                              },
+                            obscureText: true,
+                          ),
+                          SizedBox(height: 30),
+                          FlatButton(
+                            padding: const EdgeInsets.all(15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
                             ),
-                          ],
-                        ),
+                            child: Text('Войти'),
+                            textColor: Colors.white,
+                            color: Color(0xFF3985CC),
+                            onPressed: () {
+                              if (_formKey.currentState.validate()) {
+                                _onPressed();
+                              }
+                            },
+                          ),
+                        ],
                       ),
-                      Container(
-                        height: 50,
-                        child: Text(
-                          '$msgStatus',
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
+                    ),
+                    Container(
+                      height: 50,
+                      child: Text(
+                        '$msgStatus',
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 30),
-                      Text(
-                        'Забыли пароль',
-                        style: TextStyle(
-                          color: Color(0xFF0157A5),
-                        ),
+                    ),
+                    SizedBox(height: 30),
+                    Text(
+                      'Забыли пароль',
+                      style: TextStyle(
+                        color: Color(0xFF0157A5),
                       ),
-                      SizedBox(height: 30),
-                      Container(
-                        width: 1000,
-                        height: 3,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF4F4F4),
-                          borderRadius: BorderRadius.circular(36),
-                        ),
+                    ),
+                    SizedBox(height: 30),
+                    Container(
+                      width: 1000,
+                      height: 3,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF4F4F4),
+                        borderRadius: BorderRadius.circular(36),
                       ),
-                      SizedBox(height: 30),
-                      FlatButton.icon(
-                        padding: const EdgeInsets.all(10),
-                        onPressed: () {},
-                        icon: Image(
-                          image: AssetImage('./assets/img/digital_id.png'),
-                          height: 30,
-                        ),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            side: BorderSide(color: Color(0xFF0157A5))),
-                        label: Text(
-                          'Войти через Digital ID',
-                          style: TextStyle(color: Color(0xFF0157A5)),
-                        ),
+                    ),
+                    SizedBox(height: 30),
+                    FlatButton.icon(
+                      padding: const EdgeInsets.all(10),
+                      onPressed: () {},
+                      icon: Image(
+                        image: AssetImage('./assets/img/digital_id.png'),
+                        height: 30,
                       ),
-                    ],
-                  ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          side: BorderSide(color: Color(0xFF0157A5))),
+                      label: Text(
+                        'Войти через Digital ID',
+                        style: TextStyle(color: Color(0xFF0157A5)),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

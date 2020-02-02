@@ -4,6 +4,12 @@
 
 #import "GeneratedPluginRegistrant.h"
 
+#if __has_include(<background_fetch/BackgroundFetchPlugin.h>)
+#import <background_fetch/BackgroundFetchPlugin.h>
+#else
+@import background_fetch;
+#endif
+
 #if __has_include(<flutter_full_pdf_viewer/FlutterFullPdfViewerPlugin.h>)
 #import <flutter_full_pdf_viewer/FlutterFullPdfViewerPlugin.h>
 #else
@@ -55,6 +61,7 @@
 @implementation GeneratedPluginRegistrant
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
+  [BackgroundFetchPlugin registerWithRegistrar:[registry registrarForPlugin:@"BackgroundFetchPlugin"]];
   [FlutterFullPdfViewerPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterFullPdfViewerPlugin"]];
   [FlutterLocalNotificationsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterLocalNotificationsPlugin"]];
   [OpenFilePlugin registerWithRegistrar:[registry registrarForPlugin:@"OpenFilePlugin"]];

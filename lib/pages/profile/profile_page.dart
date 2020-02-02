@@ -96,7 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         border: Border.all(color: Colors.white, width: 5),
                       ),
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage('$avatar'),
+                        backgroundImage: avatar.isNotEmpty ? NetworkImage(avatar) : null,
                         radius: 60,
                       ),
                     ),

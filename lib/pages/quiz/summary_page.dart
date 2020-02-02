@@ -92,7 +92,6 @@ class Summary extends StatelessWidget {
                           rating,
                           _callbackController.text,
                         );
-                        print(_callbackController.text);
                         Navigator.popAndPushNamed(context, '/mainpage');
                         questionNumber = 0;
                         score = 0;

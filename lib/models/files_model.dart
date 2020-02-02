@@ -14,8 +14,10 @@ class FilesModel {
     final accessToken = prefs.get(key) ?? 0;
     String myUrl = "$serverUrl/api/getFiles";
 
-    http.Response response =
-        await http.post(myUrl, headers: {"Authorization": "$accessToken"});
+    http.Response response = await http.post(myUrl, headers: {
+      "Content-Type": "application/json",
+      "Authorization": "$accessToken",
+    });
 
     if (response.statusCode == 401) {
       print("Обновите токен");

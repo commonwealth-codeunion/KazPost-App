@@ -17,8 +17,10 @@ class QuizModel {
     final accessToken = prefs.getString(key) ?? '';
     String myUrl = "$serverUrl/api/quizzes";
 
-    final response =
-        await http.post(myUrl, headers: {"Authorization": "$accessToken"});
+    final response = await http.post(myUrl, headers: {
+      "Content-Type": "application/json",
+      "Authorization": "$accessToken",
+    });
 
     var data = response.body;
     quiz = json.decode(data);
@@ -77,7 +79,7 @@ class QuizModel {
       body: json.encode(params),
     );
 
-    if(response.statusCode == 401) {
+    if (response.statusCode == 401) {
       print('Обновите токен');
       DatabaseHelper.refreshToken();
     } else {

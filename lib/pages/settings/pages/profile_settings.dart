@@ -52,10 +52,10 @@ class _ProfileSettingsState extends State<ProfileSettings> {
 
   @override
   void initState() {
+    super.initState();
     readAvatar();
     readName();
     readEmail();
-    super.initState();
   }
 
   @override
@@ -82,7 +82,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
             ),
             SizedBox(height: 20),
             CircleAvatar(
-              backgroundImage: NetworkImage('$avatar'),
+              backgroundImage: avatar.isNotEmpty ? NetworkImage(avatar) : null,
               radius: 30,
             ),
             SizedBox(height: 20),

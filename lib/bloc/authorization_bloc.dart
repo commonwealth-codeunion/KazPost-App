@@ -47,24 +47,23 @@ class DatabaseHelper {
 
     final response =
         await http.post(myUrl, body: {"refreshToken": "$refreshToken"});
+
     final status = response.body.contains('error');
 
-    var data = json.decode(response.body);
+    final data = json.decode(response.body);
 
     if (status) {
       print('Ошибка при обновлении токена');
     } else {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.remove('accessToken');
-      prefs.remove('refreshToken');
+      await prefs.remove('accessToken');
+      await prefs.remove('refreshToken');
       _saveToken(data["accessToken"]);
       _saveRefreshToken(data["refreshToken"]);
       print('Обновлен accessToken');
     }
-    await Future.delayed(Duration(seconds: 3));
   }
 
-  Future sendReview(String title, String review) async { 
+  Future sendReview(String title, String review) async {
     final prefs = await SharedPreferences.getInstance();
     final accessTokenKey = 'accessToken';
     final accessToken = prefs.getString(accessTokenKey) ?? '';
@@ -74,12 +73,19 @@ class DatabaseHelper {
 
     String myUrl = "$serverUrl/api/feedback";
 
-    final response = await http.post(myUrl,
-        headers: {"Authorization": "$accessToken"},
-        body: {"title": "$title", "text": "$review", "author": "$id"});
+    final response = await http.post(myUrl, headers: {
+      "Authorization": "$accessToken"
+    }, body: {
+      "title": "$title",
+      "text": "$review",
+      "author": "$id"
+    });
+
+    status = response.body.contains('Некорректный токен!');
+
     if (response.statusCode == 401) {
       print('Обновите токен');
-      DatabaseHelper.refreshToken();
+      await DatabaseHelper.refreshToken();
     } else {
       print('Важе сообщение было отправлено');
     }
@@ -88,15 +94,14 @@ class DatabaseHelper {
   logOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove("accessToken");
+    prefs.remove("refreshToken");
     prefs.remove("name");
     prefs.remove("_id");
-    prefs.remove("href");
     prefs.remove("type");
     prefs.remove("email");
     prefs.remove("avatar");
-    prefs.remove("title");
-    prefs.remove("description");
     prefs.remove("position");
+    prefs.remove("numberOfQuizzes");
     debugPrint('Пользователь вышел с аккаунта');
   }
 

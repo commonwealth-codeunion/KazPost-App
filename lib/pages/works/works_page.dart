@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kazpost/pages/courses/course_bookmark.dart';
 
-class WorksPage extends StatefulWidget {
-  WorksPage({Key key}) : super(key: key);
-
-  @override
-  _WorksPageState createState() => _WorksPageState();
-}
-
-class _WorksPageState extends State<WorksPage> {
+class WorksPageState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

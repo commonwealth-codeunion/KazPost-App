@@ -106,6 +106,7 @@ class _NewQuizPageState extends State<NewQuizPage> {
               return Quiz(this.i);
           }
         }
+        return null;
       },
     );
   }

@@ -61,10 +61,10 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   void initState() {
+    super.initState();
     readAvatar();
     readName();
     readType();
-    super.initState();
   }
 
   final int txtColor = 0xFF8465B7;
@@ -92,7 +92,7 @@ class _SettingsPageState extends State<SettingsPage> {
             child: Column(
               children: <Widget>[
                 CircleAvatar(
-                  backgroundImage: NetworkImage('$avatar'),
+                  backgroundImage: avatar.isNotEmpty ? NetworkImage(avatar) : null,
                   radius: 40,
                 ),
                 SizedBox(height: 15),

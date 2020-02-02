@@ -16,8 +16,8 @@ class _CallBackPageState extends State<CallBackPage> {
 
   String msgStatus = '';
 
-  _onPressed() {
-    databaseHelper.sendReview(
+  _onPressed() async {
+    await databaseHelper.sendReview(
         '${_titleController.text}', '${_reviewController.text}');
     _showDialog();
   }
@@ -110,22 +110,41 @@ class _CallBackPageState extends State<CallBackPage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: new Text('Успешно'),
-          content: new Text(
-              'Мы рассмотрим ваше сообщение в течении ближайшего времени.'),
-          actions: <Widget>[
-            new RaisedButton(
-              child: new Text(
-                'Закрыть',
+        if (databaseHelper.status) {
+          return AlertDialog(
+            title: new Text('Ошибка'),
+            content: new Text(
+                'Произошла ошибка при передаче вашего сообщения.\nПожалуйста отправьте снова или попробуйте повторить попытку в следущий раз.'),
+            actions: <Widget>[
+              new RaisedButton(
+                child: new Text(
+                  'Закрыть',
+                ),
+                color: Color(0xFF0157A5),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
-              color: Color(0xFF0157A5),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
+            ],
+          );
+        } else {
+          return AlertDialog(
+            title: new Text('Успешно'),
+            content: new Text(
+                'Мы рассмотрим ваше сообщение в течении ближайшего времени.'),
+            actions: <Widget>[
+              new RaisedButton(
+                child: new Text(
+                  'Закрыть',
+                ),
+                color: Color(0xFF0157A5),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        }
       },
     );
   }

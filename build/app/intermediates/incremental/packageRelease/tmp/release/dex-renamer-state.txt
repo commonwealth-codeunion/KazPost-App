@@ -1,0 +1,4 @@
+#Sun Feb 02 12:57:52 ALMT 2020
+base.0=/home/maripbekoff/Desktop/KazPost-App/build/app/intermediates/transforms/r8/release/0/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

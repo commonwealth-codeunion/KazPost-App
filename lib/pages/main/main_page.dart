@@ -7,7 +7,6 @@ import 'package:kazpost/pages/profile/profile_page.dart';
 import 'package:kazpost/pages/settings/settings_page.dart';
 import 'package:kazpost/pages/tests/test_list_page.dart';
 import 'package:kazpost/pages/tests/test_page.dart';
-import 'package:kazpost/pages/works/works_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -114,10 +113,10 @@ class _MainPageState extends State<MainPage> {
               Icons.bookmark,
             ),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => WorksPage()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => WorksPage()),
+              // );
             },
           ),
         ],
@@ -137,7 +136,7 @@ class _MainPageState extends State<MainPage> {
                   border: Border.all(color: Colors.white, width: 3),
                 ),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage('$avatar'),
+                  backgroundImage: avatar.isNotEmpty ? NetworkImage(avatar) : null,
                   radius: 80,
                 ),
               ),
