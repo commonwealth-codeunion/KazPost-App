@@ -24,49 +24,40 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 QuizBloc quizBloc = QuizBloc();
 
 backgroundFetchHeadlessTask() async {
-  BackgroundFetch.configure(
-      BackgroundFetchConfig(
-          minimumFetchInterval: 15,
-          enableHeadless: true,
-          stopOnTerminate: false,
-          startOnBoot: true,
-          requiredNetworkType: BackgroundFetchConfig.NETWORK_TYPE_ANY),
-      () async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'numberOfQuizzes';
-    int numberOfQuizzes = prefs.getInt(key);
+  final prefs = await SharedPreferences.getInstance();
+  final key = 'numberOfQuizzes';
+  int numberOfQuizzes = prefs.getInt(key);
 
-    quizBloc.getQuiz;
+  quizBloc.getQuiz;
 
-    if (numberOfQuizzes > 5) {
-      var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-          '1', 'inducesmile', 'inducesmile flutter snippets',
-          importance: Importance.Max, priority: Priority.High);
-      var iOSPlatformChannelSpecifics = IOSNotificationDetails();
-      var platformChannelSpecifics = NotificationDetails(
-          androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
-      await flutterLocalNotificationsPlugin.show(
-          0, 'Ты лалка', 'смари не пересрись', platformChannelSpecifics,
-          payload: 'item x');
+  if (numberOfQuizzes > 5) {
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+        '1', 'inducesmile', 'inducesmile flutter snippets',
+        importance: Importance.Max, priority: Priority.High);
+    var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+    var platformChannelSpecifics = NotificationDetails(
+        androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.show(
+        0, 'Тестирование', 'Вышел новый тест. На забудте его пройти', platformChannelSpecifics,
+        payload: 'item x');
 
-      // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
-      var initializationSettingsAndroid =
-          new AndroidInitializationSettings('mipmap/ic_launcher');
-      var initializationSettingsIOS = new IOSInitializationSettings(
-          onDidReceiveLocalNotification: (i, string1, string2, string3) {
-        print("received notifications");
-        return null;
-      });
-      var initializationSettings = new InitializationSettings(
-          initializationSettingsAndroid, initializationSettingsIOS);
-      flutterLocalNotificationsPlugin.initialize(initializationSettings,
-          onSelectNotification: (string) {
-        print("selected notification");
-        return null;
-      });
-    }
-    BackgroundFetch.finish();
-  });
+    // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
+    var initializationSettingsAndroid =
+        new AndroidInitializationSettings('mipmap/ic_launcher');
+    var initializationSettingsIOS = new IOSInitializationSettings(
+        onDidReceiveLocalNotification: (i, string1, string2, string3) {
+      print("received notifications");
+      return null;
+    });
+    var initializationSettings = new InitializationSettings(
+        initializationSettingsAndroid, initializationSettingsIOS);
+    flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: (string) {
+      print("selected notification");
+      return null;
+    });
+  }
+  BackgroundFetch.finish();
 }
 
 void main() {
