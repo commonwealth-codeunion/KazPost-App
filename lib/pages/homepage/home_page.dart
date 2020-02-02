@@ -251,10 +251,10 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 35,
                   ),
-                  Wrap(
-                    direction: Axis.horizontal,
-                    alignment: WrapAlignment.spaceBetween,
-                    runSpacing: MediaQuery.of(context).size.height / 40,
+                  GridView.count(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
                     children: <Widget>[
                       CardWidget("Мониторинг", 0xFFFF7043, Icons.camera),
                       CardWidget("Учёт и аудит", 0xFF42A5F5, Icons.category),

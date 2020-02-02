@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
 import 'package:kazpost/pages/courses/course_list.dart';
 import 'package:kazpost/pages/docs/docs_page.dart';
 import 'package:kazpost/pages/tests/test_list_page.dart';
 
 final String call = './assets/img/call.svg';
-final Widget callSvg = SvgPicture.asset(
-  call,
-  width: 25,
-  height: 25,
-);
+// final Widget callSvg = SvgPicture.asset(
+//   call,
+//   width: 25,
+//   height: 25,
+// );
 
 class TestPageBar extends StatefulWidget {
   TestPageBar({Key key}) : super(key: key);
@@ -262,7 +262,7 @@ class _TestPageBarState extends State<TestPageBar> {
                             children: <Widget>[
                               Row(
                                 children: <Widget>[
-                                  callSvg,
+                                  // callSvg,
                                   SizedBox(
                                     width: 10,
                                   ),

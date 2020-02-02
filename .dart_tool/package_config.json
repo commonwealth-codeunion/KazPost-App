@@ -14,12 +14,6 @@
       "languageVersion": "2.6"
     },
     {
-      "name": "android_alarm_manager",
-      "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/android_alarm_manager-0.4.5+3",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "archive",
       "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.11",
       "packageUri": "lib/",
@@ -218,12 +212,6 @@
       "languageVersion": "2.5"
     },
     {
-      "name": "flutter_svg",
-      "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.15.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.2"
-    },
-    {
       "name": "flutter_test",
       "rootUri": "file:///home/maripbekoff/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -350,12 +338,6 @@
       "languageVersion": "2.1"
     },
     {
-      "name": "open_file",
-      "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/open_file-2.1.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.0"
-    },
-    {
       "name": "package_config",
       "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/package_config-1.1.0",
       "packageUri": "lib/",
@@ -372,18 +354,6 @@
       "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.6.4",
       "packageUri": "lib/",
       "languageVersion": "2.0"
-    },
-    {
-      "name": "path_drawing",
-      "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.4.1",
-      "packageUri": "lib/",
-      "languageVersion": "1.19"
-    },
-    {
-      "name": "path_parsing",
-      "rootUri": "file:///home/maripbekoff/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.1.4",
-      "packageUri": "lib/",
-      "languageVersion": "1.19"
     },
     {
       "name": "path_provider",
@@ -650,7 +620,7 @@
       "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-02-02T04:57:27.554837Z",
+  "generated": "2020-02-02T08:28:55.877372Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }
