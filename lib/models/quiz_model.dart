@@ -32,13 +32,12 @@ class QuizModel {
       if (response.statusCode != 200) {
         print('Ошибка: ${response.statusCode}');
       } else {
-        _saveNumberOfQuizzes(quiz["quizzes"].length);
         print('Тесты были успешно доставлены');
       }
     }
   }
 
-  static Future _saveNumberOfQuizzes(int numberOfQuizzes) async {
+  static Future saveNumberOfQuizzes(int numberOfQuizzes) async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'numberOfQuizzes';
     final value = numberOfQuizzes;

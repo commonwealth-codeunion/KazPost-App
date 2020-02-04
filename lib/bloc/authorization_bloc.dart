@@ -101,7 +101,6 @@ class DatabaseHelper {
     prefs.remove("email");
     prefs.remove("avatar");
     prefs.remove("position");
-    prefs.remove("numberOfQuizzes");
     debugPrint('Пользователь вышел с аккаунта');
   }
 

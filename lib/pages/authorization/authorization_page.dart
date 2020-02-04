@@ -26,7 +26,7 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     readToken();
   }

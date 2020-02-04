@@ -3,7 +3,6 @@ Web content present: true
 Referenced Strings:
   %s.%sParcelizer
   .event.BACKGROUND_FETCH
-  .fileProvider
   .font
   .org.chromium.Chromium.
   .xml
@@ -11,7 +10,6 @@ Referenced Strings:
   0
   00
   0x%08x
-  3gp
   :launch
   :memory:
   :run
@@ -381,9 +379,7 @@ Referenced Strings:
   WrappedDrawableApi21
   WrongConstant
   _
-  _display_name
   _id
-  _size
   a
   abortCreation
   accelerateDecelerateInterpolator
@@ -417,7 +413,6 @@ Referenced Strings:
   android.intent.action.RUN
   android.intent.action.SEARCH
   android.intent.action.VIEW
-  android.intent.category.DEFAULT
   android.intent.extra.PROCESS_TEXT_REA...
   android.isGroupConversation
   android.media.metadata.ADVERTISEMENT
@@ -454,12 +449,9 @@ Referenced Strings:
   android.messages
   android.messagingStyleUser
   android.people
-  android.permission.READ_EXTERNAL_STORAGE
-  android.permission.REQUEST_INSTALL_PA...
   android.resource
   android.resource://
   android.selfDisplayName
-  android.settings.MANAGE_UNKNOWN_APP_S...
   android.speech.action.RECOGNIZE_SPEECH
   android.speech.action.WEB_SEARCH
   android.speech.extra.LANGUAGE
@@ -469,7 +461,6 @@ Referenced Strings:
   android.speech.extra.RESULTS_PENDINGI...
   android.speech.extra.RESULTS_PENDINGI...
   android.support.BIND_NOTIFICATION_SID...
-  android.support.FILE_PROVIDER_PATHS
   android.support.action.semanticAction
   android.support.action.showsUserInter...
   android.support.actionExtras
@@ -513,22 +504,13 @@ Referenced Strings:
   announce
   anticipateInterpolator
   anticipateOvershootInterpolator
-  apk
   app_data
   appcompat_skip_skip
-  application/msword
-  application/pdf
-  application/rtf
-  application/vnd.mpohun.certificate
   args
   arguments
-  asf
-  audio/mpeg
-  audio/ogg
   autoCancel
   autoMirrored
   autocorrect
-  avi
   background_mode
   bad_param
   base
@@ -536,14 +518,11 @@ Referenced Strings:
   bigPicture
   bigPictureBitmapSource
   bigText
-  bin
-  bmp
   body
   bool
   bot
   bottom
   bounceInterpolator
-  c
   cached_engine_id
   callbackHandle
   callbackId
@@ -563,7 +542,6 @@ Referenced Strings:
   channelName
   channelShowBadge
   character
-  class
   clear
   clearFocus
   clientCallbackId
@@ -583,8 +561,6 @@ Referenced Strings:
   com.alveliu.flutterfullpdfviewer.Flut...
   com.android.browser.headers
   com.android.internal.view.menu.MenuBu...
-  com.crazecoder.openfile.OpenFilePlugin
-  com.dexterous.flutterlocalnotificatio...
   com.example.pdfviewerplugin.PdfViewer...
   com.shockwave.pdfium.PdfiumCore
   com.tekartik.sqflite
@@ -597,7 +573,6 @@ Referenced Strings:
   composingBase
   composingExtent
   computeFitSystemWindows
-  conf
   config_showMenuShortcutsWhenKeyboardP...
   configure
   content
@@ -608,7 +583,6 @@ Referenced Strings:
   controlY1
   controlY2
   conversationTitle
-  cpp
   create
   createFromFamiliesWithDefault
   currentIndex
@@ -637,9 +611,6 @@ Referenced Strings:
   dispose
   doAfterTextChanged
   doBeforeTextChanged
-  doc
-  docx
-  done
   drawable
   duration
   enableDomStorage
@@ -655,7 +626,6 @@ Referenced Strings:
   ensureImeVisible
   error
   exact
-  exe
   execute
   extent
   extras
@@ -663,7 +633,6 @@ Referenced Strings:
   file
   filePath
   file_id
-  file_path
   fillAlpha
   fillColor
   fillType
@@ -724,23 +693,17 @@ Referenced Strings:
   getStorageDirectory
   getTemporaryDirectory
   getTextDirectionHeuristic
-  gif
   gradient
   gradientRadius
   group
   groupAlertBehavior
   groupConversation
   groupKey
-  gtar
-  gz
-  h
   headers
   height
   hideExpandedLargeIcon
   hour
   hourOfDay
-  htm
-  html
   htmlFormatBigText
   htmlFormatContent
   htmlFormatContentTitle
@@ -751,16 +714,11 @@ Referenced Strings:
   icon
   iconSource
   id
-  image/bmp
-  image/gif
-  image/jpeg
-  image/png
   importance
   important
   inTransaction
   in_progress
   indeterminate
-  initial_route
   initialize
   initialized
   inputAction
@@ -786,16 +744,11 @@ Referenced Strings:
   isProjected
   isolate_snapshot_data
   item
-  jar
-  java
   java.
   java.version
   jniPdfium
   jobService
   jobscheduler
-  jpeg
-  jpg
-  js
   key
   keyCode
   keydown
@@ -822,15 +775,8 @@ Referenced Strings:
   linearInterpolator
   lines
   listen
-  log
   logLevel
   longPress
-  m3u
-  m4a
-  m4b
-  m4p
-  m4u
-  m4v
   mAccessibilityDelegate
   mChildNodeIds
   mIsChildViewEnabled
@@ -852,17 +798,6 @@ Referenced Strings:
   modpdfium
   modpng
   month
-  mov
-  mp2
-  mp3
-  mp4
-  mpc
-  mpe
-  mpeg
-  mpg
-  mpg4
-  mpga
-  msg
   name
   native_instance
   newInstance
@@ -880,7 +815,6 @@ Referenced Strings:
   objectAnimator
   objectFieldOffset
   obscureText
-  ogg
   onAttachedToEngine
   onDestroy
   onDetachedFromEngine
@@ -888,20 +822,17 @@ Referenced Strings:
   onlyAlertOnce
   opaque
   openDatabase
-  open_file
   operations
   options
   ordering
   override
   overshootInterpolator
-  package:
   packageName:
   params
   path
   pathData
   pathInterpolator
   payload
-  pdf
   pdf_viewer_plugin
   pdf_viewer_plugin_
   pendingNotificationRequests
@@ -917,17 +848,12 @@ Referenced Strings:
   plugins.flutter.io/path_provider
   plugins.flutter.io/shared_preferences
   plugins.flutter.io/url_launcher
-  png
   popRoute
   power
-  pps
-  ppt
-  pptx
   primaryColor
   priority
   productId
   progress
-  prop
   propertyName
   propertyValuesHolder
   propertyXName
@@ -937,7 +863,6 @@ Referenced Strings:
   queryAsMapList
   r
   raw
-  rc
   read
   readOnly
   recovered
@@ -967,12 +892,9 @@ Referenced Strings:
   result
   result_code
   right
-  rmvb
   rotation
+  route
   rows
-  rtf
-  rw
-  rwt
   samsung
   scaleX
   scaleY
@@ -1010,7 +932,6 @@ Referenced Strings:
   setTime
   setTouchModal
   setWindowLayoutType
-  sh
   show
   showDailyAtTime
   showProgress
@@ -1061,16 +982,13 @@ Referenced Strings:
   systemNavigationBarDividerColor
   systemNavigationBarIconBrightness
   tap
-  tar
   target
   tekartik_sqflite.db
   text
-  text/html
   text/plain
   textCapitalization
   textScaleFactor
   texture
-  tgz
   theUnsafe
   ticker
   tileMode
@@ -1094,7 +1012,6 @@ Referenced Strings:
   trimPathOffset
   trimPathStart
   true
-  txt
   type
   unrated
   update
@@ -1110,36 +1027,19 @@ Referenced Strings:
   vector
   vendorId
   vibrationPattern
-  video/3gpp
-  video/mp4
-  video/mpeg
-  video/quicktime
-  video/vnd.mpegurl
   viewFocused
   viewType
   viewportHeight
   viewportWidth
   visibility
   vm_snapshot_data
-  w
-  wa
   wakeup
-  wav
   web_search
   width
   window
-  wma
-  wmv
-  wps
   write
-  wt
   x
-  xls
-  xlsx
-  xml
   year
-  z
-  zip
 Marking id:cancel_action:2131165252 used because its prefix matches string pool constant cancel
 Marking integer:cancel_button_image_alpha:2131230722 used because its prefix matches string pool constant cancel
 Marking id:left:2131165287 used because its prefix matches string pool constant left
@@ -1296,6 +1196,7 @@ Marking id:showCustom:2131165325 used because its prefix matches string pool con
 Marking id:showHome:2131165326 used because its prefix matches string pool constant show
 Marking id:showTitle:2131165327 used because its prefix matches string pool constant show
 Marking id:start:2131165333 used because its prefix matches string pool constant start
+Marking id:time:2131165350 used because its prefix matches string pool constant time
 Marking attr:windowActionBar:2130837770 used because its prefix matches string pool constant window
 Marking attr:windowActionBarOverlay:2130837771 used because its prefix matches string pool constant window
 Marking attr:windowActionModeOverlay:2130837772 used because its prefix matches string pool constant window
@@ -1306,10 +1207,7 @@ Marking attr:windowFixedWidthMinor:2130837776 used because its prefix matches st
 Marking attr:windowMinWidthMajor:2130837777 used because its prefix matches string pool constant window
 Marking attr:windowMinWidthMinor:2130837778 used because its prefix matches string pool constant window
 Marking attr:windowNoTitle:2130837779 used because its prefix matches string pool constant window
-Marking id:time:2131165350 used because its prefix matches string pool constant time
 Marking attr:itemPadding:2130837644 used because its prefix matches string pool constant item
-Marking attr:logo:2130837666 used because its prefix matches string pool constant log
-Marking attr:logoDescription:2130837667 used because its prefix matches string pool constant log
 Marking attr:displayOptions:2130837604 used because its prefix matches string pool constant display
 Marking color:notification_action_color_filter:2130968636 used because its prefix matches string pool constant notification
 Marking color:notification_icon_bg_color:2130968637 used because its prefix matches string pool constant notification
@@ -1452,7 +1350,7 @@ Marking attr:statusBarBackground:2130837716 used because its prefix matches stri
 Marking id:status_bar_latest_event_content:2131165334 used because its prefix matches string pool constant status
 Marking integer:status_bar_notification_info_maxnum:2131230724 used because its prefix matches string pool constant status
 Marking string:status_bar_notification_info_overflow:2131427369 used because its prefix matches string pool constant status
-Marking xml:filepaths:2131623936 used because its prefix matches string pool constant file
+Marking xml:filepaths:-1 used because its prefix matches string pool constant file
 Marking attr:tintMode:2130837748 used because its prefix matches string pool constant tintMode
 Marking color:secondary_text_default_material_dark:2130968649 used because its prefix matches string pool constant second
 Marking color:secondary_text_default_material_light:2130968650 used because its prefix matches string pool constant second
@@ -1464,14 +1362,6 @@ Marking attr:height:2130837632 used because its prefix matches string pool const
 Marking attr:drawableSize:2130837609 used because its prefix matches string pool constant drawable
 Marking attr:activityChooserViewStyle:2130837537 used because its prefix matches string pool constant activity
 Marking id:activity_chooser_view_content:2131165242 used because its prefix matches string pool constant activity
-Marking attr:showAsAction:2130837705 used because its prefix matches string pool constant sh
-Marking attr:showDividers:2130837706 used because its prefix matches string pool constant sh
-Marking attr:showText:2130837707 used because its prefix matches string pool constant sh
-Marking attr:showTitle:2130837708 used because its prefix matches string pool constant sh
-Marking id:shortcut:2131165324 used because its prefix matches string pool constant sh
-Marking id:showCustom:2131165325 used because its prefix matches string pool constant sh
-Marking id:showHome:2131165326 used because its prefix matches string pool constant sh
-Marking id:showTitle:2131165327 used because its prefix matches string pool constant sh
 Marking attr:keylines:2130837645 used because its prefix matches string pool constant key
 Marking drawable:launch_background:2131099736 used because its prefix matches string pool constant launch
 Marking attr:progressBarPadding:2130837687 used because its prefix matches string pool constant progress
@@ -1480,7 +1370,6 @@ Marking id:progress_circular:2131165303 used because its prefix matches string p
 Marking id:progress_horizontal:2131165304 used because its prefix matches string pool constant progress
 Marking attr:queryBackground:2130837689 used because its prefix matches string pool constant query
 Marking attr:queryHint:2130837690 used because its prefix matches string pool constant query
-Marking integer:config_tooltipAnimTime:2131230723 used because its prefix matches string pool constant conf
 Marking id:bottom:2131165250 used because its prefix matches string pool constant bottom
 Marking color:error_color_material_dark:2130968618 used because its prefix matches string pool constant error
 Marking color:error_color_material_light:2130968619 used because its prefix matches string pool constant error
@@ -1989,8 +1878,6 @@ attr:actionBarPopupTheme:2130837506,
    attr:itemPadding:2130837644,
    attr:keylines:2130837645,
    attr:listMenuViewStyle:2130837659,
-   attr:logo:2130837666,
-   attr:logoDescription:2130837667,
    attr:progressBarPadding:2130837687,
    attr:progressBarStyle:2130837688,
    attr:queryBackground:2130837689,
@@ -2253,7 +2140,6 @@ attr:actionBarPopupTheme:2130837506,
    id:top:2131165354,
    id:topPanel:2131165355,
    integer:cancel_button_image_alpha:2131230722,
-   integer:config_tooltipAnimTime:2131230723,
    integer:status_bar_notification_info_maxnum:2131230724,
    layout:abc_action_bar_title_item:2131296256,
    layout:abc_action_menu_item_layout:2131296258,
@@ -2332,7 +2218,6 @@ attr:actionBarPopupTheme:2130837506,
    styleable:Toolbar:-1,
    styleable:ViewBackgroundHelper:-1,
    styleable:ViewStubCompat:-1,
-   xml:filepaths:2131623936,
    attr:android_textColorPrimary:-1,
    attr:android_textColorHint:-1,
    attr:android_textColorHighlight:-1,
@@ -2437,7 +2322,8 @@ attr:actionBarPopupTheme:2130837506,
    attr:android_theme:-1,
    attr:android_background:-1,
    attr:android_inflatedId:-1,
-   attr:android_borderlessButtonStyle:-1
+   attr:android_borderlessButtonStyle:-1,
+   xml:filepaths:-1
 Skipped unused resource res/anim/abc_fade_in.xml: -1 bytes (replaced with small dummy file of size 104 bytes)
 Skipped unused resource res/anim/abc_fade_out.xml: -1 bytes (replaced with small dummy file of size 104 bytes)
 Skipped unused resource res/anim/abc_slide_in_bottom.xml: -1 bytes (replaced with small dummy file of size 104 bytes)

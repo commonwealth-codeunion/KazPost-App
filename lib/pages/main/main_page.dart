@@ -1,5 +1,10 @@
+import 'dart:ui';
+
+import 'package:background_fetch/background_fetch.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
+import 'package:kazpost/models/quiz_model.dart';
 import 'package:kazpost/pages/callback/call_back_page.dart';
 import 'package:kazpost/pages/courses/course_list.dart';
 import 'package:kazpost/pages/notifications/notification_page.dart';
@@ -11,6 +16,116 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 import '../homepage/home_page.dart';
+
+const String portName = "portName";
+
+// startTimer() async {
+//   await AndroidAlarmManager.oneShot(Duration(seconds: 60), 0, timerCallback,
+//       wakeup: true, exact: true);
+// }
+
+// timerCallback() {
+//   SendPort sendPort = IsolateNameServer.lookupPortByName(portName);
+//   if (sendPort != null) {
+//     sendPort.send("DONE");
+//   }
+// }
+
+int numberOfQuizzes = 0;
+
+FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    new FlutterLocalNotificationsPlugin();
+
+initialiseNotifications() async {
+  var initializationSettingsAndroid =
+      new AndroidInitializationSettings('mipmap/ic_launcher');
+  var initializationSettingsIOS = new IOSInitializationSettings(
+      onDidReceiveLocalNotification: (i, string1, string2, string3) {
+    print("received notifications");
+    return null;
+  });
+  var initializationSettings = new InitializationSettings(
+      initializationSettingsAndroid, initializationSettingsIOS);
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+      onSelectNotification: (string) {
+    print("selected notification");
+    return null;
+  });
+
+  print('Инициализация плагина прошла успешно!');
+}
+
+pushNotifications() async {
+  await QuizModel.getQuiz();
+  await initialiseNotifications();
+
+  final prefs = await SharedPreferences.getInstance();
+  final key = 'numberOfQuizzes';
+  final value = prefs.getInt(key) ?? '';
+  if (value != '') {
+    numberOfQuizzes = value;
+  }
+
+  print(
+      'До условия(numberOfQuizzes): $numberOfQuizzes\nДо условия(запрос): ${quiz["quizzes"].length}');
+
+  if (numberOfQuizzes < quiz["quizzes"].length) {
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+      '1',
+      'kazpost',
+      'kazpost by Code Union',
+      importance: Importance.Max,
+      priority: Priority.High,
+      color: Colors.blue,
+      style: AndroidNotificationStyle.BigText,
+    );
+    var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+    var platformChannelSpecifics = NotificationDetails(
+        androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.show(
+        0,
+        quiz["quizzes"][quiz["quizzes"].length - 1]["title"],
+        'Вышел новый тест. На забудте его пройти\n${quiz["quizzes"][quiz["quizzes"].length - 1]["description"]}',
+        platformChannelSpecifics,
+        payload: 'item x');
+    QuizModel.saveNumberOfQuizzes(quiz["quizzes"].length);
+
+    print(
+        'Новый тест(numberOfQuizzes): $numberOfQuizzes\nНовый тест(запрос): ${quiz["quizzes"].length}');
+
+    print('Новый тест вышел');
+
+    BackgroundFetch.finish();
+  } else {
+    numberOfQuizzes = quiz["quizzes"].length;
+    QuizModel.saveNumberOfQuizzes(numberOfQuizzes);
+
+    print(
+        'Нету тестов(numberOfQuizzes): $numberOfQuizzes\nНету тестов(запрос): ${quiz["quizzes"].length}');
+    print('Новых тестов нету');
+    BackgroundFetch.finish();
+  }
+}
+
+Future<void> initPlatformState() async {
+  // Configure BackgroundFetch.
+  await BackgroundFetch.configure(
+      BackgroundFetchConfig(
+          minimumFetchInterval: 15,
+          stopOnTerminate: false,
+          enableHeadless: true,
+          requiresBatteryNotLow: false,
+          requiresCharging: false,
+          requiresStorageNotLow: false,
+          startOnBoot: true,
+          requiredNetworkType: BackgroundFetchConfig.NETWORK_TYPE_ANY),
+      () async {
+    await initialiseNotifications();
+    pushNotifications();
+  });
+
+  BackgroundFetch.finish();
+}
 
 class SplashMain extends StatelessWidget {
   const SplashMain({Key key}) : super(key: key);
@@ -38,11 +153,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  DatabaseHelper databaseHelper = new DatabaseHelper();
+  DatabaseHelper _databaseHelper = new DatabaseHelper();
 
   String name = '';
   String email = '';
   String avatar = '';
+  final int newTestAlarm = 0;
 
   readName() async {
     final prefs = await SharedPreferences.getInstance();
@@ -80,6 +196,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
+    initPlatformState();
     readName();
     readEmail();
     readAvatar();
@@ -113,6 +230,7 @@ class _MainPageState extends State<MainPage> {
               Icons.bookmark,
             ),
             onPressed: () {
+              // timerCallback();
               // Navigator.push(
               //   context,
               //   MaterialPageRoute(builder: (context) => WorksPage()),
@@ -136,7 +254,8 @@ class _MainPageState extends State<MainPage> {
                   border: Border.all(color: Colors.white, width: 3),
                 ),
                 child: CircleAvatar(
-                  backgroundImage: avatar.isNotEmpty ? NetworkImage(avatar) : null,
+                  backgroundImage:
+                      avatar.isNotEmpty ? NetworkImage(avatar) : null,
                   radius: 80,
                 ),
               ),
@@ -203,7 +322,7 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
               onTap: () {
-                databaseHelper.logOut();
+                _databaseHelper.logOut();
                 Navigator.pushReplacementNamed(context, '/authpage');
               },
             ),
