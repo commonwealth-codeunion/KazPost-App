@@ -25,83 +25,85 @@ class _CallBackPageState extends State<CallBackPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 15,
-          vertical: 20,
-        ),
-        child: ListView(
-          children: <Widget>[
-            Text(
-              'Есть пожелания?\nОтправьте нам письмо.',
-              style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold),
+      body: ListView(
+        physics: BouncingScrollPhysics(),
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+            child: Column(
+              children: <Widget>[
+                Text(
+                  'Есть пожелания?\nОтправьте нам письмо.',
+                  style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 15),
+                Form(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      TextField(
+                        controller: _titleController,
+                        decoration: InputDecoration(
+                          hintText: 'Тема обращения...',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(
+                              color: Color(0xFF0157A5),
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(
+                              color: Color(0xFF0157A5),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 15),
+                      TextField(
+                        maxLines: 5,
+                        controller: _reviewController,
+                        decoration: InputDecoration(
+                          hintText: 'Ваше сообщение...',
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(
+                              color: Color(0xFF0157A5),
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(
+                              color: Color(0xFF0157A5),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 7.5),
+                      RaisedButton(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 2,
+                        ),
+                        onPressed: () {
+                          _onPressed();
+                        },
+                        textColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Text('Отправить письмо'),
+                        color: Color(0xFF0157A5),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 15),
-            Form(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  TextField(
-                    controller: _titleController,
-                    decoration: InputDecoration(
-                      hintText: 'Тема обращения...',
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          color: Color(0xFF0157A5),
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          color: Color(0xFF0157A5),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  TextField(
-                    maxLines: 5,
-                    controller: _reviewController,
-                    decoration: InputDecoration(
-                      hintText: 'Ваше сообщение...',
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          color: Color(0xFF0157A5),
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(
-                          color: Color(0xFF0157A5),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 7.5),
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 2,
-                    ),
-                    onPressed: () {
-                      _onPressed();
-                    },
-                    textColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Text('Отправить письмо'),
-                    color: Color(0xFF0157A5),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

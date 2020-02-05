@@ -4,34 +4,32 @@ import 'package:kazpost/bloc/authorization_bloc.dart';
 import 'package:kazpost/models/files_model.dart';
 
 class MethodicsPage extends StatefulWidget {
-  final int i;
+  final String fileId;
 
-  MethodicsPage({Key key, @required this.i}) : super(key: key);
+  MethodicsPage({Key key, @required this.fileId}) : super(key: key);
 
   @override
-  _MethodicsPageState createState() => new _MethodicsPageState(this.i);
+  _MethodicsPageState createState() => new _MethodicsPageState(this.fileId);
 }
 
 class _MethodicsPageState extends State<MethodicsPage> {
-  int i;
-  _MethodicsPageState(this.i);
+  String fileId;
+  _MethodicsPageState(this.fileId);
   final DatabaseHelper databaseHelper = DatabaseHelper();
 
   @override
   Widget build(BuildContext context) {
     return PDFViewerScaffold(
       appBar: AppBar(
-        title: Text("Идеально"),
+        title: Text("$fileId"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.share),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
       ),
-      path:
-          '/storage/emulated/0/Download/${collection["latestFiles"][i]["_id"]}', //'${collection["latestFiles"][i]["href"]}',
+      path: '/sdcard/Download/$fileId',
     );
   }
 }

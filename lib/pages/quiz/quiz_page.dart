@@ -169,6 +169,7 @@ class QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
+        physics: BouncingScrollPhysics(),
         padding: const EdgeInsets.all(40),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
@@ -209,6 +210,7 @@ class QuizState extends State<Quiz> {
                   itemCount: quiz["quizzes"][i]["questions"]["$questionNumber"]
                           ["answers"]
                       .length,
+                  physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
                     return Column(
                       children: <Widget>[

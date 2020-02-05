@@ -30,78 +30,81 @@ class Summary extends StatelessWidget {
       showDialog(
         context: context,
         builder: (BuildContext context) {
-          return new Dialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 25,
-                vertical: 25,
+          return WillPopScope(
+            onWillPop: () async => null,
+            child: new Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
               ),
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 2.5,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Center(
-                    child: RatingBar(
-                      initialRating: 0,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      itemCount: 5,
-                      itemBuilder: (context, _) => Icon(
-                        Icons.star,
-                        color: Colors.amber,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 25,
+                  vertical: 25,
+                ),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 2.5,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Center(
+                      child: RatingBar(
+                        initialRating: 0,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        itemCount: 5,
+                        itemBuilder: (context, _) => Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        onRatingUpdate: (value) {
+                          rating = value.toInt();
+                          print(value);
+                        },
                       ),
-                      onRatingUpdate: (value) {
-                        rating = value.toInt();
-                        print(value);
-                      },
                     ),
-                  ),
-                  Spacer(),
-                  TextField(
-                    controller: _callbackController,
-                    keyboardType: TextInputType.multiline,
-                    minLines: 5,
-                    maxLines: 5,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                          style: BorderStyle.solid,
-                          color: Colors.blueAccent,
+                    Spacer(),
+                    TextField(
+                      controller: _callbackController,
+                      keyboardType: TextInputType.multiline,
+                      minLines: 5,
+                      maxLines: 5,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            style: BorderStyle.solid,
+                            color: Colors.blueAccent,
+                          ),
+                        ),
+                        hintText: "Ваш отзыв...",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      hintText: "Ваш отзыв...",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                    ),
+                    Spacer(),
+                    Center(
+                      child: MaterialButton(
+                        minWidth: MediaQuery.of(context).size.width / 4,
+                        onPressed: () {
+                          QuizModel.sendReview(
+                            score,
+                            i,
+                            rating,
+                            _callbackController.text,
+                          );
+                          Navigator.pushReplacementNamed(context, '/mainpage');
+                          questionNumber = 0;
+                          score = 0;
+                        },
+                        color: Colors.green,
+                        textColor: Colors.white,
+                        child: Text("Продолжить"),
                       ),
                     ),
-                  ),
-                  Spacer(),
-                  Center(
-                    child: MaterialButton(
-                      minWidth: MediaQuery.of(context).size.width / 4,
-                      onPressed: () {
-                        QuizModel.sendReview(
-                          score,
-                          i,
-                          rating,
-                          _callbackController.text,
-                        );
-                        Navigator.popAndPushNamed(context, '/mainpage');
-                        questionNumber = 0;
-                        score = 0;
-                      },
-                      color: Colors.green,
-                      textColor: Colors.white,
-                      child: Text("Продолжить"),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );

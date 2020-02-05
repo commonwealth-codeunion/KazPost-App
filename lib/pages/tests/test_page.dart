@@ -5,7 +5,6 @@ import 'package:kazpost/pages/courses/course_list.dart';
 import 'package:kazpost/pages/docs/docs_page.dart';
 import 'package:kazpost/pages/tests/test_list_page.dart';
 
-final String call = './assets/img/call.svg';
 // final Widget callSvg = SvgPicture.asset(
 //   call,
 //   width: 25,
@@ -26,6 +25,7 @@ class _TestPageBarState extends State<TestPageBar> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
+        physics: BouncingScrollPhysics(),
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

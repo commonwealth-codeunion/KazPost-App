@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 1.5.64
 # min_api: 16
-# pg_map_id: e75d74c
+# pg_map_id: adc14cc
 android.support.v4.app.INotificationSideChannel -> android.support.v4.app.a:
     void cancel(java.lang.String,int,java.lang.String) -> a
     void cancelAll(java.lang.String) -> a
@@ -4057,9 +4057,9 @@ com.alveliu.flutterfullpdfviewer.FlutterFullPdfViewerManager -> c.a.a.a:
     void openPDF(java.lang.String) -> a
     void resize(android.widget.FrameLayout$LayoutParams) -> a
 com.alveliu.flutterfullpdfviewer.FlutterFullPdfViewerPlugin -> c.a.a.b:
-    com.alveliu.flutterfullpdfviewer.FlutterFullPdfViewerManager flutterFullPdfViewerManager -> c
-    io.flutter.plugin.common.MethodChannel channel -> d
-    android.app.Activity activity -> b
+    com.alveliu.flutterfullpdfviewer.FlutterFullPdfViewerManager flutterFullPdfViewerManager -> b
+    io.flutter.plugin.common.MethodChannel channel -> c
+    android.app.Activity activity -> a
     android.widget.FrameLayout$LayoutParams buildLayoutParams(io.flutter.plugin.common.MethodCall) -> a
     int dp2px(android.content.Context,float) -> a
     boolean onActivityResult(int,int,android.content.Intent) -> a
@@ -4073,14 +4073,14 @@ com.dexterous.flutterlocalnotifications.BitmapSource -> c.b.a.a:
     com.dexterous.flutterlocalnotifications.BitmapSource FilePath -> c
     com.dexterous.flutterlocalnotifications.BitmapSource Drawable -> b
 com.dexterous.flutterlocalnotifications.FlutterLocalNotificationsPlugin -> c.b.a.b:
-    java.lang.String NOTIFICATION_DETAILS -> g
-    java.lang.String NOTIFICATION -> f
-    android.app.Activity mainActivity -> d
-    android.content.Context applicationContext -> c
-    java.lang.String REPEAT -> h
-    com.google.gson.Gson gson -> i
-    java.lang.String NOTIFICATION_ID -> e
-    io.flutter.plugin.common.MethodChannel channel -> b
+    java.lang.String REPEAT -> g
+    java.lang.String NOTIFICATION_DETAILS -> f
+    android.content.Context applicationContext -> b
+    java.lang.String NOTIFICATION -> e
+    com.google.gson.Gson gson -> h
+    io.flutter.plugin.common.MethodChannel channel -> a
+    android.app.Activity mainActivity -> c
+    java.lang.String NOTIFICATION_ID -> d
     void applyGrouping(com.dexterous.flutterlocalnotifications.models.NotificationDetails,androidx.core.app.NotificationCompat$Builder) -> a
     androidx.core.app.Person buildPerson(android.content.Context,com.dexterous.flutterlocalnotifications.models.PersonDetails) -> a
     void cancelAllNotifications(io.flutter.plugin.common.MethodChannel$Result) -> a
@@ -4308,8 +4308,8 @@ com.dexterous.flutterlocalnotifications.utils.StringUtils -> c.b.a.h.b:
 com.example.kazpost.MainActivity -> com.example.kazpost.MainActivity:
     void configureFlutterEngine(io.flutter.embedding.engine.FlutterEngine) -> a
 com.example.pdfviewerplugin.PdfViewer -> c.c.a.a:
-    com.github.barteksc.pdfviewer.PDFView pdfView -> b
-    java.lang.String filePath -> c
+    com.github.barteksc.pdfviewer.PDFView pdfView -> a
+    java.lang.String filePath -> b
     void onFlutterViewAttached(android.view.View) -> a
     void onInputConnectionUnlocked() -> a
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
@@ -5805,18 +5805,18 @@ com.tekartik.sqflite.LogLevel -> c.f.a.b:
     boolean hasSqlLevel(int) -> a
     boolean hasVerboseLevel(int) -> b
 com.tekartik.sqflite.SqflitePlugin -> c.f.a.c:
-    java.util.Map _singleInstancesByPath -> b
-    android.os.HandlerThread handlerThread -> k
-    java.lang.String databasesPath -> h
-    java.lang.Object databaseMapLocker -> f
-    int databaseId -> j
-    java.util.Map databaseMap -> m
-    java.lang.Object openCloseLocker -> g
-    android.content.Context context -> i
-    int THREAD_PRIORITY -> d
-    int logLevel -> e
-    android.os.Handler handler -> l
-    boolean QUERY_AS_MAP_LIST -> c
+    java.util.Map _singleInstancesByPath -> a
+    java.lang.String databasesPath -> g
+    android.os.HandlerThread handlerThread -> j
+    java.lang.Object openCloseLocker -> f
+    java.lang.Object databaseMapLocker -> e
+    int databaseId -> i
+    android.content.Context context -> h
+    int logLevel -> d
+    java.util.Map databaseMap -> l
+    android.os.Handler handler -> k
+    boolean QUERY_AS_MAP_LIST -> b
+    int THREAD_PRIORITY -> c
     boolean access$100(com.tekartik.sqflite.SqflitePlugin,com.tekartik.sqflite.Database,com.tekartik.sqflite.operation.Operation) -> a
     int access$1000() -> a
     com.tekartik.sqflite.Database access$500(com.tekartik.sqflite.SqflitePlugin,com.tekartik.sqflite.Database,io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
@@ -5998,153 +5998,6 @@ com.tekartik.sqflite.operation.OperationResult -> c.f.a.f.g:
     void success(java.lang.Object) -> a
 com.tekartik.sqflite.operation.SqlErrorInfo -> c.f.a.f.h:
     java.util.Map getMap(com.tekartik.sqflite.operation.Operation) -> a
-com.transistorsoft.flutter.backgroundfetch.BackgroundFetchModule -> com.transistorsoft.flutter.backgroundfetch.a:
-    com.transistorsoft.flutter.backgroundfetch.BackgroundFetchModule sInstance -> i
-    android.content.Context mContext -> c
-    java.util.concurrent.atomic.AtomicBoolean mIsAttachedToEngine -> f
-    io.flutter.plugin.common.MethodChannel mMethodChannel -> g
-    io.flutter.plugin.common.BinaryMessenger mMessenger -> e
-    io.flutter.plugin.common.EventChannel mEventChannel -> h
-    com.transistorsoft.flutter.backgroundfetch.BackgroundFetchModule$FetchStreamHandler mFetchCallback -> b
-    boolean mForceReload -> d
-    void configure(java.util.Map,io.flutter.plugin.common.MethodChannel$Result) -> a
-    void finish(io.flutter.plugin.common.MethodChannel$Result) -> a
-    void onAttachedToEngine(android.content.Context,io.flutter.plugin.common.BinaryMessenger) -> a
-    void onDetachedFromEngine() -> a
-    void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
-    void registerHeadlessTask(java.util.List,io.flutter.plugin.common.MethodChannel$Result) -> a
-    void setActivity(android.app.Activity) -> a
-    com.transistorsoft.flutter.backgroundfetch.BackgroundFetchModule getInstance() -> b
-    void start(io.flutter.plugin.common.MethodChannel$Result) -> b
-    com.transistorsoft.flutter.backgroundfetch.BackgroundFetchModule getInstanceSynchronized() -> c
-    void status(io.flutter.plugin.common.MethodChannel$Result) -> c
-    void stop(io.flutter.plugin.common.MethodChannel$Result) -> d
-com.transistorsoft.flutter.backgroundfetch.BackgroundFetchModule$FetchStreamHandler -> com.transistorsoft.flutter.backgroundfetch.a$a:
-    io.flutter.plugin.common.EventChannel$EventSink mEventSink -> a
-    void onCancel(java.lang.Object) -> a
-    void onFetch() -> a
-    void onListen(java.lang.Object,io.flutter.plugin.common.EventChannel$EventSink) -> a
-com.transistorsoft.flutter.backgroundfetch.BackgroundFetchPlugin -> com.transistorsoft.flutter.backgroundfetch.b:
-    void onAttachedToActivity(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding) -> a
-    void onDetachedFromActivity() -> a
-    void onDetachedFromEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> a
-    void onAttachedToEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> b
-    void onDetachedFromActivityForConfigChanges() -> b
-    void onReattachedToActivityForConfigChanges(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding) -> b
-com.transistorsoft.flutter.backgroundfetch.HeadlessJobService$1 -> com.transistorsoft.flutter.backgroundfetch.HeadlessJobService$a:
-    com.transistorsoft.flutter.backgroundfetch.HeadlessJobService this$0 -> b
-    android.app.job.JobParameters val$params -> a
-    void finish() -> a
-com.transistorsoft.flutter.backgroundfetch.HeadlessTask -> com.transistorsoft.flutter.backgroundfetch.c:
-    io.flutter.plugin.common.PluginRegistry$PluginRegistrantCallback sPluginRegistrantCallback -> e
-    java.util.concurrent.atomic.AtomicBoolean sHeadlessTaskRegistered -> g
-    android.content.Context mContext -> b
-    io.flutter.embedding.engine.FlutterEngine sBackgroundFlutterEngine -> f
-    io.flutter.plugin.common.MethodChannel sDispatchChannel -> h
-    long mClientCallbackId -> d
-    long mRegistrationCallbackId -> c
-    android.content.Context access$000(com.transistorsoft.flutter.backgroundfetch.HeadlessTask) -> a
-    long access$102(com.transistorsoft.flutter.backgroundfetch.HeadlessTask,long) -> a
-    void dispatch() -> a
-    void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
-    boolean register(android.content.Context,java.util.List) -> a
-    long access$202(com.transistorsoft.flutter.backgroundfetch.HeadlessTask,long) -> b
-    void startBackgroundIsolate() -> b
-com.transistorsoft.flutter.backgroundfetch.HeadlessTask$RegistrationTask -> com.transistorsoft.flutter.backgroundfetch.c$a:
-    android.content.Context mContext -> b
-    java.util.List mCallbacks -> c
-com.transistorsoft.flutter.backgroundfetch.HeadlessTask$TaskRunner -> com.transistorsoft.flutter.backgroundfetch.c$b:
-    com.transistorsoft.flutter.backgroundfetch.HeadlessTask this$0 -> b
-com.transistorsoft.tsbackgroundfetch.BackgroundFetch -> com.transistorsoft.tsbackgroundfetch.a:
-    android.content.Context mContext -> a
-    java.util.concurrent.ExecutorService sThreadPool -> g
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetch$Callback mCallback -> b
-    com.transistorsoft.tsbackgroundfetch.FetchJobService$CompletionHandler mCompletionHandler -> d
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetch mInstance -> e
-    int FETCH_JOB_ID -> f
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig mConfig -> c
-    android.os.Handler uiHandler -> h
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig access$002(com.transistorsoft.tsbackgroundfetch.BackgroundFetch,com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig) -> a
-    android.content.Context access$100(com.transistorsoft.tsbackgroundfetch.BackgroundFetch) -> a
-    void configure(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig,com.transistorsoft.tsbackgroundfetch.BackgroundFetch$Callback) -> a
-    void finish() -> a
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetch getInstance(android.content.Context) -> a
-    void onFetch(com.transistorsoft.tsbackgroundfetch.FetchJobService$CompletionHandler) -> a
-    void access$200(com.transistorsoft.tsbackgroundfetch.BackgroundFetch) -> b
-    void forceMainActivityReload() -> b
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetch getInstanceSynchronized(android.content.Context) -> b
-    void registerCompletionHandler(com.transistorsoft.tsbackgroundfetch.FetchJobService$CompletionHandler) -> b
-    java.lang.Boolean isMainActivityActive() -> c
-    void onBoot() -> d
-    void onFetch() -> e
-    void start() -> f
-    int status() -> g
-    void stop() -> h
-    void doFetch() -> i
-    android.app.PendingIntent getAlarmPI() -> j
-    java.util.concurrent.ExecutorService getThreadPool() -> k
-    android.os.Handler getUiHandler() -> l
-com.transistorsoft.tsbackgroundfetch.BackgroundFetch$1 -> com.transistorsoft.tsbackgroundfetch.a$a:
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetch this$0 -> b
-com.transistorsoft.tsbackgroundfetch.BackgroundFetch$1$1 -> com.transistorsoft.tsbackgroundfetch.a$a$a:
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetch$1 this$1 -> b
-com.transistorsoft.tsbackgroundfetch.BackgroundFetch$Callback -> com.transistorsoft.tsbackgroundfetch.a$b:
-    void onFetch() -> a
-com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig -> com.transistorsoft.tsbackgroundfetch.b:
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder config -> a
-    boolean getForceReload() -> a
-    void save(android.content.Context) -> a
-    java.lang.String getJobService() -> b
-    int getMinimumFetchInterval() -> c
-    int getRequiredNetworkType() -> d
-    boolean getRequiresBatteryNotLow() -> e
-    boolean getRequiresCharging() -> f
-    boolean getRequiresDeviceIdle() -> g
-    boolean getRequiresStorageNotLow() -> h
-    boolean getStartOnBoot() -> i
-    boolean getStopOnTerminate() -> j
-com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$1 -> com.transistorsoft.tsbackgroundfetch.b$a:
-com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder -> com.transistorsoft.tsbackgroundfetch.b$b:
-    boolean requiresStorageNotLow -> i
-    java.lang.String jobService -> j
-    boolean requiresBatteryNotLow -> f
-    boolean requiresCharging -> g
-    int requiredNetworkType -> e
-    boolean requiresDeviceIdle -> h
-    boolean stopOnTerminate -> b
-    boolean startOnBoot -> c
-    int minimumFetchInterval -> a
-    boolean forceReload -> d
-    java.lang.String access$100(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> a
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig build() -> a
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig load(android.content.Context) -> a
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setForceReload(boolean) -> a
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setJobService(java.lang.String) -> a
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setMinimumFetchInterval(int) -> a
-    boolean access$1000(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> b
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiredNetworkType(int) -> b
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiresBatteryNotLow(boolean) -> b
-    boolean access$200(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> c
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiresCharging(boolean) -> c
-    boolean access$300(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> d
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiresDeviceIdle(boolean) -> d
-    boolean access$400(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> e
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setRequiresStorageNotLow(boolean) -> e
-    int access$500(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> f
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setStartOnBoot(boolean) -> f
-    int access$600(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> g
-    com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder setStopOnTerminate(boolean) -> g
-    boolean access$700(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> h
-    boolean access$800(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> i
-    boolean access$900(com.transistorsoft.tsbackgroundfetch.BackgroundFetchConfig$Builder) -> j
-com.transistorsoft.tsbackgroundfetch.BootReceiver$1 -> com.transistorsoft.tsbackgroundfetch.BootReceiver$a:
-    android.content.Context val$context -> b
-com.transistorsoft.tsbackgroundfetch.FetchJobService$1 -> com.transistorsoft.tsbackgroundfetch.FetchJobService$a:
-    android.app.job.JobParameters val$params -> a
-    com.transistorsoft.tsbackgroundfetch.FetchJobService this$0 -> b
-    void finish() -> a
-com.transistorsoft.tsbackgroundfetch.FetchJobService$CompletionHandler -> com.transistorsoft.tsbackgroundfetch.FetchJobService$b:
-    void finish() -> a
 io.flutter.Log -> d.a.a:
     void d(java.lang.String,java.lang.String) -> a
     void e(java.lang.String,java.lang.String,java.lang.Throwable) -> a
@@ -6548,7 +6401,6 @@ io.flutter.embedding.engine.dart.DartExecutor -> io.flutter.embedding.engine.e.a
     void executeDartCallback(io.flutter.embedding.engine.dart.DartExecutor$DartCallback) -> a
     void executeDartEntrypoint(io.flutter.embedding.engine.dart.DartExecutor$DartEntrypoint) -> a
     java.lang.String getIsolateServiceId() -> a
-    void send(java.lang.String,java.nio.ByteBuffer) -> a
     void send(java.lang.String,java.nio.ByteBuffer,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> a
     void setMessageHandler(java.lang.String,io.flutter.plugin.common.BinaryMessenger$BinaryMessageHandler) -> a
     io.flutter.embedding.engine.dart.DartExecutor$IsolateServiceIdListener access$100(io.flutter.embedding.engine.dart.DartExecutor) -> b
@@ -6567,7 +6419,6 @@ io.flutter.embedding.engine.dart.DartExecutor$DartEntrypoint -> io.flutter.embed
     java.lang.String dartEntrypointFunctionName -> b
 io.flutter.embedding.engine.dart.DartExecutor$DefaultBinaryMessenger -> io.flutter.embedding.engine.e.a$d:
     io.flutter.embedding.engine.dart.DartMessenger messenger -> a
-    void send(java.lang.String,java.nio.ByteBuffer) -> a
     void send(java.lang.String,java.nio.ByteBuffer,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> a
     void setMessageHandler(java.lang.String,io.flutter.plugin.common.BinaryMessenger$BinaryMessageHandler) -> a
 io.flutter.embedding.engine.dart.DartExecutor$IsolateServiceIdListener -> io.flutter.embedding.engine.e.a$e:
@@ -6579,7 +6430,6 @@ io.flutter.embedding.engine.dart.DartMessenger -> io.flutter.embedding.engine.e.
     int nextReplyId -> d
     void handleMessageFromDart(java.lang.String,byte[],int) -> a
     void handlePlatformMessageResponse(int,byte[]) -> a
-    void send(java.lang.String,java.nio.ByteBuffer) -> a
     void send(java.lang.String,java.nio.ByteBuffer,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> a
     void setMessageHandler(java.lang.String,io.flutter.plugin.common.BinaryMessenger$BinaryMessageHandler) -> a
 io.flutter.embedding.engine.dart.DartMessenger$Reply -> io.flutter.embedding.engine.e.b$a:
@@ -6687,9 +6537,9 @@ io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry -> io.flutter.embedd
     io.flutter.plugin.common.PluginRegistry$Registrar registrarFor(java.lang.String) -> a
 io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry$1 -> io.flutter.embedding.engine.g.g.a$a:
 io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry$ShimRegistrarAggregate -> io.flutter.embedding.engine.g.g.a$b:
-    io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding activityPluginBinding -> d
-    io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding flutterPluginBinding -> c
-    java.util.Set shimRegistrars -> b
+    io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding activityPluginBinding -> c
+    io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding flutterPluginBinding -> b
+    java.util.Set shimRegistrars -> a
     void addPlugin(io.flutter.embedding.engine.plugins.shim.ShimRegistrar) -> a
     void onAttachedToActivity(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding) -> a
     void onDetachedFromActivity() -> a
@@ -6698,13 +6548,13 @@ io.flutter.embedding.engine.plugins.shim.ShimPluginRegistry$ShimRegistrarAggrega
     void onDetachedFromActivityForConfigChanges() -> b
     void onReattachedToActivityForConfigChanges(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding) -> b
 io.flutter.embedding.engine.plugins.shim.ShimRegistrar -> io.flutter.embedding.engine.g.g.b:
-    java.util.Set requestPermissionsResultListeners -> c
-    java.util.Set activityResultListeners -> d
-    java.util.Set newIntentListeners -> e
-    java.util.Set userLeaveHintListeners -> f
-    io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding pluginBinding -> g
-    java.util.Set viewDestroyListeners -> b
-    io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding activityPluginBinding -> h
+    java.util.Set activityResultListeners -> c
+    java.util.Set newIntentListeners -> d
+    java.util.Set userLeaveHintListeners -> e
+    java.util.Set viewDestroyListeners -> a
+    io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding pluginBinding -> f
+    java.util.Set requestPermissionsResultListeners -> b
+    io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding activityPluginBinding -> g
     io.flutter.plugin.common.PluginRegistry$Registrar addActivityResultListener(io.flutter.plugin.common.PluginRegistry$ActivityResultListener) -> a
     void onAttachedToActivity(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding) -> a
     void onDetachedFromActivity() -> a
@@ -6849,7 +6699,7 @@ io.flutter.embedding.engine.systemchannels.PlatformChannel -> io.flutter.embeddi
     java.util.ArrayList access$600(io.flutter.embedding.engine.systemchannels.PlatformChannel,org.json.JSONArray) -> c
     java.util.List decodeSystemUiOverlays(org.json.JSONArray) -> c
 io.flutter.embedding.engine.systemchannels.PlatformChannel$1 -> io.flutter.embedding.engine.i.f$a:
-    io.flutter.embedding.engine.systemchannels.PlatformChannel this$0 -> b
+    io.flutter.embedding.engine.systemchannels.PlatformChannel this$0 -> a
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
 io.flutter.embedding.engine.systemchannels.PlatformChannel$2 -> io.flutter.embedding.engine.i.f$b:
     int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay -> b
@@ -6925,7 +6775,7 @@ io.flutter.embedding.engine.systemchannels.PlatformViewsChannel -> io.flutter.em
     void setPlatformViewsHandler(io.flutter.embedding.engine.systemchannels.PlatformViewsChannel$PlatformViewsHandler) -> a
     java.lang.String detailedExceptionString(java.lang.Exception) -> b
 io.flutter.embedding.engine.systemchannels.PlatformViewsChannel$1 -> io.flutter.embedding.engine.i.g$a:
-    io.flutter.embedding.engine.systemchannels.PlatformViewsChannel this$0 -> b
+    io.flutter.embedding.engine.systemchannels.PlatformViewsChannel this$0 -> a
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
     void clearFocus(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> b
     void create(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> c
@@ -7004,7 +6854,7 @@ io.flutter.embedding.engine.systemchannels.TextInputChannel -> io.flutter.embedd
     void send(int) -> g
     void unspecifiedAction(int) -> h
 io.flutter.embedding.engine.systemchannels.TextInputChannel$1 -> io.flutter.embedding.engine.i.j$a:
-    io.flutter.embedding.engine.systemchannels.TextInputChannel this$0 -> b
+    io.flutter.embedding.engine.systemchannels.TextInputChannel this$0 -> a
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
 io.flutter.embedding.engine.systemchannels.TextInputChannel$Configuration -> io.flutter.embedding.engine.i.j$b:
     java.lang.String actionLabel -> g
@@ -7080,47 +6930,20 @@ io.flutter.plugin.common.BasicMessageChannel$MessageHandler -> d.a.c.a.a$d:
 io.flutter.plugin.common.BasicMessageChannel$Reply -> d.a.c.a.a$e:
     void reply(java.lang.Object) -> a
 io.flutter.plugin.common.BinaryMessenger -> d.a.c.a.b:
-    void send(java.lang.String,java.nio.ByteBuffer) -> a
     void send(java.lang.String,java.nio.ByteBuffer,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> a
     void setMessageHandler(java.lang.String,io.flutter.plugin.common.BinaryMessenger$BinaryMessageHandler) -> a
 io.flutter.plugin.common.BinaryMessenger$BinaryMessageHandler -> d.a.c.a.b$a:
     void onMessage(java.nio.ByteBuffer,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> a
 io.flutter.plugin.common.BinaryMessenger$BinaryReply -> d.a.c.a.b$b:
     void reply(java.nio.ByteBuffer) -> a
-io.flutter.plugin.common.EventChannel -> d.a.c.a.c:
-    io.flutter.plugin.common.MethodCodec codec -> c
-    io.flutter.plugin.common.BinaryMessenger messenger -> a
-    java.lang.String name -> b
-    io.flutter.plugin.common.MethodCodec access$000(io.flutter.plugin.common.EventChannel) -> a
-    void setStreamHandler(io.flutter.plugin.common.EventChannel$StreamHandler) -> a
-    java.lang.String access$200(io.flutter.plugin.common.EventChannel) -> b
-    io.flutter.plugin.common.BinaryMessenger access$400(io.flutter.plugin.common.EventChannel) -> c
-io.flutter.plugin.common.EventChannel$1 -> d.a.c.a.c$a:
-io.flutter.plugin.common.EventChannel$EventSink -> d.a.c.a.c$b:
-    void success(java.lang.Object) -> a
-io.flutter.plugin.common.EventChannel$IncomingStreamRequestHandler -> d.a.c.a.c$c:
-    io.flutter.plugin.common.EventChannel this$0 -> c
-    java.util.concurrent.atomic.AtomicReference activeSink -> b
-    io.flutter.plugin.common.EventChannel$StreamHandler handler -> a
-    java.util.concurrent.atomic.AtomicReference access$300(io.flutter.plugin.common.EventChannel$IncomingStreamRequestHandler) -> a
-    void onCancel(java.lang.Object,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> a
-    void onMessage(java.nio.ByteBuffer,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> a
-    void onListen(java.lang.Object,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> b
-io.flutter.plugin.common.EventChannel$IncomingStreamRequestHandler$EventSinkImplementation -> d.a.c.a.c$c$a:
-    io.flutter.plugin.common.EventChannel$IncomingStreamRequestHandler this$1 -> b
-    java.util.concurrent.atomic.AtomicBoolean hasEnded -> a
-    void success(java.lang.Object) -> a
-io.flutter.plugin.common.EventChannel$StreamHandler -> d.a.c.a.c$d:
-    void onCancel(java.lang.Object) -> a
-    void onListen(java.lang.Object,io.flutter.plugin.common.EventChannel$EventSink) -> a
-io.flutter.plugin.common.FlutterException -> d.a.c.a.d:
+io.flutter.plugin.common.FlutterException -> d.a.c.a.c:
     java.lang.Object details -> c
     java.lang.String code -> b
-io.flutter.plugin.common.JSONMessageCodec -> d.a.c.a.e:
+io.flutter.plugin.common.JSONMessageCodec -> d.a.c.a.d:
     io.flutter.plugin.common.JSONMessageCodec INSTANCE -> a
     java.lang.Object decodeMessage(java.nio.ByteBuffer) -> a
     java.nio.ByteBuffer encodeMessage(java.lang.Object) -> a
-io.flutter.plugin.common.JSONMethodCodec -> d.a.c.a.f:
+io.flutter.plugin.common.JSONMethodCodec -> d.a.c.a.e:
     io.flutter.plugin.common.JSONMethodCodec INSTANCE -> a
     io.flutter.plugin.common.MethodCall decodeMethodCall(java.nio.ByteBuffer) -> a
     java.nio.ByteBuffer encodeErrorEnvelope(java.lang.String,java.lang.String,java.lang.Object) -> a
@@ -7128,17 +6951,17 @@ io.flutter.plugin.common.JSONMethodCodec -> d.a.c.a.f:
     java.nio.ByteBuffer encodeSuccessEnvelope(java.lang.Object) -> a
     java.lang.Object decodeEnvelope(java.nio.ByteBuffer) -> b
     java.lang.Object unwrapNull(java.lang.Object) -> b
-io.flutter.plugin.common.JSONUtil -> d.a.c.a.g:
+io.flutter.plugin.common.JSONUtil -> d.a.c.a.f:
     java.lang.Object wrap(java.lang.Object) -> a
-io.flutter.plugin.common.MessageCodec -> d.a.c.a.h:
+io.flutter.plugin.common.MessageCodec -> d.a.c.a.g:
     java.lang.Object decodeMessage(java.nio.ByteBuffer) -> a
     java.nio.ByteBuffer encodeMessage(java.lang.Object) -> a
-io.flutter.plugin.common.MethodCall -> d.a.c.a.i:
+io.flutter.plugin.common.MethodCall -> d.a.c.a.h:
     java.lang.Object arguments -> b
     java.lang.String method -> a
     java.lang.Object argument(java.lang.String) -> a
     java.lang.Object arguments() -> a
-io.flutter.plugin.common.MethodChannel -> d.a.c.a.j:
+io.flutter.plugin.common.MethodChannel -> d.a.c.a.i:
     io.flutter.plugin.common.MethodCodec codec -> c
     io.flutter.plugin.common.BinaryMessenger messenger -> a
     java.lang.String name -> b
@@ -7147,52 +6970,52 @@ io.flutter.plugin.common.MethodChannel -> d.a.c.a.j:
     void invokeMethod(java.lang.String,java.lang.Object,io.flutter.plugin.common.MethodChannel$Result) -> a
     void setMethodCallHandler(io.flutter.plugin.common.MethodChannel$MethodCallHandler) -> a
     java.lang.String access$100(io.flutter.plugin.common.MethodChannel) -> b
-io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler -> d.a.c.a.j$a:
+io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler -> d.a.c.a.i$a:
     io.flutter.plugin.common.MethodChannel$MethodCallHandler handler -> a
     io.flutter.plugin.common.MethodChannel this$0 -> b
     void onMessage(java.nio.ByteBuffer,io.flutter.plugin.common.BinaryMessenger$BinaryReply) -> a
-io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler$1 -> d.a.c.a.j$a$a:
+io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler$1 -> d.a.c.a.i$a$a:
     io.flutter.plugin.common.BinaryMessenger$BinaryReply val$reply -> a
     io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler this$1 -> b
     void error(java.lang.String,java.lang.String,java.lang.Object) -> a
     void notImplemented() -> a
     void success(java.lang.Object) -> a
-io.flutter.plugin.common.MethodChannel$IncomingResultHandler -> d.a.c.a.j$b:
+io.flutter.plugin.common.MethodChannel$IncomingResultHandler -> d.a.c.a.i$b:
     io.flutter.plugin.common.MethodChannel$Result callback -> a
     io.flutter.plugin.common.MethodChannel this$0 -> b
     void reply(java.nio.ByteBuffer) -> a
-io.flutter.plugin.common.MethodChannel$MethodCallHandler -> d.a.c.a.j$c:
+io.flutter.plugin.common.MethodChannel$MethodCallHandler -> d.a.c.a.i$c:
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
-io.flutter.plugin.common.MethodChannel$Result -> d.a.c.a.j$d:
+io.flutter.plugin.common.MethodChannel$Result -> d.a.c.a.i$d:
     void error(java.lang.String,java.lang.String,java.lang.Object) -> a
     void notImplemented() -> a
     void success(java.lang.Object) -> a
-io.flutter.plugin.common.MethodCodec -> d.a.c.a.k:
+io.flutter.plugin.common.MethodCodec -> d.a.c.a.j:
     io.flutter.plugin.common.MethodCall decodeMethodCall(java.nio.ByteBuffer) -> a
     java.nio.ByteBuffer encodeErrorEnvelope(java.lang.String,java.lang.String,java.lang.Object) -> a
     java.nio.ByteBuffer encodeMethodCall(io.flutter.plugin.common.MethodCall) -> a
     java.nio.ByteBuffer encodeSuccessEnvelope(java.lang.Object) -> a
     java.lang.Object decodeEnvelope(java.nio.ByteBuffer) -> b
-io.flutter.plugin.common.PluginRegistry -> d.a.c.a.l:
-io.flutter.plugin.common.PluginRegistry$ActivityResultListener -> d.a.c.a.l$a:
+io.flutter.plugin.common.PluginRegistry -> d.a.c.a.k:
+io.flutter.plugin.common.PluginRegistry$ActivityResultListener -> d.a.c.a.k$a:
     boolean onActivityResult(int,int,android.content.Intent) -> a
-io.flutter.plugin.common.PluginRegistry$NewIntentListener -> d.a.c.a.l$b:
+io.flutter.plugin.common.PluginRegistry$NewIntentListener -> d.a.c.a.k$b:
     boolean onNewIntent(android.content.Intent) -> a
-io.flutter.plugin.common.PluginRegistry$PluginRegistrantCallback -> d.a.c.a.l$c:
+io.flutter.plugin.common.PluginRegistry$PluginRegistrantCallback -> d.a.c.a.k$c:
     void registerWith(io.flutter.plugin.common.PluginRegistry) -> a
-io.flutter.plugin.common.PluginRegistry$Registrar -> d.a.c.a.l$d:
+io.flutter.plugin.common.PluginRegistry$Registrar -> d.a.c.a.k$d:
     io.flutter.plugin.common.PluginRegistry$Registrar addActivityResultListener(io.flutter.plugin.common.PluginRegistry$ActivityResultListener) -> a
     io.flutter.plugin.common.BinaryMessenger messenger() -> c
     android.content.Context context() -> d
     io.flutter.plugin.platform.PlatformViewRegistry platformViewRegistry() -> e
     android.app.Activity activity() -> f
-io.flutter.plugin.common.PluginRegistry$RequestPermissionsResultListener -> d.a.c.a.l$e:
+io.flutter.plugin.common.PluginRegistry$RequestPermissionsResultListener -> d.a.c.a.k$e:
     boolean onRequestPermissionsResult(int,java.lang.String[],int[]) -> a
-io.flutter.plugin.common.PluginRegistry$UserLeaveHintListener -> d.a.c.a.l$f:
+io.flutter.plugin.common.PluginRegistry$UserLeaveHintListener -> d.a.c.a.k$f:
     void onUserLeaveHint() -> a
-io.flutter.plugin.common.PluginRegistry$ViewDestroyListener -> d.a.c.a.l$g:
+io.flutter.plugin.common.PluginRegistry$ViewDestroyListener -> d.a.c.a.k$g:
     boolean onViewDestroy(io.flutter.view.FlutterNativeView) -> a
-io.flutter.plugin.common.StandardMessageCodec -> d.a.c.a.m:
+io.flutter.plugin.common.StandardMessageCodec -> d.a.c.a.l:
     java.nio.charset.Charset UTF8 -> c
     io.flutter.plugin.common.StandardMessageCodec INSTANCE -> a
     boolean LITTLE_ENDIAN -> b
@@ -7211,9 +7034,9 @@ io.flutter.plugin.common.StandardMessageCodec -> d.a.c.a.m:
     void writeInt(java.io.ByteArrayOutputStream,int) -> c
     int readSize(java.nio.ByteBuffer) -> d
     void writeSize(java.io.ByteArrayOutputStream,int) -> d
-io.flutter.plugin.common.StandardMessageCodec$ExposedByteArrayOutputStream -> d.a.c.a.m$a:
+io.flutter.plugin.common.StandardMessageCodec$ExposedByteArrayOutputStream -> d.a.c.a.l$a:
     byte[] buffer() -> a
-io.flutter.plugin.common.StandardMethodCodec -> d.a.c.a.n:
+io.flutter.plugin.common.StandardMethodCodec -> d.a.c.a.m:
     io.flutter.plugin.common.StandardMessageCodec messageCodec -> a
     io.flutter.plugin.common.StandardMethodCodec INSTANCE -> b
     io.flutter.plugin.common.MethodCall decodeMethodCall(java.nio.ByteBuffer) -> a
@@ -7221,7 +7044,7 @@ io.flutter.plugin.common.StandardMethodCodec -> d.a.c.a.n:
     java.nio.ByteBuffer encodeMethodCall(io.flutter.plugin.common.MethodCall) -> a
     java.nio.ByteBuffer encodeSuccessEnvelope(java.lang.Object) -> a
     java.lang.Object decodeEnvelope(java.nio.ByteBuffer) -> b
-io.flutter.plugin.common.StringCodec -> d.a.c.a.o:
+io.flutter.plugin.common.StringCodec -> d.a.c.a.n:
     java.nio.charset.Charset UTF8 -> a
     io.flutter.plugin.common.StringCodec INSTANCE -> b
     java.lang.Object decodeMessage(java.nio.ByteBuffer) -> a
@@ -7490,8 +7313,7 @@ io.flutter.plugin.platform.VirtualDisplayController$OneTimeOnDrawListener -> io.
     void schedule(android.view.View,java.lang.Runnable) -> a
 io.flutter.plugin.platform.VirtualDisplayController$OneTimeOnDrawListener$1 -> io.flutter.plugin.platform.k$b$a:
     io.flutter.plugin.platform.VirtualDisplayController$OneTimeOnDrawListener this$0 -> b
-io.flutter.plugins.androidalarmmanager.AlarmBroadcastReceiver -> io.flutter.plugins.a.a:
-io.flutter.plugins.androidalarmmanager.AlarmService -> io.flutter.plugins.a.b:
+io.flutter.plugins.androidalarmmanager.AlarmService -> io.flutter.plugins.androidalarmmanager.AlarmService:
     java.lang.Object persistentAlarmsLock -> j
     io.flutter.plugins.androidalarmmanager.FlutterBackgroundExecutor flutterBackgroundExecutor -> l
     java.util.List alarmQueue -> k
@@ -7509,18 +7331,18 @@ io.flutter.plugins.androidalarmmanager.AlarmService -> io.flutter.plugins.a.b:
     void startBackgroundIsolate(android.content.Context,long) -> b
     io.flutter.plugins.androidalarmmanager.FlutterBackgroundExecutor access$000() -> e
     void onInitialized() -> f
-io.flutter.plugins.androidalarmmanager.AlarmService$1 -> io.flutter.plugins.a.b$a:
+io.flutter.plugins.androidalarmmanager.AlarmService$1 -> io.flutter.plugins.androidalarmmanager.AlarmService$a:
     android.content.Intent val$intent -> b
     java.util.concurrent.CountDownLatch val$latch -> c
-io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin -> io.flutter.plugins.a.c:
-    android.content.Context context -> b
-    java.lang.Object initializationLock -> c
-    io.flutter.plugin.common.MethodChannel alarmManagerPluginChannel -> d
+io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin -> io.flutter.plugins.androidalarmmanager.a:
+    android.content.Context context -> a
+    java.lang.Object initializationLock -> b
+    io.flutter.plugin.common.MethodChannel alarmManagerPluginChannel -> c
     void onAttachedToEngine(android.content.Context,io.flutter.plugin.common.BinaryMessenger) -> a
     void onDetachedFromEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> a
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
     void onAttachedToEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> b
-io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin$OneShotRequest -> io.flutter.plugins.a.c$a:
+io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin$OneShotRequest -> io.flutter.plugins.androidalarmmanager.a$a:
     long startMillis -> f
     long callbackHandle -> h
     boolean wakeup -> e
@@ -7530,7 +7352,7 @@ io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin$OneShotRequest 
     int requestCode -> a
     boolean exact -> d
     io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin$OneShotRequest fromJson(org.json.JSONArray) -> a
-io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin$PeriodicRequest -> io.flutter.plugins.a.c$b:
+io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin$PeriodicRequest -> io.flutter.plugins.androidalarmmanager.a$b:
     long intervalMillis -> e
     long callbackHandle -> g
     boolean rescheduleOnReboot -> f
@@ -7539,11 +7361,11 @@ io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin$PeriodicRequest
     boolean wakeup -> c
     int requestCode -> a
     io.flutter.plugins.androidalarmmanager.AndroidAlarmManagerPlugin$PeriodicRequest fromJson(org.json.JSONArray) -> a
-io.flutter.plugins.androidalarmmanager.FlutterBackgroundExecutor -> io.flutter.plugins.a.d:
-    io.flutter.plugin.common.PluginRegistry$PluginRegistrantCallback pluginRegistrantCallback -> e
-    java.util.concurrent.atomic.AtomicBoolean isCallbackDispatcherReady -> d
-    io.flutter.embedding.engine.FlutterEngine backgroundFlutterEngine -> c
-    io.flutter.plugin.common.MethodChannel backgroundChannel -> b
+io.flutter.plugins.androidalarmmanager.FlutterBackgroundExecutor -> io.flutter.plugins.androidalarmmanager.b:
+    io.flutter.plugin.common.PluginRegistry$PluginRegistrantCallback pluginRegistrantCallback -> d
+    java.util.concurrent.atomic.AtomicBoolean isCallbackDispatcherReady -> c
+    io.flutter.embedding.engine.FlutterEngine backgroundFlutterEngine -> b
+    io.flutter.plugin.common.MethodChannel backgroundChannel -> a
     void executeDartCallbackInBackgroundIsolate(android.content.Intent,java.util.concurrent.CountDownLatch) -> a
     void initializeMethodChannel(io.flutter.plugin.common.BinaryMessenger) -> a
     boolean isRunning() -> a
@@ -7552,19 +7374,19 @@ io.flutter.plugins.androidalarmmanager.FlutterBackgroundExecutor -> io.flutter.p
     void startBackgroundIsolate(android.content.Context,long) -> a
     void onInitialized() -> b
     void setCallbackDispatcher(android.content.Context,long) -> b
-io.flutter.plugins.androidalarmmanager.FlutterBackgroundExecutor$1 -> io.flutter.plugins.a.d$a:
+io.flutter.plugins.androidalarmmanager.FlutterBackgroundExecutor$1 -> io.flutter.plugins.androidalarmmanager.b$a:
     java.util.concurrent.CountDownLatch val$latch -> a
     void error(java.lang.String,java.lang.String,java.lang.Object) -> a
     void notImplemented() -> a
     void success(java.lang.Object) -> a
-io.flutter.plugins.androidalarmmanager.PluginRegistrantException -> io.flutter.plugins.a.e:
-io.flutter.plugins.androidalarmmanager.RebootBroadcastReceiver -> io.flutter.plugins.a.f:
+io.flutter.plugins.androidalarmmanager.PluginRegistrantException -> io.flutter.plugins.androidalarmmanager.c:
+io.flutter.plugins.androidalarmmanager.RebootBroadcastReceiver -> io.flutter.plugins.androidalarmmanager.RebootBroadcastReceiver:
     void disableRescheduleOnReboot(android.content.Context) -> a
     void scheduleOnReboot(android.content.Context,int) -> a
     void enableRescheduleOnReboot(android.content.Context) -> b
-io.flutter.plugins.pathprovider.PathProviderPlugin -> io.flutter.plugins.b.a:
-    android.content.Context context -> b
-    io.flutter.plugin.common.MethodChannel channel -> c
+io.flutter.plugins.pathprovider.PathProviderPlugin -> io.flutter.plugins.a.a:
+    android.content.Context context -> a
+    io.flutter.plugin.common.MethodChannel channel -> b
     java.lang.String getApplicationSupportDirectory() -> a
     java.util.List getPathProviderExternalStorageDirectories(java.lang.String) -> a
     void onDetachedFromEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> a
@@ -7574,29 +7396,29 @@ io.flutter.plugins.pathprovider.PathProviderPlugin -> io.flutter.plugins.b.a:
     java.util.List getPathProviderExternalCacheDirectories() -> c
     java.lang.String getPathProviderStorageDirectory() -> d
     java.lang.String getPathProviderTemporaryDirectory() -> e
-io.flutter.plugins.pathprovider.StorageDirectoryMapper -> io.flutter.plugins.b.b:
+io.flutter.plugins.pathprovider.StorageDirectoryMapper -> io.flutter.plugins.a.b:
     java.lang.String androidType(java.lang.Integer) -> a
-io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl -> io.flutter.plugins.c.a:
-    android.content.SharedPreferences preferences -> b
+io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl -> io.flutter.plugins.b.a:
+    android.content.SharedPreferences preferences -> a
     void commitAsync(android.content.SharedPreferences$Editor,io.flutter.plugin.common.MethodChannel$Result) -> a
     java.util.List decodeList(java.lang.String) -> a
     java.lang.String encodeList(java.util.List) -> a
     java.util.Map getAllPrefs() -> a
     void onMethodCall(io.flutter.plugin.common.MethodCall,io.flutter.plugin.common.MethodChannel$Result) -> a
-io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl$1 -> io.flutter.plugins.c.a$a:
+io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl$1 -> io.flutter.plugins.b.a$a:
     android.content.SharedPreferences$Editor val$editor -> a
     io.flutter.plugin.common.MethodChannel$Result val$result -> b
     java.lang.Boolean doInBackground(java.lang.Void[]) -> a
     void onPostExecute(java.lang.Boolean) -> a
-io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin -> io.flutter.plugins.c.b:
-    io.flutter.plugin.common.MethodChannel channel -> b
+io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin -> io.flutter.plugins.b.b:
+    io.flutter.plugin.common.MethodChannel channel -> a
     void onDetachedFromEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> a
     void setupChannel(io.flutter.plugin.common.BinaryMessenger,android.content.Context) -> a
     void teardownChannel() -> a
     void onAttachedToEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> b
 io.flutter.plugins.urllauncher.MethodCallHandlerImpl -> io.flutter.plugins.urllauncher.a:
-    io.flutter.plugins.urllauncher.UrlLauncher urlLauncher -> b
-    io.flutter.plugin.common.MethodChannel channel -> c
+    io.flutter.plugins.urllauncher.UrlLauncher urlLauncher -> a
+    io.flutter.plugin.common.MethodChannel channel -> b
     android.os.Bundle extractBundle(java.util.Map) -> a
     void onCanLaunch(io.flutter.plugin.common.MethodChannel$Result,java.lang.String) -> a
     void onCloseWebView(io.flutter.plugin.common.MethodChannel$Result) -> a
@@ -7616,8 +7438,8 @@ io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus -> io.flutter.plugins.ur
     io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus OK -> b
     io.flutter.plugins.urllauncher.UrlLauncher$LaunchStatus NO_ACTIVITY -> c
 io.flutter.plugins.urllauncher.UrlLauncherPlugin -> io.flutter.plugins.urllauncher.c:
-    io.flutter.plugins.urllauncher.MethodCallHandlerImpl methodCallHandler -> b
-    io.flutter.plugins.urllauncher.UrlLauncher urlLauncher -> c
+    io.flutter.plugins.urllauncher.MethodCallHandlerImpl methodCallHandler -> a
+    io.flutter.plugins.urllauncher.UrlLauncher urlLauncher -> b
     void onAttachedToActivity(io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding) -> a
     void onDetachedFromActivity() -> a
     void onDetachedFromEngine(io.flutter.embedding.engine.plugins.FlutterPlugin$FlutterPluginBinding) -> a

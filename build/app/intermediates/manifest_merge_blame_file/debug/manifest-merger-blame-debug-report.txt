@@ -12,8 +12,8 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:5-66
-14-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:22-64
+14-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:5-66
+14-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:22-64
 15    <!--
 16     io.flutter.app.FlutterApplication is an android.app.Application that
 17         calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -22,127 +22,108 @@
 20         FlutterApplication and put your custom class here.
 21    -->
 22    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-22-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:9:5-80
-22-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:9:22-78
+22-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:8:5-80
+22-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:8:22-78
 23    <uses-permission android:name="android.permission.WAKE_LOCK" />
-23-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:5-67
-23-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:22-65
+23-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:9:5-67
+23-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:9:22-65
 24    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-24-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:5-75
-24-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:22-73
+24-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:5-75
+24-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:22-73
 25    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-25-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:13:5-79
-25-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:13:22-76
+25-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:5-79
+25-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:22-76
 26    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-26-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:14:5-81
-26-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:14:22-78
+26-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:13:5-81
+26-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:13:22-78
 27    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-27-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:15:5-80
-27-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:15:22-77
-28    <uses-permission android:name="android.permission.GET_TASKS" />
-28-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:12:5-68
-28-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:12:22-65
-29
-30    <application
-30-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:17:5-40:19
-31        android:name="io.flutter.app.FlutterApplication"
-31-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:19:9-57
-32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-32-->[androidx.core:core:1.1.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:18-86
-33        android:debuggable="true"
-34        android:icon="@mipmap/ic_launcher"
-34-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:21:9-43
-35        android:label="kazpost" >
-35-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:20:9-32
-36        <activity
-36-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:23:9-34:20
-37            android:name="com.example.kazpost.MainActivity"
-37-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:24:13-41
-38            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-38-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:27:13-163
-39            android:hardwareAccelerated="true"
-39-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:28:13-47
-40            android:launchMode="singleTop"
-40-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:25:13-43
-41            android:theme="@style/LaunchTheme"
-41-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:26:13-47
-42            android:windowSoftInputMode="adjustResize" >
-42-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:29:13-55
-43            <intent-filter>
-43-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:30:13-33:29
-44                <action android:name="android.intent.action.MAIN" />
-44-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:31:17-68
-44-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:31:25-66
-45
-46                <category android:name="android.intent.category.LAUNCHER" />
-46-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:32:17-76
-46-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:32:27-74
-47            </intent-filter>
-48        </activity>
-49        <!--
-50             Don't delete the meta-data below.
-51             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-52        -->
-53        <meta-data
-53-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:37:9-39:33
-54            android:name="flutterEmbedding"
-54-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:38:13-44
-55            android:value="2" />
-55-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:39:13-30
-56        <!-- HeadlessJS For android sdk 21+ uses new JobScheduler API -->
-57        <service
-57-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:10:9-13:72
-58            android:name="com.transistorsoft.flutter.backgroundfetch.HeadlessJobService"
-58-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-89
-59            android:exported="true"
-59-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-36
-60            android:permission="android.permission.BIND_JOB_SERVICE" /> <!-- HeadlessJS For Android sdk <21 uses old AlarmManager API -->
-60-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-69
-61        <receiver android:name="com.transistorsoft.flutter.backgroundfetch.HeadlessBroadcastReceiver" >
-61-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:15:9-19:20
-61-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:15:19-102
-62            <intent-filter>
-62-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:29
-63                <action android:name="com.example.kazpost.event.BACKGROUND_FETCH" />
-63-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-82
-63-->[:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:17:25-79
-64            </intent-filter>
-65        </receiver>
-66        <receiver android:name="com.transistorsoft.tsbackgroundfetch.FetchAlarmReceiver" />
-66-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:15:9-92
-66-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:15:19-89
-67
-68        <service
-68-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:17:9-20:72
-69            android:name="com.transistorsoft.tsbackgroundfetch.FetchJobService"
-69-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:18:13-80
-70            android:exported="true"
-70-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:19:13-36
-71            android:permission="android.permission.BIND_JOB_SERVICE" />
-71-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:20:13-69
-72
-73        <receiver android:name="com.transistorsoft.tsbackgroundfetch.BootReceiver" >
-73-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:22:9-27:20
-73-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:22:19-83
-74            <intent-filter>
-74-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:23:13-26:29
-75                <action android:name="android.intent.action.BOOT_COMPLETED" />
-75-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:24:17-79
-75-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:24:25-76
-76                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-76-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:25:17-84
-76-->[tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:25:25-81
-77            </intent-filter>
-78        </receiver>
-79
-80        <activity
-80-->[:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
-81            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-81-->[:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
-82            android:exported="false"
-82-->[:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
-83            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-83-->[:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
-84    </application>
-85
-86</manifest>
+27-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:14:5-80
+27-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:14:22-77
+28
+29    <application
+29-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:16:5-53:19
+30        android:name="io.flutter.app.FlutterApplication"
+30-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:17:9-57
+31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+31-->[androidx.core:core:1.1.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:18-86
+32        android:debuggable="true"
+33        android:icon="@mipmap/kazpost"
+33-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:19:9-39
+34        android:label="kazpost" >
+34-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:18:9-32
+35        <service
+35-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:21:9-24:39
+36            android:name="io.flutter.plugins.androidalarmmanager.AlarmService"
+36-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:22:13-79
+37            android:exported="false"
+37-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:24:13-37
+38            android:permission="android.permission.BIND_JOB_SERVICE" />
+38-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:23:13-69
+39
+40        <receiver
+40-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:25:9-27:39
+41            android:name="io.flutter.plugins.androidalarmmanager.AlarmBroadcastReceiver"
+41-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:26:13-89
+42            android:exported="false" />
+42-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:27:13-37
+43        <receiver
+43-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:28:9-34:20
+44            android:name="io.flutter.plugins.androidalarmmanager.RebootBroadcastReceiver"
+44-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:29:13-90
+45            android:enabled="false" >
+45-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:30:13-36
+46            <intent-filter>
+46-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:31:13-33:29
+47                <action android:name="android.intent.action.BOOT_COMPLETED" />
+47-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:32:17-86
+47-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:32:25-76
+48            </intent-filter>
+49        </receiver>
+50
+51        <activity
+51-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:36:9-47:20
+52            android:name="com.example.kazpost.MainActivity"
+52-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:37:13-41
+53            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+53-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:40:13-163
+54            android:hardwareAccelerated="true"
+54-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:41:13-47
+55            android:launchMode="singleTop"
+55-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:38:13-43
+56            android:theme="@style/LaunchTheme"
+56-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:39:13-47
+57            android:windowSoftInputMode="adjustResize" >
+57-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:42:13-55
+58            <intent-filter>
+58-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:43:13-46:29
+59                <action android:name="android.intent.action.MAIN" />
+59-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:44:17-68
+59-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:44:25-66
+60
+61                <category android:name="android.intent.category.LAUNCHER" />
+61-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:45:17-76
+61-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:45:27-74
+62            </intent-filter>
+63        </activity>
+64        <!--
+65             Don't delete the meta-data below.
+66             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+67        -->
+68        <meta-data
+68-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:50:9-52:33
+69            android:name="flutterEmbedding"
+69-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:51:13-44
+70            android:value="2" />
+70-->/home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:52:13-30
+71
+72        <activity
+72-->[:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
+73            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+73-->[:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
+74            android:exported="false"
+74-->[:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
+75            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+75-->[:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
+76    </application>
+77
+78</manifest>

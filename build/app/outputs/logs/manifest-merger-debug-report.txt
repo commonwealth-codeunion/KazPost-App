@@ -1,25 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-41:12
-INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-41:12
-INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-41:12
-INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-41:12
-MERGED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-41:12
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
+INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
+INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
+INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
+MERGED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
 MERGED from [:sqflite] /home/maripbekoff/Desktop/KazPost-App/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-22:12
-MERGED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:2:1-30:12
 MERGED from [:pdf_viewer_plugin] /home/maripbekoff/Desktop/KazPost-App/build/pdf_viewer_plugin/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_full_pdf_viewer] /home/maripbekoff/Desktop/KazPost-App/build/flutter_full_pdf_viewer/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
+MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_web] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_web/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_macos] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_macos/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_local_notifications] /home/maripbekoff/Desktop/KazPost-App/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider] /home/maripbekoff/Desktop/KazPost-App/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher_macos] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_macos/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher_web] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_web/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.appcompat:appcompat:1.0.2] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/dd2ecfcfb369a2f0046b9c1c6d80939e/appcompat-1.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/d8e69336e21c6a428e8a9e9d99518477/appcompat-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.barteksc:android-pdf-viewer:3.2.0-beta.1] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/8fbb15623897e7cc9e8c83c1d3341ddb/jetified-android-pdf-viewer-3.2.0-beta.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.barteksc:pdfium-android:1.9.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/77585e5c9f08e6f9326c516f5540d88f/jetified-pdfium-android-1.9.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/09be4c98f955b63e9a8cadeb6d33d870/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -29,7 +27,7 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /home/maripb
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/f046f38cf99e9cbe4891b184ce64db19/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/0f0610cdcf96e6cfa9529b6a3246e3f6/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/e1bbce6b0d79e8479b70e7bd729bb743/loader-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/42bfbc3fff8c8df307a9cfe522bc299e/vectordrawable-1.0.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/16c2aa160f52ee079d92e59ff0a723a2/vectordrawable-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/28d99d5113324aa067757f8ca41a426f/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/ae13efc3dbae5c9ee58d4933337fcd21/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/5bfbe01745d2a29d4e7cd137b17143f4/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -53,60 +51,51 @@ INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/debug/Androi
 INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/debug/AndroidManifest.xml:1:1-7:12
 	package
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:3:5-34
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:2:5-34
 		INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-41:12
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
 		INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/debug/AndroidManifest.xml
-	xmlns:tools
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:2:5-51
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:2:5-51
 	android:versionCode
 		INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-41:12
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
 		INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:9:5-80
-MERGED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:11:5-81
-MERGED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:11:5-81
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:8:5-80
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:9:22-78
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:8:22-78
 uses-permission#android.permission.WAKE_LOCK
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:5-67
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:9:5-67
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:22-65
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:9:22-65
 uses-permission#android.permission.INTERNET
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:5-66
-MERGED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:5-66
-MERGED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:5-66
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:5-66
+MERGED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:5-66
+MERGED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:5-66
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:22-64
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:22-64
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:5-75
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:5-75
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:22-73
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:22-73
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:13:5-79
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:5-79
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:13:22-76
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:22-76
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:14:5-81
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:13:5-81
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:14:22-78
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:13:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:15:5-80
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:14:5-80
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:15:22-77
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:14:22-77
 application
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:17:5-40:19
-MERGED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-20:19
-MERGED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-20:19
-MERGED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:14:5-28:19
-MERGED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:14:5-28:19
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:16:5-53:19
 MERGED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-12:19
 MERGED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-12:19
 MERGED from [androidx.core:core:1.1.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:5-89
@@ -116,66 +105,85 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/marip
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:20:9-32
-		REJECTED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:14:18-50
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:18:9-32
 	android:icon
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:21:9-43
-	tools:replace
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:18:9-38
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:19:9-39
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:19:9-57
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:17:9-57
+service#io.flutter.plugins.androidalarmmanager.AlarmService
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:21:9-24:39
+	android:exported
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:24:13-37
+	android:permission
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:23:13-69
+	android:name
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:22:13-79
+receiver#io.flutter.plugins.androidalarmmanager.AlarmBroadcastReceiver
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:25:9-27:39
+	android:exported
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:26:13-89
+receiver#io.flutter.plugins.androidalarmmanager.RebootBroadcastReceiver
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:28:9-34:20
+	android:enabled
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:29:13-90
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:31:13-33:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:32:17-86
+	android:name
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:32:25-76
 activity#com.example.kazpost.MainActivity
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:23:9-34:20
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:36:9-47:20
 	android:launchMode
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:25:13-43
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:38:13-43
 	android:hardwareAccelerated
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:28:13-47
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:41:13-47
 	android:windowSoftInputMode
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:29:13-55
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:42:13-55
 	android:configChanges
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:27:13-163
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:40:13-163
 	android:theme
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:26:13-47
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:39:13-47
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:24:13-41
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:37:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:30:13-33:29
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:43:13-46:29
 action#android.intent.action.MAIN
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:31:17-68
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:44:17-68
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:31:25-66
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:32:17-76
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:45:17-76
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:32:27-74
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:45:27-74
 meta-data#flutterEmbedding
-ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:37:9-39:33
+ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:50:9-52:33
 	android:value
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:39:13-30
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:52:13-30
 	android:name
-		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:38:13-44
+		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:51:13-44
 uses-sdk
 INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml
 INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml
 MERGED from [:sqflite] /home/maripbekoff/Desktop/KazPost-App/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:sqflite] /home/maripbekoff/Desktop/KazPost-App/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:7:5-9:41
-MERGED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:7:5-9:41
 MERGED from [:pdf_viewer_plugin] /home/maripbekoff/Desktop/KazPost-App/build/pdf_viewer_plugin/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:pdf_viewer_plugin] /home/maripbekoff/Desktop/KazPost-App/build/pdf_viewer_plugin/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_full_pdf_viewer] /home/maripbekoff/Desktop/KazPost-App/build/flutter_full_pdf_viewer/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_full_pdf_viewer] /home/maripbekoff/Desktop/KazPost-App/build/flutter_full_pdf_viewer/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_web] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_web] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_macos] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_macos] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_local_notifications] /home/maripbekoff/Desktop/KazPost-App/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
@@ -186,8 +194,8 @@ MERGED from [:url_launcher_macos] /home/maripbekoff/Desktop/KazPost-App/build/ur
 MERGED from [:url_launcher_macos] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_web] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_web] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [androidx.appcompat:appcompat:1.0.2] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/dd2ecfcfb369a2f0046b9c1c6d80939e/appcompat-1.0.2/AndroidManifest.xml:20:5-44
-MERGED from [androidx.appcompat:appcompat:1.0.2] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/dd2ecfcfb369a2f0046b9c1c6d80939e/appcompat-1.0.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/d8e69336e21c6a428e8a9e9d99518477/appcompat-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/d8e69336e21c6a428e8a9e9d99518477/appcompat-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.github.barteksc:android-pdf-viewer:3.2.0-beta.1] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/8fbb15623897e7cc9e8c83c1d3341ddb/jetified-android-pdf-viewer-3.2.0-beta.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.barteksc:android-pdf-viewer:3.2.0-beta.1] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/8fbb15623897e7cc9e8c83c1d3341ddb/jetified-android-pdf-viewer-3.2.0-beta.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.barteksc:pdfium-android:1.9.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/77585e5c9f08e6f9326c516f5540d88f/jetified-pdfium-android-1.9.0/AndroidManifest.xml:7:5-9:41
@@ -206,8 +214,8 @@ MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/maripbekoff/
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/0f0610cdcf96e6cfa9529b6a3246e3f6/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/e1bbce6b0d79e8479b70e7bd729bb743/loader-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/e1bbce6b0d79e8479b70e7bd729bb743/loader-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/42bfbc3fff8c8df307a9cfe522bc299e/vectordrawable-1.0.1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.vectordrawable:vectordrawable:1.0.1] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/42bfbc3fff8c8df307a9cfe522bc299e/vectordrawable-1.0.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/16c2aa160f52ee079d92e59ff0a723a2/vectordrawable-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/16c2aa160f52ee079d92e59ff0a723a2/vectordrawable-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/28d99d5113324aa067757f8ca41a426f/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/28d99d5113324aa067757f8ca41a426f/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/ae13efc3dbae5c9ee58d4933337fcd21/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
@@ -254,60 +262,6 @@ INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/debug/Androi
 	android:minSdkVersion
 		INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/debug/AndroidManifest.xml
-service#com.transistorsoft.flutter.backgroundfetch.HeadlessJobService
-ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:10:9-13:72
-	android:exported
-		ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-36
-	android:permission
-		ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-69
-	android:name
-		ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-89
-receiver#com.transistorsoft.flutter.backgroundfetch.HeadlessBroadcastReceiver
-ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:15:9-19:20
-	android:name
-		ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:15:19-102
-intent-filter#action:name:${applicationId}.event.BACKGROUND_FETCH
-ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:29
-intent-filter#action:name:com.example.kazpost.event.BACKGROUND_FETCH
-ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:29
-action#${applicationId}.event.BACKGROUND_FETCH
-ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-82
-	android:name
-		ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:17:25-79
-action#com.example.kazpost.event.BACKGROUND_FETCH
-ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-82
-	android:name
-		ADDED from [:background_fetch] /home/maripbekoff/Desktop/KazPost-App/build/background_fetch/intermediates/library_manifest/debug/AndroidManifest.xml:17:25-79
-uses-permission#android.permission.GET_TASKS
-ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:12:5-68
-	android:name
-		ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:12:22-65
-receiver#com.transistorsoft.tsbackgroundfetch.FetchAlarmReceiver
-ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:15:9-92
-	android:name
-		ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:15:19-89
-service#com.transistorsoft.tsbackgroundfetch.FetchJobService
-ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:17:9-20:72
-	android:exported
-		ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:19:13-36
-	android:permission
-		ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:20:13-69
-	android:name
-		ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:18:13-80
-receiver#com.transistorsoft.tsbackgroundfetch.BootReceiver
-ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:22:9-27:20
-	android:name
-		ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:22:19-83
-intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED
-ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:23:13-26:29
-action#android.intent.action.BOOT_COMPLETED
-ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:24:17-79
-	android:name
-		ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:24:25-76
-action#android.intent.action.MY_PACKAGE_REPLACED
-ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:25:17-84
-	android:name
-		ADDED from [tsbackgroundfetch-0.3.3.aar] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/b5c3cc2dd17cfb7c117f8f558d13d5fe/tsbackgroundfetch-0.3.3/AndroidManifest.xml:25:25-81
 activity#io.flutter.plugins.urllauncher.WebViewActivity
 ADDED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
 	android:exported

@@ -39,89 +39,16 @@ class _HomePageState extends State<HomePage> {
   FilesModel filesModel = FilesModel();
   FilesManager filesManager = FilesManager();
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   var futureBuilder = new FutureBuilder(
-  //     future: null,
-  //     builder: (BuildContext context, AsyncSnapshot snapshot) {
-  //       switch (snapshot.connectionState) {
-  //         case ConnectionState.none:
-  //         case ConnectionState.waiting:
-  //           return Center(
-  //             child: Column(
-  //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  //               crossAxisAlignment: CrossAxisAlignment.center,
-  //               children: <Widget>[
-  //                 CachedNetworkImage(
-  //                   imageUrl:
-  //                       'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
-  //                   width: 300,
-  //                   errorWidget: (context, url, error) =>
-  //                       Icon(Icons.error_outline),
-  //                   placeholder: (context, url) => CircularProgressIndicator(),
-  //                 ),
-  //                 CircularProgressIndicator(),
-  //               ],
-  //             ),
-  //           );
-  //         default:
-  //           if (snapshot.hasError) {
-  //             return new Text('Error: ${snapshot.error}');
-  //           } else
-  //             return createListView(context, snapshot);
-  //       }
-  //     },
-  //   );
-  //   return Scaffold(
-  //     body: futureBuilder,
-  //   );
-  // }
-
-  // FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  //     new FlutterLocalNotificationsPlugin();
-
-  // initState() async {
-  //   super.initState();
-  //   var androidPlatformChannelSpecifics = AndroidNotificationDetails(
-  //       '1', 'inducesmile', 'inducesmile flutter snippets',
-  //       importance: Importance.Max, priority: Priority.High);
-  //   var iOSPlatformChannelSpecifics = IOSNotificationDetails();
-  //   var platformChannelSpecifics = NotificationDetails(
-  //       androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
-  //   await flutterLocalNotificationsPlugin.show(
-  //       0, 'Ты лалка', 'смари не пересрись', platformChannelSpecifics,
-  //       payload: 'item x');
-
-  //   // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
-  //   var initializationSettingsAndroid =
-  //       new AndroidInitializationSettings('mipmap/ic_launcher');
-  //   var initializationSettingsIOS = new IOSInitializationSettings(
-  //       onDidReceiveLocalNotification: (i, string1, string2, string3) {
-  //     print("received notifications");
-  //   });
-  //   var initializationSettings = new InitializationSettings(
-  //       initializationSettingsAndroid, initializationSettingsIOS);
-  //   flutterLocalNotificationsPlugin.initialize(initializationSettings,
-  //       onSelectNotification: (string) {
-  //     print("selected notification");
-  //   });
-  // }
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: LiquidPullToRefresh(
         onRefresh: () async {
-          setState(() {
-            // quizBloc.getQuiz;
 
-            // quizHelper.getQuiz();
-
-            filesManager.filesList;
-          });
         },
         showChildOpacityTransition: false,
         child: ListView(
+          physics: BouncingScrollPhysics(),
           children: <Widget>[
             Padding(
               padding: EdgeInsets.symmetric(
@@ -254,6 +181,9 @@ class _HomePageState extends State<HomePage> {
                   GridView.count(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
+                    mainAxisSpacing: 30,
+                    crossAxisSpacing: 20,
+                    childAspectRatio: 1.4,
                     crossAxisCount: 2,
                     children: <Widget>[
                       CardWidget("Мониторинг", 0xFFFF7043, Icons.camera),
@@ -306,10 +236,14 @@ class _HomePageState extends State<HomePage> {
                                     child: ListTile(
                                       onTap: () {
                                         Navigator.push(
-                                            context,
-                                            CupertinoPageRoute(
-                                                builder: (context) =>
-                                                    MethodicsPage(i: index)));
+                                          context,
+                                          CupertinoPageRoute(
+                                            builder: (context) => MethodicsPage(
+                                                fileId:
+                                                    collection["latestFiles"]
+                                                        [index]["_id"]),
+                                          ),
+                                        );
                                       },
                                       leading: Image.asset('assets/img/pdf.png',
                                           width: 40),

@@ -1,14 +1,18 @@
 import 'dart:convert';
+import 'dart:io';
 
 // import 'package:kazpost/app/pages/homepage/files_model.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 var collection;
 
 class FilesModel {
-  static Future getFiles() async {
+  String _fileId;
+
+   Future getFiles() async {
     final prefs = await SharedPreferences.getInstance();
     final key = 'accessToken';
     final accessToken = prefs.get(key) ?? 0;
@@ -19,17 +23,36 @@ class FilesModel {
       "Authorization": "$accessToken",
     });
 
+    String data = response.body;
+    collection = json.decode(data);
+
     if (response.statusCode == 401) {
       print("Обновите токен");
       DatabaseHelper.refreshToken();
     } else {
-      String data = response.body;
-      collection = json.decode(data);
       print('Файлы были успешно доставлены');
     }
   }
 
-  static Future downloadFile() async {}
+  Future downloadFile() async {
+    var documentDirectory = await getApplicationDocumentsDirectory();
+
+    var firstPath = documentDirectory.path + "/kazpost/pdf";
+    await Directory(firstPath).create(recursive: true);
+
+    var filePathAndName = documentDirectory.path +
+        "kazpost/pdf" +
+        'pdf-' +
+        _fileId.trim() +
+        '.pdf';
+    File kazpostPdf = new File(filePathAndName);
+
+    if (!await kazpostPdf.exists()) {
+      kazpostPdf.writeAsBytes(collection.bodyBytes);
+    }
+
+    return kazpostPdf;
+  }
 }
 
 //   List<Files> _files =

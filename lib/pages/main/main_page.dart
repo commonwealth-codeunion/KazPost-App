@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:background_fetch/background_fetch.dart';
+import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
@@ -13,23 +13,8 @@ import 'package:kazpost/pages/settings/settings_page.dart';
 import 'package:kazpost/pages/tests/test_list_page.dart';
 import 'package:kazpost/pages/tests/test_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:splashscreen/splashscreen.dart';
 
 import '../homepage/home_page.dart';
-
-const String portName = "portName";
-
-// startTimer() async {
-//   await AndroidAlarmManager.oneShot(Duration(seconds: 60), 0, timerCallback,
-//       wakeup: true, exact: true);
-// }
-
-// timerCallback() {
-//   SendPort sendPort = IsolateNameServer.lookupPortByName(portName);
-//   if (sendPort != null) {
-//     sendPort.send("DONE");
-//   }
-// }
 
 int numberOfQuizzes = 0;
 
@@ -38,7 +23,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 initialiseNotifications() async {
   var initializationSettingsAndroid =
-      new AndroidInitializationSettings('mipmap/ic_launcher');
+      new AndroidInitializationSettings('mipmap/kazposst');
   var initializationSettingsIOS = new IOSInitializationSettings(
       onDidReceiveLocalNotification: (i, string1, string2, string3) {
     print("received notifications");
@@ -94,8 +79,6 @@ pushNotifications() async {
         'Новый тест(numberOfQuizzes): $numberOfQuizzes\nНовый тест(запрос): ${quiz["quizzes"].length}');
 
     print('Новый тест вышел');
-
-    BackgroundFetch.finish();
   } else {
     numberOfQuizzes = quiz["quizzes"].length;
     QuizModel.saveNumberOfQuizzes(numberOfQuizzes);
@@ -103,47 +86,31 @@ pushNotifications() async {
     print(
         'Нету тестов(numberOfQuizzes): $numberOfQuizzes\nНету тестов(запрос): ${quiz["quizzes"].length}');
     print('Новых тестов нету');
-    BackgroundFetch.finish();
   }
 }
 
 Future<void> initPlatformState() async {
-  // Configure BackgroundFetch.
-  await BackgroundFetch.configure(
-      BackgroundFetchConfig(
-          minimumFetchInterval: 15,
-          stopOnTerminate: false,
-          enableHeadless: true,
-          requiresBatteryNotLow: false,
-          requiresCharging: false,
-          requiresStorageNotLow: false,
-          startOnBoot: true,
-          requiredNetworkType: BackgroundFetchConfig.NETWORK_TYPE_ANY),
-      () async {
-    await initialiseNotifications();
-    pushNotifications();
-  });
-
-  BackgroundFetch.finish();
+  await AndroidAlarmManager.periodic(
+      const Duration(seconds: 30), 0, pushNotifications);
 }
 
-class SplashMain extends StatelessWidget {
-  const SplashMain({Key key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return SplashScreen(
-      seconds: 3,
-      navigateAfterSeconds: new MainPage(),
-      image: new Image.network(
-        'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
-        gaplessPlayback: true,
-      ),
-      backgroundColor: Colors.white,
-      photoSize: 100,
-      loaderColor: Color(0xFF0157A5),
-    );
-  }
-}
+// class SplashMain extends StatelessWidget {
+//   const SplashMain({Key key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return SplashScreen(
+//       seconds: 3,
+//       navigateAfterSeconds: new MainPage(),
+//       image: new Image.network(
+//         'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
+//         gaplessPlayback: true,
+//       ),
+//       backgroundColor: Colors.white,
+//       photoSize: 100,
+//       loaderColor: Color(0xFF0157A5),
+//     );
+//   }
+// }
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -202,7 +169,7 @@ class _MainPageState extends State<MainPage> {
     readAvatar();
   }
 
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
 
   static List<Widget> _widgetOptions = <Widget>[
     TestPageBar(),
@@ -229,13 +196,7 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(
               Icons.bookmark,
             ),
-            onPressed: () {
-              // timerCallback();
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => WorksPage()),
-              // );
-            },
+            onPressed: () {},
           ),
         ],
       ),

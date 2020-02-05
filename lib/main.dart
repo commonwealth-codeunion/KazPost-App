@@ -1,4 +1,4 @@
-import 'package:background_fetch/background_fetch.dart';
+import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kazpost/pages/authorization/authorization_page.dart';
@@ -6,9 +6,12 @@ import 'package:kazpost/pages/errors/refresh_token_error.dart';
 import 'package:kazpost/pages/main/main_page.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AndroidAlarmManager.initialize();
+
   runApp(MyApp());
 
-  BackgroundFetch.registerHeadlessTask(pushNotifications);
+  // BackgroundFetch.registerHeadlessTask(pushNotifications);
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +38,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Roboto',
         ),
         routes: <String, WidgetBuilder>{
-          "/mainpage": (BuildContext context) => SplashMain(),
+          "/mainpage": (BuildContext context) => MainPage(),
           "/authpage": (BuildContext context) => AuthPage(),
         },
         home: AuthPage());
