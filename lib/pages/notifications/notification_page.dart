@@ -15,8 +15,8 @@ class _TestPageState extends State<TestPage> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: 15,
-          vertical: 20,
+          horizontal: 25,
+          vertical: 10,
         ),
         child: ListView(
           children: [
@@ -49,9 +49,7 @@ class _TestPageState extends State<TestPage> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 15,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 35),
                 Card(
                   color: Color(0xFF6858D6),
                   shape: RoundedRectangleBorder(
@@ -95,9 +93,7 @@ class _TestPageState extends State<TestPage> {
                                   'Хотим уведомить вас о том,\nчто теперь вам доступен\nновый курс',
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                SizedBox(
-                                  height: 10,
-                                ),
+                                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                               ],
                             ),
                           ],
@@ -136,9 +132,7 @@ class _TestPageState extends State<TestPage> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 35),
                 Card(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -182,9 +176,7 @@ class _TestPageState extends State<TestPage> {
                                   'Хотим уведомить вас о том,\nчто теперь вам доступен\nновый курс',
                                   style: TextStyle(color: Colors.black),
                                 ),
-                                SizedBox(
-                                  height: 10,
-                                ),
+                                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                               ],
                             ),
                           ],
@@ -209,8 +201,7 @@ class _TestPageState extends State<TestPage> {
                               padding: EdgeInsets.symmetric(
                                 horizontal: 30,
                               ),
-                              borderSide:
-                                  BorderSide(color: Color(0xFF6858D6)),
+                              borderSide: BorderSide(color: Color(0xFF6858D6)),
                               child: Text(
                                 'Начать',
                                 style: TextStyle(color: Color(0xFF6858D6)),

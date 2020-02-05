@@ -31,7 +31,8 @@ class _TestPageBarState extends State<TestPageBar> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                 child: Container(
                   child: Text(
                     "Тесты и курсы",
@@ -44,49 +45,28 @@ class _TestPageBarState extends State<TestPageBar> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Мои Курсы",
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        Text(
-                          "12 курсов",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black38,
-                          ),
-                        ),
-                      ],
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(
+                    "Мои курсы",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
                     ),
-                    IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CourseList(),
-                          ),
-                        );
-                      },
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.black38,
-                        size: 18,
-                      ),
-                    ),
-                  ],
+                  ),
+                  subtitle: Text("12 курсов"),
+                  trailing: IconButton(
+                    color: Colors.black,
+                    padding: EdgeInsets.zero,
+                    icon: Icon(Icons.arrow_forward),
+                    onPressed: () {},
+                  ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.transparent,
@@ -108,10 +88,7 @@ class _TestPageBarState extends State<TestPageBar> {
                             MaterialPageRoute(builder: (context) => PdfView()));
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 20,
-                        ),
+                        padding: EdgeInsets.all(20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
@@ -144,9 +121,10 @@ class _TestPageBarState extends State<TestPageBar> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
                   decoration: BoxDecoration(
                     boxShadow: [
@@ -166,10 +144,7 @@ class _TestPageBarState extends State<TestPageBar> {
                         // databaseHelper.getFiles();
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 20,
-                        ),
+                        padding: EdgeInsets.all(20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
@@ -204,42 +179,30 @@ class _TestPageBarState extends State<TestPageBar> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
               Container(
                 decoration: BoxDecoration(color: Color(0xFF0157A5)),
                 padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 20,
+                  horizontal: 25,
+                  vertical: 10,
                 ),
                 child: Column(
                   children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          "Мои тесты",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                          ),
+                    ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Text(
+                        "Мои тесты",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
                         ),
-                        IconButton(
-                          padding: EdgeInsets.zero,
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => TestListPage(),
-                              ),
-                            );
-                          },
-                          icon: Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.white,
-                            size: 18,
-                          ),
-                        ),
-                      ],
+                      ),
+                      trailing: IconButton(
+                        color: Colors.white,
+                        padding: EdgeInsets.zero,
+                        icon: Icon(Icons.arrow_forward),
+                        onPressed: () {},
+                      ),
                     ),
                     SizedBox(height: 20),
                     Card(
@@ -249,33 +212,21 @@ class _TestPageBarState extends State<TestPageBar> {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: InkWell(
-                        
                         borderRadius: BorderRadius.circular(15),
                         onTap: () {},
                         child: Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 20,
-                          ),
+                          padding: EdgeInsets.all(20),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  // callSvg,
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    "Тест по 29 декабря",
-                                    style: TextStyle(
-                                      fontSize: 17,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
+                              Text(
+                                "Тест по 29 декабря",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                ),
                               ),
-                              SizedBox(height: 20),
+                              SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                               Text(
                                 "Пройти тест",
                                 style: TextStyle(

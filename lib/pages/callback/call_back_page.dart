@@ -29,8 +29,9 @@ class _CallBackPageState extends State<CallBackPage> {
         physics: BouncingScrollPhysics(),
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   'Есть пожелания?\nОтправьте нам письмо.',
@@ -39,7 +40,7 @@ class _CallBackPageState extends State<CallBackPage> {
                       fontSize: 26,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                 Form(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -62,7 +63,7 @@ class _CallBackPageState extends State<CallBackPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 15),
+                      SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                       TextField(
                         maxLines: 5,
                         controller: _reviewController,
@@ -82,7 +83,7 @@ class _CallBackPageState extends State<CallBackPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 7.5),
+                      SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                       RaisedButton(
                         padding: EdgeInsets.symmetric(
                           vertical: 2,
