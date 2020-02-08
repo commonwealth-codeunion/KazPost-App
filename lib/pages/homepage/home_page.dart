@@ -43,7 +43,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: LiquidPullToRefresh(
-        
         onRefresh: () async {},
         showChildOpacityTransition: false,
         child: ListView(
@@ -57,7 +56,6 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  SizedBox(height: 10),
                   StreamBuilder(
                     stream: quizBloc.getQuiz,
                     builder: (context, snapshot) {
@@ -117,9 +115,7 @@ class _HomePageState extends State<HomePage> {
                       return null;
                     },
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height / 35,
-                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height / 35),
                   Center(
                     child: Column(
                       children: <Widget>[
@@ -180,8 +176,8 @@ class _HomePageState extends State<HomePage> {
                   GridView.count(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    mainAxisSpacing: 30,
-                    crossAxisSpacing: 20,
+                    mainAxisSpacing: MediaQuery.of(context).size.height * 0.025,
+                    crossAxisSpacing: MediaQuery.of(context).size.width * 0.05,
                     childAspectRatio: 1.4,
                     crossAxisCount: 2,
                     children: <Widget>[
