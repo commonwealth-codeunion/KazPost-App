@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
-import 'package:kazpost/pages/main/main_page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthPage extends StatefulWidget {
   AuthPage({Key key}) : super(key: key);
@@ -12,24 +10,6 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  readToken() async {
-    final prefs = await SharedPreferences.getInstance();
-    final key = 'accessToken';
-    final value = prefs.get(key) ?? null;
-    if (value != null) {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (BuildContext context) => MainPage(),
-        ),
-      );
-    }
-  }
-
-  @override
-  initState() {
-    super.initState();
-    readToken();
-  }
 
   DatabaseHelper databaseHelper = new DatabaseHelper();
   String msgStatus = '';
@@ -73,14 +53,7 @@ class _AuthPageState extends State<AuthPage> {
                   children: <Widget>[
                     Container(
                       margin: const EdgeInsets.all(80.0),
-                      child: CachedNetworkImage(
-                        imageUrl:
-                            'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
-                        errorWidget: (context, url, error) =>
-                            Icon(Icons.error_outline),
-                        placeholder: (context, url) =>
-                            CircularProgressIndicator(),
-                      ),
+                      child: Image.asset('assets/img/kazpost.png'),
                     ),
                     Form(
                       key: _formKey,

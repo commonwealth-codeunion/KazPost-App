@@ -5,59 +5,64 @@ class FirstViewProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Color(0xFFF3F3F3),
-      padding: const EdgeInsets.all(15),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return ListView.builder(
+      physics: BouncingScrollPhysics(),
+      itemCount: 3,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
-                    "Мониторинг",
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Color(0xFF0157A5),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        "Мониторинг",
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Color(0xFF0157A5),
+                        ),
+                      ),
+                      Text(
+                        "Отлично",
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Color(0xFF4CAF50),
+                        ),
+                      ),
+                    ],
                   ),
                   Text(
-                    "Отлично",
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Color(0xFF4CAF50),
-                    ),
-                  ),
-                ],
-              ),
-              Text(
-                "Курсы по мониторингу",
-                style: TextStyle(fontSize: 17),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Ваш результат:",
+                    "Курсы по мониторингу",
                     style: TextStyle(fontSize: 17),
                   ),
-                  Text(
-                    "8/10",
-                    style: TextStyle(fontSize: 26),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        "Ваш результат:",
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      Text(
+                        "8/10",
+                        style: TextStyle(fontSize: 26),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

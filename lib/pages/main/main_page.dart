@@ -23,7 +23,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 initialiseNotifications() async {
   var initializationSettingsAndroid =
-      new AndroidInitializationSettings('mipmap/kazposst');
+      new AndroidInitializationSettings('mipmap/kazpost');
   var initializationSettingsIOS = new IOSInitializationSettings(
       onDidReceiveLocalNotification: (i, string1, string2, string3) {
     print("received notifications");
@@ -101,7 +101,7 @@ Future<void> initPlatformState() async {
 //     return SplashScreen(
 //       seconds: 3,
 //       navigateAfterSeconds: new MainPage(),
-//       image: new Image.network(
+//       image: new Image.network( 
 //         'https://im0-tub-kz.yandex.net/i?id=35c83046d574550de0724299b2ddd189&n=13',
 //         gaplessPlayback: true,
 //       ),
@@ -173,7 +173,7 @@ class _MainPageState extends State<MainPage> {
 
   static List<Widget> _widgetOptions = <Widget>[
     TestPageBar(),
-    TestPage(),
+    NotificationPage(),
     HomePage(),
     CallBackPage(),
     SettingsPage(),
@@ -326,4 +326,4 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
-}
+} 

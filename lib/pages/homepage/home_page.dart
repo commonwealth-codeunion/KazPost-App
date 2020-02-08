@@ -43,9 +43,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: LiquidPullToRefresh(
-        onRefresh: () async {
-
-        },
+        
+        onRefresh: () async {},
         showChildOpacityTransition: false,
         child: ListView(
           physics: BouncingScrollPhysics(),
@@ -241,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                                             builder: (context) => MethodicsPage(
                                                 fileId:
                                                     collection["latestFiles"]
-                                                        [index]["_id"]),
+                                                        [index]["filename"]),
                                           ),
                                         );
                                       },

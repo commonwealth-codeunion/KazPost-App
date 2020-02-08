@@ -1,3 +1,4 @@
+import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' show json;
@@ -101,6 +102,7 @@ class DatabaseHelper {
     prefs.remove("email");
     prefs.remove("avatar");
     prefs.remove("position");
+    AndroidAlarmManager.cancel(0);
     debugPrint('Пользователь вышел с аккаунта');
   }
 

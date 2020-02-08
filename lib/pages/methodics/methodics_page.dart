@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_full_pdf_viewer/full_pdf_viewer_scaffold.dart';
 import 'package:kazpost/bloc/authorization_bloc.dart';
-import 'package:kazpost/models/files_model.dart';
 
 class MethodicsPage extends StatefulWidget {
   final String fileId;

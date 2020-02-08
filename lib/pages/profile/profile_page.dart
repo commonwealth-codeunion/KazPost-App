@@ -227,6 +227,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ],
                 ),
                 body: TabBarView(
+                  
                   children: <Widget>[
                     FirstViewProfile(),
                     Icon(Icons.access_alarm),
