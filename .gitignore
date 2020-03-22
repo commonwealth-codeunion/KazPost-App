@@ -1,0 +1,7 @@
+build/
+.vscode
+.dart_tool
+.packages
+kazpost.iml
+pubspec.lock
+pubspec.yaml
