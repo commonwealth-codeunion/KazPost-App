@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:kazpost/bloc/course.dart';
+import 'package:kazpost/db/database_helper.dart';
 import 'package:kazpost/pages/courses/new_course_page_widget.dart';
 
-class NewCoursePage extends StatelessWidget {
-  const NewCoursePage({Key key}) : super(key: key);
+String cid;
+
+class NewCoursePage extends StatefulWidget {
+  NewCoursePage({Key key}) : super(key: key);
+
+  @override
+  _NewCoursePageState createState() => _NewCoursePageState();
+}
+
+class _NewCoursePageState extends State<NewCoursePage> {
+  CourseBloc courseBloc = CourseBloc();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,62 +22,38 @@ class NewCoursePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Text(
-          "Курсы по мониторингу",
-          style: TextStyle(
-            fontFamily: "Montserrat",
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-          ),
-        ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
+        physics: BouncingScrollPhysics(),
         children: <Widget>[
-          NewCoursePageWidget(0xFF4CAF50),
-          Text(
-            "Базовые\nпонятия",
-            style: TextStyle(
-              fontFamily: "Montserrat",
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-              color: Color(0xFF0157A5),
-            ),
+          StreamBuilder<Object>(
+            stream: courseBloc.getCourse.asBroadcastStream(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Ошибка при получении курса');
+              } else {
+                switch (snapshot.connectionState) {
+                  case ConnectionState.none:
+                  case ConnectionState.waiting:
+                  case ConnectionState.active:
+                    return Text('Загрузка');
+                    break;
+                  case ConnectionState.done:
+                    return GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: course["branches"].length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                      itemBuilder: (BuildContext context, index) {
+                        return NewCoursePageWidget(index);
+                      },
+                    );
+                    break;
+                }
+              }
+              return null;
+            },
           ),
-          SizedBox(height: MediaQuery.of(context).size.height / 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  NewCoursePageWidget(0),
-                  Text(
-                    "Углубление",
-                    style: TextStyle(
-                      fontFamily: "Montserrat",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                      color: Color(0xFF0157A5),
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                children: <Widget>[
-                  NewCoursePageWidget(0),
-                  Text(
-                    "Практика",
-                    style: TextStyle(
-                      fontFamily: "Montserrat",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                      color: Color(0xFF0157A5),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          )
         ],
       ),
     );

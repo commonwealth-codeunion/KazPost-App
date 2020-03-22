@@ -1,12 +1,9 @@
 import 'package:android_alarm_manager/android_alarm_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kazpost/pages/authorization/authorization_page.dart';
-import 'package:kazpost/pages/errors/refresh_token_error.dart';
-import 'package:kazpost/pages/main/main_page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-String accessToken = '';
+import 'package:kazpost/db/database_helper.dart';
+import 'package:kazpost/pages/authorization/authorization.dart';
+import 'package:kazpost/pages/main/main.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,52 +15,36 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.grey[700]));
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
-      builder: (BuildContext context, Widget widget) {
-        ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
-          return buildError(context, errorDetails);
-        };
-
-        return widget;
-      },
       debugShowCheckedModeBanner: false,
       title: 'KazPost',
       theme: ThemeData(
         primaryColor: Colors.white,
-        tabBarTheme: TabBarTheme(
-          labelColor: Colors.black,
-          unselectedLabelColor: Color(0xFFCFCFCF),
-        ),
-        fontFamily: 'Roboto',
+        fontFamily: 'ProximaNova',
       ),
       routes: <String, WidgetBuilder>{
-        "/mainpage": (BuildContext context) => MainPage(),
-        "/authpage": (BuildContext context) => AuthPage(),
+        "/mainpage": (BuildContext context) => Scaffold(body: MainPage()),
+        "/authpage": (BuildContext context) => Scaffold(body: AuthPage()),
       },
       home: FutureBuilder(
-        future: readToken(),
+        future: read.token(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return MainPage();
+            return Scaffold(
+              body: MainPage(),
+            );
           } else {
-            return AuthPage();
+            return Scaffold(
+              body: AuthPage(),
+            );
           }
         },
       ),
     );
-  }
-}
-
-readToken() async {
-  final prefs = await SharedPreferences.getInstance();
-  final key = 'accessToken';
-  final value = prefs.get(key) ?? null;
-  if (value != null) {
-    print('У пользователя есть accessToken: $value');
-    return accessToken = value;
-  } else {
-    print('У пользователя нету acessToken: $value');
   }
 }

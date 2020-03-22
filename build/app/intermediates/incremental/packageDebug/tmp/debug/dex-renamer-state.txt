@@ -1,4 +1,4 @@
-#Sun Feb 09 01:03:34 ALMT 2020
+#Sun Mar 22 05:23:15 ALMT 2020
 base.0=/home/maripbekoff/Desktop/KazPost-App/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kazpost/db/database_helper.dart';
 import 'package:kazpost/pages/courses/course_list_widget.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:kazpost/bloc/course.dart';
 
 String icon1 = "./assets/img/eye.png";
 
@@ -11,6 +14,8 @@ class CourseList extends StatefulWidget {
 }
 
 class _CourseListState extends State<CourseList> {
+  CourseBloc courseBloc = CourseBloc();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,51 +33,53 @@ class _CourseListState extends State<CourseList> {
         titleSpacing: -3,
         elevation: 0,
       ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(
-          horizontal: 15,
+      body: LiquidPullToRefresh(
+        onRefresh: () async {
+          setState(() {
+            courseBloc.getCourseList.asBroadcastStream();
+          });
+        },
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: StreamBuilder<Object>(
+                stream: courseBloc.getCourseList.asBroadcastStream(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Произошла ошибка при получении курсов');
+                  } else {
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.none:
+                      case ConnectionState.waiting:
+                      case ConnectionState.active:
+                        return Text('Загрузка..');
+                        break;
+                      case ConnectionState.done:
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: courseList["courses"].length,
+                          itemBuilder: (BuildContext context, index) {
+                            return CourseListWidget(
+                              "${courseList["courses"][index]["title"]}",
+                              icon1,
+                              "${courseList["courses"][index]["description"]}",
+                              index,
+                            );
+                          },
+                        );
+                        break;
+                    }
+                  }
+                  return Offstage();
+                },
+              ),
+            ),
+          ],
         ),
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(height: 10),
-              Text(
-                "Мониторинг",
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              CourseListWidget("Мониторинг", 12, icon1),
-              SizedBox(height: 20),
-              Text(
-                "Учет и аудит",
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              CourseListWidget("Учет и аудит", 12, icon1),
-              SizedBox(height: 20),
-              Text(
-                "IKEA",
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 10),
-              CourseListWidget("Как собрать стул", 12, icon1),
-            ],
-          ),
-        ],
       ),
     );
   }

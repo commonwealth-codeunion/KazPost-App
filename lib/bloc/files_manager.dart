@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:kazpost/models/files_model.dart';
+import 'package:kazpost/models/files.dart';
 
 FilesModel filesModel = FilesModel();
 

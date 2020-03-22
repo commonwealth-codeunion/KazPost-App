@@ -6,15 +6,18 @@ INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/Android
 INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
 MERGED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:1:1-54:12
 MERGED from [:sqflite] /home/maripbekoff/Desktop/KazPost-App/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:connectivity] /home/maripbekoff/Desktop/KazPost-App/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-10:12
+MERGED from [:connectivity_macos] /home/maripbekoff/Desktop/KazPost-App/build/connectivity_macos/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:pdf_viewer_plugin] /home/maripbekoff/Desktop/KazPost-App/build/pdf_viewer_plugin/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:flutter_full_pdf_viewer] /home/maripbekoff/Desktop/KazPost-App/build/flutter_full_pdf_viewer/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_pdfview] /home/maripbekoff/Desktop/KazPost-App/build/flutter_pdfview/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
-MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_web] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_web/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_macos] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_macos/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_local_notifications] /home/maripbekoff/Desktop/KazPost-App/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider] /home/maripbekoff/Desktop/KazPost-App/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:permission_handler] /home/maripbekoff/Desktop/KazPost-App/build/permission_handler/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher_macos] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_macos/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher_web] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_web/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.appcompat:appcompat:1.0.0] /home/maripbekoff/.gradle/caches/transforms-2/files-2.1/d8e69336e21c6a428e8a9e9d99518477/appcompat-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -80,10 +83,14 @@ MERGED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidMa
 		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:10:22-64
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:5-75
+MERGED from [:connectivity] /home/maripbekoff/Desktop/KazPost-App/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-76
+MERGED from [:connectivity] /home/maripbekoff/Desktop/KazPost-App/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-76
 	android:name
 		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:11:22-73
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:5-79
+MERGED from [:connectivity] /home/maripbekoff/Desktop/KazPost-App/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-79
+MERGED from [:connectivity] /home/maripbekoff/Desktop/KazPost-App/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-79
 	android:name
 		ADDED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml:12:22-76
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
@@ -172,24 +179,30 @@ INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/Android
 INJECTED from /home/maripbekoff/Desktop/KazPost-App/android/app/src/main/AndroidManifest.xml
 MERGED from [:sqflite] /home/maripbekoff/Desktop/KazPost-App/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:sqflite] /home/maripbekoff/Desktop/KazPost-App/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity] /home/maripbekoff/Desktop/KazPost-App/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity] /home/maripbekoff/Desktop/KazPost-App/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_macos] /home/maripbekoff/Desktop/KazPost-App/build/connectivity_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:connectivity_macos] /home/maripbekoff/Desktop/KazPost-App/build/connectivity_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:pdf_viewer_plugin] /home/maripbekoff/Desktop/KazPost-App/build/pdf_viewer_plugin/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:pdf_viewer_plugin] /home/maripbekoff/Desktop/KazPost-App/build/pdf_viewer_plugin/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_full_pdf_viewer] /home/maripbekoff/Desktop/KazPost-App/build/flutter_full_pdf_viewer/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:flutter_full_pdf_viewer] /home/maripbekoff/Desktop/KazPost-App/build/flutter_full_pdf_viewer/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_pdfview] /home/maripbekoff/Desktop/KazPost-App/build/flutter_pdfview/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_pdfview] /home/maripbekoff/Desktop/KazPost-App/build/flutter_pdfview/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_web] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_web] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:android_alarm_manager] /home/maripbekoff/Desktop/KazPost-App/build/android_alarm_manager/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_macos] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_macos] /home/maripbekoff/Desktop/KazPost-App/build/shared_preferences_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_local_notifications] /home/maripbekoff/Desktop/KazPost-App/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_local_notifications] /home/maripbekoff/Desktop/KazPost-App/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /home/maripbekoff/Desktop/KazPost-App/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] /home/maripbekoff/Desktop/KazPost-App/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:permission_handler] /home/maripbekoff/Desktop/KazPost-App/build/permission_handler/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:permission_handler] /home/maripbekoff/Desktop/KazPost-App/build/permission_handler/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_macos] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_macos] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_macos/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher_web] /home/maripbekoff/Desktop/KazPost-App/build/url_launcher_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
